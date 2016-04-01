@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/bundles/main")
+<div class="text-center" id="logo">
+    <img src="~/images/logoRG.png" />
+</div>
+<div class="text-center" id="roll">
+    <img style="width:315px" src="~/images/product/RomainGauthier_LogicalOne_Rubis_Close.jpg" />
+</div>
+
+<div class="form-horizontal hide" style="max-width:250px;margin:auto; " id="foot">
+    <div class="form-group">
+        @*<label class="col-xs-3 col-sm-2 control-label text-right" style="color: rgb(94, 94, 94); padding-left: 0px; padding-right: 5px;">授权码</label>*@
+        <div class="col-xs-9 text-center" style="padding-left: 0px; padding-right: 0px;">
+            <input type="text" placeholder="请输入授权码" class="input-romaingauthier form-control input-sm">
+        </div>
+        <div class="col-xs-3 text-left" style="padding-left: 5px; padding-right: 0px;">
+            <button type="submit" class="btn btn-metal btn-sm">确定</button>
+        </div>
+    </div>
+</div>
+

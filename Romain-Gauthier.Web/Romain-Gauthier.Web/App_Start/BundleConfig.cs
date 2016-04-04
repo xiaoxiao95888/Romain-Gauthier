@@ -23,11 +23,23 @@ namespace Romain_Gauthier.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
+                "~/Scripts/knockout-3.2.0.js",
+                "~/Scripts/knockout.mapping-latest.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/main").Include(
+                "~/Scripts/swiper.js"));
+            bundles.Add(new StyleBundle("~/Content/main").Include(
+                      "~/Content/swiper.css", "~/Content/bootstrap.css"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
-            bundles.Add(new ScriptBundle("~/bundles/main").Include(
-                     "~/Scripts/js/main.js"));
+                      "~/Content/site.css",
+                      "~/Content/animate.css"));
+            bundles.Add(new ScriptBundle("~/bundles/login").Include(
+                     "~/Scripts/js/login.js"));
+            bundles.Add(new StyleBundle("~/Content/brandinfo").Include(                      
+                      "~/Content/BrandInfo.css"));
         }
     }
 }

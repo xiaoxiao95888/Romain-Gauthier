@@ -32,5 +32,12 @@ namespace Romain_Gauthier.Web.Controllers
 
             return View();
         }
+        //BrandInfo
+        public ActionResult BrandInfo()
+        {
+            ViewBag.Message = "BrandInfo.";
+
+            return View();
+        }
     }
 }

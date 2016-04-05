@@ -17,7 +17,7 @@ Main.viewModel.Login.Submit = function (data, event) {
       .show()
       .outerWidth(); // Reflow
             $("#loggedmenu")
-              .addClass("animated fadeInLeft")
+                .addClass("animated fadeInLeft");
         });
     }
 }

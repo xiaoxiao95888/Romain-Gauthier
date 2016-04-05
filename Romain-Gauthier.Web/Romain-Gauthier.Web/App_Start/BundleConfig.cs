@@ -38,8 +38,10 @@ namespace Romain_Gauthier.Web
                       "~/Content/animate.css"));
             bundles.Add(new ScriptBundle("~/bundles/login").Include(
                      "~/Scripts/js/login.js"));
-            bundles.Add(new StyleBundle("~/Content/brandinfo").Include(                      
-                      "~/Content/BrandInfo.css"));
+            bundles.Add(new StyleBundle("~/Content/brandinfo").Include(
+                      "~/Content/BrandInfo.css", "~/Content/animate.css"));
+            bundles.Add(new ScriptBundle("~/bundles/brandinfo").Include(
+                "~/Scripts/js/brandinfo.js"));
         }
     }
 }

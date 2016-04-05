@@ -209,8 +209,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\1385448165630.jpg" />
+    <Content Include="images\1385448165755.jpg" />
+    <Content Include="images\fondContact.jpg" />
     <Content Include="images\fondGauthier.jpg" />
+    <Content Include="images\images.jpg" />
+    <Content Include="images\logical_one_romain_gauthier_3.jpg" />
     <Content Include="images\logoRG.png" />
+    <Content Include="images\Manufacture2.jpg" />
+    <Content Include="images\Manufacture3.jpg" />
+    <Content Include="images\product\HM_1.jpg" />
+    <Content Include="images\product\Logical_One-red_gold_side1.jpg" />
     <Content Include="images\product\RomainGauthier_LogicalOne_Rubis_Close.jpg" />
     <Content Include="images\product\RomainGauthier_LogicalOne_Rubis_Open.jpg" />
     <Content Include="images\product\slider_home-Logical_One-titatium-NEW.jpg.jpg" />
@@ -226,6 +235,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\BrandInfo.js" />
     <Content Include="Scripts\js\login.js" />
     <Content Include="Scripts\knockout-3.2.0.js" />
     <Content Include="Scripts\knockout.mapping-latest.js" />

@@ -22,16 +22,19 @@ li {
     align-items: center;
     justify-content: center;*/
   /* Text Position */
-  /*text-align: center;*/
+  /*text-align: center;*/ }
+
+li > .li-item {
+  height: 100%;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat; }
 
-li:hover {
-  flex: 1; }
-
+/*li:hover {
+    flex: 1;
+}*/
 li:nth-child(1) {
   /*background: darken(#f00, $i * 5%);*/ }
 
@@ -79,4 +82,14 @@ article {
   flex-direction: column;
   text-align: center;
   width: 100%; }
+
+.caption {
+  height: 100%;
+  width: auto;
+  position: relative;
+  background: rgba(0, 0, 0, 0.75) none repeat scroll 0 0;
+  display: none;
+  text-align: center;
+  color: #fff !important;
+  z-index: 2; }
 

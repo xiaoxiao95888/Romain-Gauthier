@@ -1,7 +1,6 @@
 ﻿html, body {
     height: 100%;
 }
-
 ol, ul, li {
     margin: 0;
     padding: 0;
@@ -21,11 +20,14 @@ ul {
 li {
     height: 100%;
     flex: 1;
-    /*transition: 0.5s;
+      /*transition: 0.5s;
     align-items: center;
     justify-content: center;*/
     /* Text Position */
     /*text-align: center;*/
+}
+li>.li-item{
+    height: 100%;  
      -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     background-size: 100%;
@@ -33,9 +35,9 @@ li {
     background-repeat: no-repeat;
 }
 
-li:hover {
+/*li:hover {
     flex: 1;
-}
+}*/
 
 @for $i from 1 through 2 {
     li:nth-child(#{$i}) {
@@ -76,8 +78,7 @@ footer {
 section {
     flex: 1;
     height: 20%;
-    margin: 0;
-   
+    margin: 0;   
     /*background: #eee;*/
 }
 
@@ -91,4 +92,14 @@ article {
     flex-direction: column;
     text-align: center;
     width: 100%;
+}
+.caption {
+    height: 100%; 
+    width:auto;  
+    position: relative;
+    background: rgba(0, 0, 0, 0.75) none repeat scroll 0 0;
+    display: none;
+    text-align: center;
+    color: #fff !important;
+    z-index: 2;
 }

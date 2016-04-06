@@ -101,11 +101,25 @@ article {
     height: 100%;
     width: auto;
     position: relative;
-    background: rgba(0, 0, 0, 0.75) none repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0.50) none repeat scroll 0 0;
     display: none;
     text-align: center;
     color: #fff !important;
     z-index: 2;
+}
+
+.rail {
+    color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    text-align: center;
+    background-color: #4d4b4f;
+    /*background-color: #bf9060;*/
+    margin: 0;   
+	box-shadow: 2px 3px 5px #111;
 }
 
 .item-container {
@@ -135,4 +149,11 @@ article {
     padding: 8px 15px;
     text-transform: uppercase;
     border-radius: 3px;
+}
+
+.brandlink {
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    text-align: center;
+    margin: 10px;
 }

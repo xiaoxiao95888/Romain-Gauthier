@@ -214,6 +214,7 @@
     <Content Include="images\fondContact.jpg" />
     <Content Include="images\fondGauthier.jpg" />
     <Content Include="images\images.jpg" />
+    <Content Include="images\ImageTest.jpg" />
     <Content Include="images\logical_one_romain_gauthier_3.jpg" />
     <Content Include="images\logoRG.png" />
     <Content Include="images\Manufacture2.jpg" />
@@ -237,6 +238,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\js\BrandInfo.js" />
     <Content Include="Scripts\js\login.js" />
+    <Content Include="Scripts\js\productinfo.js" />
+    <Content Include="Scripts\js\technology.js" />
     <Content Include="Scripts\knockout-3.2.0.js" />
     <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -281,6 +284,8 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\BrandInfo.cshtml" />
     <Content Include="Views\Shared\_SwiperLayout.cshtml" />
+    <Content Include="Views\Home\ProductInfo.cshtml" />
+    <Content Include="Views\Home\Technology.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

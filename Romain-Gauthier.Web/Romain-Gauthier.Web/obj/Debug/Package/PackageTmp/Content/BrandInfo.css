@@ -93,3 +93,28 @@ article {
   color: #fff !important;
   z-index: 2; }
 
+.item-container {
+  display: table;
+  width: 100%;
+  height: 100%;
+  /* For at least Firefox */
+  min-height: 100%; }
+
+.item-inner-container {
+  display: table-cell;
+  vertical-align: middle; }
+
+.item-inner-container a {
+  padding: 10px;
+  color: #fff;
+  text-decoration: none; }
+
+.collectionButton a {
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  background: #bf9060 none repeat scroll 0 0;
+  padding: 8px 15px;
+  text-transform: uppercase;
+  border-radius: 3px; }
+

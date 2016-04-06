@@ -29,8 +29,16 @@ namespace Romain_Gauthier.Web
 
             bundles.Add(new ScriptBundle("~/bundles/main").Include(
                 "~/Scripts/swiper.js"));
+
             bundles.Add(new StyleBundle("~/Content/main").Include(
-                      "~/Content/swiper.css", "~/Content/bootstrap.css"));
+                      "~/Content/swiper.css", 
+                      "~/Content/bootstrap.css"));
+            //swiper
+            bundles.Add(new ScriptBundle("~/bundles/swiper").Include(
+               "~/Scripts/swiper.js"));
+
+            bundles.Add(new StyleBundle("~/Content/swiper").Include(
+                      "~/Content/swiper.css"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -42,6 +50,12 @@ namespace Romain_Gauthier.Web
                       "~/Content/BrandInfo.css", "~/Content/animate.css"));
             bundles.Add(new ScriptBundle("~/bundles/brandinfo").Include(
                 "~/Scripts/js/brandinfo.js"));
+            //productinfo
+            bundles.Add(new ScriptBundle("~/bundles/productinfo").Include(
+              "~/Scripts/js/productinfo.js"));
+            //Technology
+            bundles.Add(new ScriptBundle("~/bundles/technology").Include(
+            "~/Scripts/js/technology.js"));
         }
     }
 }

@@ -39,5 +39,13 @@ namespace Romain_Gauthier.Web.Controllers
 
             return View();
         }
+        public ActionResult ProductInfo()
+        {
+            return View();
+        }
+        public ActionResult Technology()
+        {
+            return View();
+        }
     }
 }

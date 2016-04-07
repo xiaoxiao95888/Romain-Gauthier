@@ -13,8 +13,8 @@
 //});
 
 $(function () {
+
     ko.applyBindings(BrandInfo);
-    $(".item-container").hide();
     //hover效果
     $(".item,.header,.sectionbackimg").on("touchstart", function (e) {
         "use strict";
@@ -23,19 +23,19 @@ $(function () {
             link.find("p").fadeIn();
             link.removeClass("hover");
             link.css("background-size", "100%");
-            link.find('.item-container').fadeOut();
+            link.find('.item-container').css('z-index', -1);
         } else {
             link.addClass("hover");
             link.find("p").fadeOut();
             link.css("background-size", "110%");
-            link.find('.item-container').fadeIn();
+            link.find('.item-container').css('z-index', 1);
             for (var i = 0; i < $(".item,.header,.sectionbackimg").length; i++) {
                 var other = $($(".item,.header,.sectionbackimg")[i]);
                 if (link.is(other) === false && other.hasClass("hover")) {
                     other.removeClass("hover");
                     other.find("p").fadeIn();
                     other.css("background-size", "100%");
-                    other.find('.item-container').fadeOut();
+                    other.find('.item-container').css('z-index', -1);
                 }
             }
             e.preventDefault();

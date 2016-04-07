@@ -75,11 +75,12 @@ html, body {
 
 .item-container {
     position: relative;
-	z-index:1;
+	z-index:-1;
 	height:100%;
 	width: 100%;
 	text-align: center; 
 	display:table;
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
 }
 
 .item-inner-container {

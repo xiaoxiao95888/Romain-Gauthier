@@ -205,6 +205,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="images\1385448165630.jpg" />
     <Content Include="images\1385448165755.jpg" />
+    <Content Include="images\archivebg.jpg" />
     <Content Include="images\fondContact.jpg" />
     <Content Include="images\fondGauthier.jpg" />
     <Content Include="images\images.jpg" />
@@ -278,9 +279,10 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\BrandInfo.cshtml" />
     <Content Include="Views\Shared\_SwiperLayout.cshtml" />
-    <Content Include="Views\Home\ProductInfo.cshtml" />
+    <Content Include="Views\Home\ProductInfo1.cshtml" />
     <Content Include="Views\Home\Technology.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Home\ProductInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,104 +1,95 @@
 ﻿
 @{
-    //ViewBag.Title = "BrandInfo";
-    //Layout = "~/Views/Shared/_SwiperLayout.cshtml";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+//ViewBag.Title = "BrandInfo";
+//Layout = "~/Views/Shared/_SwiperLayout.cshtml";
+//Layout = "~/Views/Shared/_Layout.cshtml";
+//Layout = null;
 }
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/knockout")
 @Scripts.Render("~/bundles/brandinfo")
 @Styles.Render("~/Content/brandinfo")
-<article class="indexPage">
-    <header style="background-image:url(/images/product/Logical_One-red_gold_side1.jpg); position:relative">
-        <div class="caption">
-            <div class="item-container">
-                <div class="item-inner-container">
-                    <a href="http://www.baidu.com" style="font-size: 18px;" class="brandlink">
-                        HM
-                    </a>
-
-
-                    <a href="http://www.baidu.com" style="font-size: 18px;" class="brandlink">
-                        HMS
-                    </a>
-
-
-                    <a href="http://www.baidu.com" style="font-size: 18px;" class="brandlink">
-                        Logical One
-                    </a>
-
-                </div>
-            </div>
-        </div>
+<div class="container-fluid wrapper">
+    <div style="background-image: url(/images/product/Logical_One-red_gold_side1.jpg);" class="header">
         <p class="rail">
             Romain Gauthier 产品信息
         </p>
-    </header>
-    <section>
-        <ul>
-            <li>
-                <div style="background-image:url(/images/images.jpg); height:100%;position:relative" class="li-item">
-                    <div class="caption">
-                        <div class="item-container">
-                            <div class="item-inner-container collectionButton">
-                                <a href="http://www.baidu.com">
-
-                                    <span class="glyphicon glyphicon-play-circle"></span>
-                                    打磨与工艺
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="rail">
-                        打磨与工艺
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div style="background-image:url(/images/logical_one_romain_gauthier_3.jpg); height:100%;position:relative" class="li-item">
-                    <div class="caption">
-                        <div class="item-container">
-                            <div class="item-inner-container collectionButton">
-                                <a href="http://www.baidu.com">
-                                    <span class="glyphicon glyphicon-play-circle"></span>
-                                    发明与技术
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="rail">
-                        发明与技术
-                    </p>
-                </div>
-            </li>
-        </ul>
-    </section>
-    <footer style="background-image: url(/images/fondContact.jpg);position:relative">
-        <div class="caption">
+        <div class="item-container">
+            <div class="item-inner-container">
+                <a href="http://www.baidu.com" style="font-size: 18px;" class="brandlink">
+                    HM
+                </a>
+                <a href="http://www.baidu.com" style="font-size: 18px;" class="brandlink">
+                    HMS
+                </a>
+                <a href="http://www.baidu.com" style="font-size: 18px;" class="brandlink">
+                    Logical One
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div style="background-image: url(/images/images.jpg)" class="item">
+            <p class="rail" style="width: 50%">
+                打磨与工艺
+            </p>
             <div class="item-container">
                 <div class="item-inner-container collectionButton">
                     <a href="http://www.baidu.com">
                         <span class="glyphicon glyphicon-play-circle"></span>
-                        Romain Gauthier 历史
+                        打磨与工艺
                     </a>
                 </div>
             </div>
+
+
         </div>
+        <div style="background-image: url(/images/logical_one_romain_gauthier_3.jpg)" class="item">
+
+            <p class="rail" style="width: 50%">
+                发明与技术
+            </p>
+            <div class="item-container">
+                <div class="item-inner-container collectionButton">
+                    <a href="http://www.baidu.com">
+                        <span class="glyphicon glyphicon-play-circle"></span>
+                        发明与技术
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="section sectionbackimg" style="background-image: url(/images/fondContact.jpg)">
         <p class="rail">
             Romain Gauthier 历史
         </p>
-    </footer>
-    <footer style="background-image: url(/images/1385448165755.jpg);position:relative">
-        <div class="caption">
-            <div class="item-container">
-                <div class="item-inner-container collectionButton">
-                    <a href="http://www.baidu.com">
-                        <span class="glyphicon glyphicon-play-circle"></span>
-                        新闻与媒体
-                    </a>
-                </div>
+
+        <div class="item-container">
+            <div class="item-inner-container collectionButton">
+                <a href="http://www.baidu.com">
+                    <span class="glyphicon glyphicon-play-circle"></span>
+                    Romain Gauthier 历史
+                </a>
             </div>
         </div>
+
+
+    </div>
+    <div class="section sectionbackimg" style="background-image: url(/images/1385448165755.jpg)">
         <p class="rail">
             新闻与媒体
         </p>
-    </footer>
-</article>
+        <div class="item-container">
+            <div class="item-inner-container collectionButton">
+                <a href="http://www.baidu.com">
+                    <span class="glyphicon glyphicon-play-circle"></span>
+                    新闻与媒体
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+</div>

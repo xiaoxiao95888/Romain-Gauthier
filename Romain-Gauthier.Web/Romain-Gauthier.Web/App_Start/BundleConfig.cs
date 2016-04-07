@@ -23,6 +23,9 @@ namespace Romain_Gauthier.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
+                      "~/Content/bootstrap.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                 "~/Scripts/knockout-3.2.0.js",
                 "~/Scripts/knockout.mapping-latest.js"));
@@ -46,8 +49,11 @@ namespace Romain_Gauthier.Web
                       "~/Content/animate.css"));
             bundles.Add(new ScriptBundle("~/bundles/login").Include(
                      "~/Scripts/js/login.js"));
+            //brandinfo
             bundles.Add(new StyleBundle("~/Content/brandinfo").Include(
-                      "~/Content/BrandInfo.css", "~/Content/animate.css"));
+                      "~/Content/brandInfo.css",
+                      "~/Content/animate.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/brandinfo").Include(
                 "~/Scripts/js/brandinfo.js"));
             //productinfo

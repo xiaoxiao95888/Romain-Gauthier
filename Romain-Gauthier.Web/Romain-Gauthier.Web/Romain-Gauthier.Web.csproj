@@ -197,13 +197,7 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
-    <None Include="Content\BrandInfo.scss" />
-    <Content Include="Content\BrandInfo.css">
-      <DependentUpon>BrandInfo.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\BrandInfo.min.css">
-      <DependentUpon>BrandInfo.css</DependentUpon>
-    </Content>
+    <Content Include="Content\brandInfo.css" />
     <Content Include="Content\swiper.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -286,6 +280,7 @@
     <Content Include="Views\Shared\_SwiperLayout.cshtml" />
     <Content Include="Views\Home\ProductInfo.cshtml" />
     <Content Include="Views\Home\Technology.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

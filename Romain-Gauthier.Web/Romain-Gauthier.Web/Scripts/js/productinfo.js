@@ -49,7 +49,7 @@ function effect(index) {
             $("#slide3 .contentregion").animateCss("fadeInRight");
             break;
         case 3:
-            $("#slide4 .bg img").animateCss("fadeIn");
+            $("#slide4 .bg img").animateCss("pulse");
             $("#slide4 .contentregion").animateCss("fadeIn");
             break;
         default:

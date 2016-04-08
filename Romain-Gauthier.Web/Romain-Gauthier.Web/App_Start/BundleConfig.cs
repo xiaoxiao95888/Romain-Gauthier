@@ -18,7 +18,7 @@ namespace Romain_Gauthier.Web
             // 生产准备时，请使用 http://modernizr.com 上的生成工具来仅选择所需的测试。
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
-
+            //bootstrap
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
@@ -29,19 +29,12 @@ namespace Romain_Gauthier.Web
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                 "~/Scripts/knockout-3.2.0.js",
                 "~/Scripts/knockout.mapping-latest.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/main").Include(
-                "~/Scripts/swiper.js"));
-
-            bundles.Add(new StyleBundle("~/Content/main").Include(
-                      "~/Content/swiper.css", 
-                      "~/Content/bootstrap.css"));
+            //swiper
+            bundles.Add(new StyleBundle("~/Content/swiper").Include(
+                      "~/Content/swiper.css"));
             //swiper
             bundles.Add(new ScriptBundle("~/bundles/swiper").Include(
                "~/Scripts/swiper.js"));
-
-            bundles.Add(new StyleBundle("~/Content/swiper").Include(
-                      "~/Content/swiper.css"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -49,6 +42,10 @@ namespace Romain_Gauthier.Web
                       "~/Content/animate.css"));
             bundles.Add(new ScriptBundle("~/bundles/login").Include(
                      "~/Scripts/js/login.js"));
+            //animate
+            bundles.Add(new StyleBundle("~/Content/animate").Include(
+                      "~/Content/animate.css"));
+
             //brandinfo
             bundles.Add(new StyleBundle("~/Content/brandinfo").Include(
                       "~/Content/brandInfo.css",
@@ -62,6 +59,13 @@ namespace Romain_Gauthier.Web
             //Technology
             bundles.Add(new ScriptBundle("~/bundles/technology").Include(
             "~/Scripts/js/technology.js"));
+
+            //ProductInfo
+            bundles.Add(new StyleBundle("~/Content/productInfo").Include(
+                      "~/Content/productInfo.css"));
+            //ProductInfo
+            bundles.Add(new ScriptBundle("~/bundles/productInfo").Include(
+            "~/Scripts/js/productInfo.js"));
         }
     }
 }

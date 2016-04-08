@@ -1,147 +1,163 @@
 ﻿
 @{
     ViewBag.Title = "ProductInfo";
-}
-<style>
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-        min-height: 100%;
-    }
+    Layout = "~/Views/Shared/_SwiperLayout.cshtml";
+}@Scripts.Render("~/bundles/bootstrap")
+@Styles.Render("~/Content/bootstrap")
+@Styles.Render("~/Content/productInfo")
+@Styles.Render("~/Content/animate")
+@Scripts.Render("~/bundles/knockout")
+@Scripts.Render("~/bundles/productInfo")
 
-    body {
-        background: #1d1f20;
-        color: #aaa;
-        font-size: 18px;
-        line-height: 1.4;
-        font-family: 'Inconsolata', sans-serif;
-    }
 
-    * {
-        box-sizing: border-box;
-    }
+<div class="container-fluid" style="height: 100%;margin: 0 auto;">
+    <div class="logo">
+        <img src="/images/logo-nav.png">
+    </div>
+    <div class="navBtn" data-bind="click:viewModel.shownavigation">
+        <img src="/images/nav.png">
+    </div>
+    <div class="navlist" style="left: -180px;">
+        <div style="width:10%;left:auto;right:6%;top:2%;" class="layer nClose" data-bind="click:viewModel.navigationClose"><img src="/images/close.png"></div>
+        <div style="width:60%;left:18%;top:8%;" class="layer navHead"></div>
+        <ul style="width: 100%; left: 0; top: 8%;" class="layer navlist_panel">
+            <li class="uli">
+                <span data-bind="text:ProductInfo.viewModel.product.name" style="padding: 0 15px;height: 30px;line-height: 30px;color: #bf9060; "></span> 
+            </li>
+            <!-- ko foreach:viewModel.product.items -->
+            <li class="uli">
+                <a href="#" class="hl navF" data-bind="text:name,css:{active1:$index()==ProductInfo.viewModel.currentItem.index()},click:ProductInfo.viewModel.navigation"></a>
+            </li>
+            <!-- /ko -->
+        </ul>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" id="slide1">
+                <div class="layer bg" style="top: 8%">
+                    <img style="display: none" src="/images/product/Presitge_HMS/HMS_TEN/HMS_TEN_platinum.jpg" />
+                    <img style="display: none" src="/images/product/Presitge_HMS/HMS_TEN/HMS_TEN_red_gold.jpg" />
+                    <img style="display: none" src="/images/product/Presitge_HMS/HMS_TEN/HMS_TEN_white.jpg" />
+                </div>
+                <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%; visibility: inherit; width: 80%;">
+                    <div class="main-title-blog">
+                        <h2>
+                            <span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a>
+                        </h2>
+                    </div>
+                    <div class="content">
+                        <p>
+                            Collection Prestige features an original in-house movement and design. The elegant hand-guiolloched open dial with off-center time indication is fairly traditional, but the innovative manufacture movement is anything but.
+                        </p>
+                    </div>
+                    <div class="modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <table class="table table-bordered table-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th>aaa</th>
+                                                <th>bbb</th>
+                                                <th>ccc</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>11111</td>
+                                                <td>22222</td>
+                                                <td>33333</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11111</td>
+                                                <td>22222</td>
+                                                <td>33333</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11111</td>
+                                                <td>22222</td>
+                                                <td>33333</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11111</td>
+                                                <td>22222</td>
+                                                <td>33333</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11111</td>
+                                                <td>22222</td>
+                                                <td>33333</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11111</td>
+                                                <td>22222</td>
+                                                <td>33333</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11111</td>
+                                                <td>22222</td>
+                                                <td>33333</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    #video-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 10;
-        overflow: hidden;
-    }
+                </div>
 
-    .touch #video-container {
-        background: url(http://xtianmiller.com/dist/videos/winter_creek.jpg) no-repeat center;
-        background-size: cover;
-    }
-
-    video {
-        width: 100%;
-        height: 100%;
-    }
-
-    .touch video {
-        display: none;
-    }
-
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 20;
-        background-color: rgba(0, 0, 0, 0.7);
-        padding-left: 6%;
-        padding-right: 6%;
-        display: table;
-    }
-
-    .overlay__inner {
-        width: 100%;
-        height: auto;
-        display: table-cell;
-        vertical-align: middle;
-        text-align: center;
-    }
-
-    .overlay h2 {
-        max-width: 40em;
-        font-size: 28px;
-        font-weight: 700;
-        color: #fff;
-        font-family: 'Raleway', sans-serif;
-        line-height: 1.3;
-        margin: 0 auto;
-    }
-
-    .overlay p {
-        padding-top: 1em;
-        max-width: 40em;
-        margin: 0 auto;
-    }
-
-    .overlay a.btn {
-        display: inline-block;
-        margin-top: 25px;
-        border: 1px solid #00c1bb;
-        color: #00c1bb;
-        text-decoration: none;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        position: relative;
-        overflow: hidden;
-    }
-
-        .overlay a.btn span {
-            display: inline-block;
-            padding: 6px 40px;
-            -webkit-transition: -webkit-transform 0.4s;
-            transition: -webkit-transform 0.4s;
-            transition: transform 0.4s;
-            transition: transform 0.4s, -webkit-transform 0.4s;
-        }
-
-        .overlay a.btn .row2 {
-            position: absolute;
-            left: 0;
-            top: 0;
-            -webkit-transform: translateY(100%);
-            transform: translateY(100%);
-        }
-
-        .overlay a.btn:hover .row1 {
-            -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-        }
-
-        .overlay a.btn:hover .row2 {
-            -webkit-transform: translateY(0);
-            transform: translateY(0);
-        }
-</style>
-
-<div class="container-fluid" id="video-container" style="height: 100%;background: url(/images/archivebg.jpg) no-repeat center;background-size: cover;">
-
-    @*<video autoplay="autoplay">
-            <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.ogv" type="video/ogg" />
-            <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4" />
-            <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.webm" type="video/webm" />
-        </video>*@
-</div>
-<div class="overlay">
-    <div class="overlay__inner">
-        <h2>Fullscreen HTML5 Background Video</h2>
-        <p>
-            Utilizes Javascript to create cover effect and updates on resize. Modernizr determines an image fallback for touch devices.
-        </p>
-        <a href="http://xtianmiller.com/notes/fullscreen-html5-background-video/" class="btn" target="_blank">
-            <span class="row1">Read Article</span>
-            <span class="row2">Read Article</span>
-        </a>
+            </div>
+            <div class="swiper-slide" id="slide2">
+                <div class="layer bg">
+                    <img src="/images/product/Presitge_HMS/Platinum/Romain_Gauthier_Prestige_HMS_platinum_7.jpg">
+                </div>
+                <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%;  visibility: inherit; width: 80%;">
+                    <div class="main-title-blog">
+                        <h2><span data-bind="text:ProductInfo.viewModel.currentItem.name"></span></h2>
+                    </div>
+                    <div class="content">
+                        <p>
+                            Collection Prestige features an original in-house movement and design. The elegant hand-guiolloched open dial with off-center time indication is fairly traditional, but the innovative manufacture movement is anything but.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="slide3">
+                <div class="layer bg">
+                    <img src="/images/product/Presitge_HMS/Red_gold/Romain_Gauthier_Prestige_HMS_red_gold_2.jpg">
+                </div>
+                <div class="contentregion layer txt4" style="left: 10%; top: 12%; bottom: auto; visibility: inherit; width: 80%;">
+                    <div class="main-title-blog">
+                        <h2><span data-bind="text:ProductInfo.viewModel.currentItem.name"></span></h2>
+                    </div>
+                    <div class="content">
+                        <p>
+                            Collection Prestige features an original in-house movement and design. The elegant hand-guiolloched open dial with off-center time indication is fairly traditional, but the innovative manufacture movement is anything but.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="slide4">
+                <div class="layer bg">
+                    <img src="/images/product/Presitge_HMS/White_gold/Romain_Gauthier_Prestige_HMS_white_gold_1.jpg">
+                </div>
+                <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%;  visibility: inherit; width: 80%;">
+                    <div class="main-title-blog">
+                        <h2><span data-bind="text:ProductInfo.viewModel.currentItem.name"></span></h2>
+                    </div>
+                    <div class="content">
+                        <p>
+                            Collection Prestige features an original in-house movement and design. The elegant hand-guiolloched open dial with off-center time indication is fairly traditional, but the innovative manufacture movement is anything but.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        @*<div class="swiper-pagination"></div>*@
+    </div>
+    <div class="next animated fadeInUp">
+        <img src="/images/arrow_up.png">
     </div>
 </div>

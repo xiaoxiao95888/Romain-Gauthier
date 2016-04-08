@@ -198,6 +198,7 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Content\brandInfo.css" />
+    <Content Include="Content\productInfo.css" />
     <Content Include="Content\swiper.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -206,16 +207,27 @@
     <Content Include="images\1385448165630.jpg" />
     <Content Include="images\1385448165755.jpg" />
     <Content Include="images\archivebg.jpg" />
+    <Content Include="images\arrow_up.png" />
+    <Content Include="images\close.png" />
     <Content Include="images\fondContact.jpg" />
     <Content Include="images\fondGauthier.jpg" />
     <Content Include="images\images.jpg" />
     <Content Include="images\ImageTest.jpg" />
     <Content Include="images\logical_one_romain_gauthier_3.jpg" />
+    <Content Include="images\logo-nav.png" />
     <Content Include="images\logoRG.png" />
     <Content Include="images\Manufacture2.jpg" />
     <Content Include="images\Manufacture3.jpg" />
+    <Content Include="images\nav.png" />
+    <Content Include="images\navbg.png" />
     <Content Include="images\product\HM_1.jpg" />
     <Content Include="images\product\Logical_One-red_gold_side1.jpg" />
+    <Content Include="images\product\Presitge_HMS\HMS_TEN\HMS_TEN_white.jpg" />
+    <Content Include="images\product\Presitge_HMS\HMS_TEN\HMS_TEN_red_gold.jpg" />
+    <Content Include="images\product\Presitge_HMS\HMS_TEN\HMS_TEN_platinum.jpg" />
+    <Content Include="images\product\Presitge_HMS\Platinum\Romain_Gauthier_Prestige_HMS_platinum_7.jpg" />
+    <Content Include="images\product\Presitge_HMS\Red_gold\Romain_Gauthier_Prestige_HMS_red_gold_2.jpg" />
+    <Content Include="images\product\Presitge_HMS\White_gold\Romain_Gauthier_Prestige_HMS_white_gold_1.jpg" />
     <Content Include="images\product\RomainGauthier_LogicalOne_Rubis_Close.jpg" />
     <Content Include="images\product\RomainGauthier_LogicalOne_Rubis_Open.jpg" />
     <Content Include="images\product\slider_home-Logical_One-titatium-NEW.jpg.jpg" />

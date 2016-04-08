@@ -2,73 +2,15 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>SwiperLayout</title>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title>Romain Gauthier - @ViewBag.Title</title>
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/main")
-    @Styles.Render("~/Content/main")
-    @Scripts.Render("~/bundles/bootstrap")
-    <style>
-        html, body {
-            position: relative;
-            height: 100%;
-        }
-
-        body {
-            background: #eee;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #000;
-            margin: 0;
-            padding: 0;
-        }
-
-        .swiper-container {
-            width: 100%;
-            height: 100%;
-            background: #000;
-        }
-
-        .swiper-slide {
-            font-size: 18px;
-            color: #fff;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            padding: 40px 60px;
-        }
-
-        .parallax-bg {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 130%;
-            height: 100%;
-            -webkit-background-size: cover;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .swiper-slide .title {
-            font-size: 41px;
-            font-weight: 300;
-        }
-
-        .swiper-slide .subtitle {
-            font-size: 21px;
-        }
-
-        .swiper-slide .text {
-            font-size: 14px;
-            max-width: 400px;
-            line-height: 1.3;
-        }
-    </style>
+    @Scripts.Render("~/bundles/swiper")
+    @Styles.Render("~/Content/swiper")
 </head>
 <body>
     @RenderBody()

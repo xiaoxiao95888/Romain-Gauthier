@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 .swiper-container {
     width: 100%;
     height: 100%;
@@ -11,8 +12,28 @@
 .swiper-slide {
     /* Center slide text vertically */
 }
+
 .contentregion {
-   
+}
+
+.topview {
+    height: 100%;
+    position: relative;
+}
+
+.absolute-center {
+    padding-top: 22%;
+    margin:0 auto;
+    left:0;
+    right:0;
+}
+
+.collectionButton a {
+    /*padding: 10px;*/
+    color: #bf9060;
+    text-decoration: none;
+    /*background: #bf9060 none repeat scroll 0 0;*/
+    text-transform: uppercase;
 }
 .main-title-blog {
     color: #bf9060;
@@ -21,6 +42,7 @@
     margin-bottom: 20px;
     text-transform: uppercase;
 }
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
@@ -193,10 +215,11 @@ img {
     -o-animation: 1.5s linear 0s normal none infinite add1;
     z-index: 5010;
 }
+
 .next {
     -webkit-animation-iteration-count: infinite;
-
 }
+
 .txt3 {
     color: #fff;
     font-size: 14px;

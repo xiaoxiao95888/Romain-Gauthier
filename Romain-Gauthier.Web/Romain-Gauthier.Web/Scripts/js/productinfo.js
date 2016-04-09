@@ -14,11 +14,31 @@
 };
 //技术参数
 ProductInfo.viewModel.technical = function (data, event) {
-    var dom = $(event.target);
-    //console.log("a");
-    //dom.parents().find(".modal").modal({
-    //    show: true
+    var dom = $(event.target);   
+    var item = dom.parents(".swiper-slide");
+    var topview = item.find(".topview");
+    var center = item.find(".center");
+    center.fadeOut( function () {
+        topview.fadeIn();
+    }); 
+    //center.hide( function () {
+    //    topview.show();
+    //});  
+    //topview.show(function () {
+    //    center.hide();
     //});
+}
+ProductInfo.viewModel.technicalclose = function (data, event) {
+    var dom = $(event.target);
+    var item = dom.parents(".swiper-slide");
+    var topview = item.find(".topview");
+    var center = item.find(".center");
+    //center.show(function () {
+    //    topview.hide();
+    //});
+    topview.fadeOut(function () {
+        center.fadeIn();
+    });
 }
 ProductInfo.viewModel.shownavigation = function () {
     $(".navlist").animate({ left: 0 });
@@ -38,7 +58,7 @@ function effect(index) {
     switch (index) {
         case 0:
             $("#slide1 .contentregion").animateCss("fadeInUp");
-            marquee($("#slide1 .bg img"));
+            marquee($("#slide1 .center .bg img"));
             break;
         case 1:
             $("#slide2 .bg img").animateCss("pulse");
@@ -89,7 +109,7 @@ $.fn.extend({
         });
     }
 });
-$(function () {
+$(function () {   
     var models =
     [
         {

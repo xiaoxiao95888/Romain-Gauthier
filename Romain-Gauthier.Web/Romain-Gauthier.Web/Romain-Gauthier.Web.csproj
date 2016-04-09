@@ -232,6 +232,7 @@
     <Content Include="images\product\RomainGauthier_LogicalOne_Rubis_Open.jpg" />
     <Content Include="images\product\slider_home-Logical_One-titatium-NEW.jpg.jpg" />
     <Content Include="images\product\ten_platinum_slider_home.jpg" />
+    <Content Include="images\topviewback.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\r.local.pubxml" />

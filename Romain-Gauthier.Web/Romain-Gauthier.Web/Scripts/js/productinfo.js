@@ -73,7 +73,6 @@ function effect(index) {
             $("#slide4 .contentregion").animateCss("fadeIn");
             break;
         default:
-
     }
 }
 function marquee($element) {

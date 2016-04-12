@@ -66,6 +66,13 @@ namespace Romain_Gauthier.Web
             //ProductInfo
             bundles.Add(new ScriptBundle("~/bundles/productInfo").Include(
             "~/Scripts/js/productInfo.js"));
+
+            //technology
+            bundles.Add(new StyleBundle("~/Content/technology").Include(
+                      "~/Content/technology.css"));
+            //technology
+            bundles.Add(new ScriptBundle("~/bundles/technology").Include(
+            "~/Scripts/js/technology.js"));
         }
     }
 }

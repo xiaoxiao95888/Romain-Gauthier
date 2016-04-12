@@ -1,68 +1,121 @@
-﻿@{
-    Layout = null;
-}
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/technology")
-@Scripts.Render("~/bundles/swiper")
-@Styles.Render("~/Content/swiper")
-@Scripts.Render("~/bundles/knockout")
+﻿
+@{
+    ViewBag.Title = "Technology";
+    Layout = "~/Views/Shared/_SwiperLayout.cshtml";
+}@Scripts.Render("~/bundles/bootstrap")
 @Styles.Render("~/Content/bootstrap")
-@Scripts.Render("~/bundles/bootstrap")
-<style>
-    html, body {
-        position: relative;
-        height: 100%;
-    }
-    /*body {
-        background: url(../images/ImageTest.jpg);
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-    }*/
-    .swiper-container {
-        width: 100%;
-        height: 100%;
-    }
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
-</style>
+@Styles.Render("~/Content/Technology")
+@Styles.Render("~/Content/animate")
+@Scripts.Render("~/bundles/knockout")
+@Scripts.Render("~/bundles/Technology")
 
-
-<!-- Swiper -->
-<div class="swiper-container">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide" style="background: url(../images/ImageTest.jpg)">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        <div class="swiper-slide">Slide 4</div>
-        <div class="swiper-slide">Slide 5</div>
-        <div class="swiper-slide">Slide 6</div>
-        <div class="swiper-slide">Slide 7</div>
-        <div class="swiper-slide">Slide 8</div>
-        <div class="swiper-slide">Slide 9</div>
-        <div class="swiper-slide">Slide 10</div>
+<div id="header-bar" data-position="fixed">
+    <div id="logo">
+        <a href="http://www.romaingauthier.com/" title="Romain Gauthier" rel="home"><img src="http://www.romaingauthier.com/wp-content/themes/Spartan/images/logo@2x.png" alt="Romain Gauthier" class="retina" id="logoImg" width="220" height="77"></a>
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
 </div>
+<div style="height:120px;"></div>
+<div class="container-fluid">
+    <div class="banner">
+        <div class="crop-1 animated fadeInLeft">
+            <a href="#" data-ftrans="slide" data-bind="click:viewModel.showdetail">
+                <h4 style="bottom: 25%;">ruby chain</h4>
+                <h5 style="bottom: 5%;">红宝石链接卡榫</h5>
+                <img src="~/images/banner3.jpg" />
+            </a>
+        </div>
+        <div class="contentregion txt4" style="width: 80%; margin: 5% auto; display: none">
+            <div class="content">
+                <p>
+                    为了更加强化整体的效能，Romain Gauthier也充分运用这较大的链接卡榫，用摩擦较低、耐用的合成红宝石来制作链接卡榫。在红宝石链接卡榫中还蕴含着创新的连接链结构。
+                </p>
+                <p>
+                    Romain Gauthier用一张很轻薄的纸张卡在链接卡榫与板片之间，磨损纸张，创造出精细的耐受力(但不太精准)替换，取代的是精准、简单、可靠、一致的环扣系统。这个方法取代了传统的链接系统。
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="crop-1 animated fadeInRight">
+            <a href="#" data-ftrans="slide" data-bind="click:viewModel.showdetail">
+                <h4>constant force</h4>
+                <h5>恒定动力</h5>
+                <img src="~/images/Logical_One-whitegold4.jpg" />
+            </a>
+        </div>
+        <div class="contentregion txt4" style="width: 80%; margin: 5% auto; display: none">
+            <div class="content">
+                <p>
+                    恒定动力是高级制表学的梦想，而Romain Gauthier透过Logical One也重新发明了芝麻链的系统，这是制表业最古老、最传统延续恒久动力的做法，在他的改造下，此系统更可靠、更有效，也更恒定。
+                </p>
+                <p>
+                    不像大部分腕表上弦方式，当弦走动到了后期，力量会衰减，运行和调节绝大多数高精密机械腕表的动力跟主发条上发条的松紧有关，也就代表后期手表走时会微微变化。稳定的输出是技术精准的另一个体现。绝大多数的机器都是以恒定的力量运行，就像即使燃料量低，汽车和飞机的运行速度也不会减慢；不管生产的电量是多少，机器都可以接收相同的电压。
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="crop-1 animated fadeInLeft">
+            <a href="#" data-ftrans="slide" data-bind="click:viewModel.showdetail">
+                <h4>push winding</h4>
+                <h5>人体工学的上链按压</h5>
+                <img src="~/images/banner2.jpg" />
+            </a>
+        </div>
+        <div class="contentregion txt4" style="width: 80%; margin: 5% auto; display: none">
+            <div class="content">
+                <p>
+                    在Romain Gauthier精心设计下，按压式的上链系统，按压崁入于左侧的表壳带上，它的优势并不止于人体工学和美学的设计，而是以扎实的工程理论为基础所设计，每一次为Logical One 上链成为一种好玩的行为。
+                </p>
+                <p>
+                    轻松按压每次1.5-2小时的动力储存，不会发生传统手表上弦时最后一下碰到强大阻力的感受，传统的表冠上相对上比较精细(也较脆弱)的细杆，必须在呈现出90度角度的表冠与发条盒，传输动力（此处最好配图）其实这本身也是对手表机械结构的一种伤害。而为Logical One上链的按压，则是在同一平面将动力传输到发条盒上。丝毫不会伤害到手表内部结构，在人机工程设计方面，假设手腕向上弯曲，也不会由于表冠的突出带来不舒服，上弦和时间修正都只需要一只手轻松完成。                </p>
+            </div>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="crop-1 animated fadeInRight">
+            <a href="#" data-ftrans="slide" data-bind="click:viewModel.showdetail">
+                <h4>Pallet Lever</h4>
+                <h5>中文叫什么</h5>
+                <img src="~/images/banner4.jpg" />
+            </a>
+        </div>
+        <div class="contentregion txt4" style="width: 80%; margin: 5% auto; display: none">
+            <div class="content">
+                <p>
+                    给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字
+                </p>
+                <p>
+                    给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字给我点文字
+                </p>
+            </div>
+        </div>
+    </div>
+    @*<div class="central">
+            <div id="slide1">
+                <div class="layer bg" style="background-color: #fff">
+                    <img src="/images/Logical_One-whitegold4.jpg">
+                    <img src="/images/kv.jpg">
+                </div>
+                <div class="contentregion txt4" style="width: 90%; margin: 0 auto; ">
+                    <div class="main-title-blog">
+                        <h2>恒定的动力</h2>
+                    </div>
+                    <div class="content">
 
-
+                        <p>
+                            恒定动力是高级制表学的梦想，而Romain Gauthier透过Logical One也重新发明了芝麻链的系统，这是制表业最古老、最传统延续恒久动力的做法，在他的改造下，此系统更可靠、更有效，也更恒定。
+                        </p>
+                        <div class="row" style="padding-top: 10px; padding-bottom: 10px;">
+                            <div class="col-xs-12">
+                                <img src="~/images/15787fbc-39fe-4c81-97a7-be275da2a762.jpg" class="img-responsive" />
+                            </div>
+                        </div>
+                        <p>
+                            不像大部分腕表上弦方式，当弦走动到了后期，力量会衰减，运行和调节绝大多数高精密机械腕表的动力跟主发条上发条的松紧有关，也就代表后期手表走时会微微变化。稳定的输出是技术精准的另一个体现。绝大多数的机器都是以恒定的力量运行，就像即使燃料量低，汽车和飞机的运行速度也不会减慢；不管生产的电量是多少，机器都可以接收相同的电压。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+</div>

@@ -51,5 +51,10 @@ namespace Romain_Gauthier.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Polish()
+        {
+            return View();
+        }
     }
 }

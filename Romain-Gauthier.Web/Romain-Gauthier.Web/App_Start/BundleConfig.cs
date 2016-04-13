@@ -72,7 +72,14 @@ namespace Romain_Gauthier.Web
                       "~/Content/technology.css"));
             //technology
             bundles.Add(new ScriptBundle("~/bundles/technology").Include(
-            "~/Scripts/js/technology.js"));
+            "~/Scripts/js/technology.js", "~/Scripts/jquery.easing.1.3.js", "~/Scripts/jquery.scrollTo.js"));
+
+            //Polish
+            bundles.Add(new StyleBundle("~/Content/polish").Include(
+                      "~/Content/polish.css"));
+            //Polish
+            bundles.Add(new ScriptBundle("~/bundles/polish").Include(
+            "~/Scripts/js/polish.js", "~/Scripts/jquery.keyframes.js"));
         }
     }
 }

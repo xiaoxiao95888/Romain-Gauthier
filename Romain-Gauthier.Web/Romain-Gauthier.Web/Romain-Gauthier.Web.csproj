@@ -198,6 +198,7 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Content\brandInfo.css" />
+    <Content Include="Content\polish.css" />
     <Content Include="Content\productInfo.css" />
     <Content Include="Content\swiper.css" />
     <Content Include="Content\technology.css" />
@@ -214,6 +215,7 @@
     <Content Include="images\banner2.jpg" />
     <Content Include="images\banner3.jpg" />
     <Content Include="images\banner4.jpg" />
+    <Content Include="images\Beveling.jpg" />
     <Content Include="images\bg1.jpg" />
     <Content Include="images\close.png" />
     <Content Include="images\fondContact.jpg" />
@@ -250,12 +252,16 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.keyframes.js" />
+    <Content Include="Scripts\jquery.scrollTo.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\js\BrandInfo.js" />
     <Content Include="Scripts\js\login.js" />
+    <Content Include="Scripts\js\polish.js" />
     <Content Include="Scripts\js\productinfo.js" />
     <Content Include="Scripts\js\technology.js" />
     <Content Include="Scripts\knockout-3.2.0.js" />
@@ -306,6 +312,7 @@
     <Content Include="Views\Home\Technology.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Home\ProductInfo.cshtml" />
+    <Content Include="Views\Home\Polish.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

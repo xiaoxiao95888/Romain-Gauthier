@@ -6,32 +6,32 @@
             index: ko.observable(0),
             name: ko.observable()
         }
-    } 
-};
-//显示详细
-Technology.viewModel.showdetail = function (data, event) {
-    var dom = $(event.target);
-    var parent = dom.parents('.banner')[0];
-    for (var i = 0; i < $('.banner').length; i++) {
-        var item = $('.banner')[i];
-        if (item !== parent) {
-            $(item).children(".contentregion").fadeOut();
-        } else {
-            $(item).children(".contentregion").fadeIn();
-        }
     }
-}
-
-
-
+};
 $.fn.extend({
     animateCss: function (animationName) {
-        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-        $(this).addClass('animated ' + animationName).one(animationEnd, function () {
-            $(this).removeClass('animated ' + animationName);
+        var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+        $(this).addClass("animated " + animationName).one(animationEnd, function () {
+            $(this).removeClass("animated " + animationName);
         });
     }
 });
+//显示详细
+Technology.viewModel.showdetail = function (data, event) {
+    var dom = $(event.target);
+    var parent = dom.parents(".banner")[0];
+    var item = $(parent).find(".contentregion");
+    if (item.is(":hidden")) {
+        item.fadeIn();
+
+    } else {
+        item.fadeOut();
+    };
+    $("html, body").stop().animate({
+        scrollTop: $(parent).offset().top - ($('#header-bar').height() + 10)
+    }, 1500, "easeInOutExpo");
+}
+
 $(function () {
     var models =
     [
@@ -54,10 +54,10 @@ $(function () {
     ];
     ko.applyBindings(Technology);
     ko.mapping.fromJS(models, {}, Technology.viewModel.items);
-    //var myswiper = new Swiper('.swiper-container', {
-    //    pagination: '.swiper-pagination',
+    //var myswiper = new Swiper(".swiper-container", {
+    //    pagination: ".swiper-pagination",
     //    paginationClickable: true,
-    //    direction: 'vertical',
+    //    direction: "vertical",
     //    onSlideChangeEnd: function (swiper) {
     //        pageturning(swiper.activeIndex);
     //    },

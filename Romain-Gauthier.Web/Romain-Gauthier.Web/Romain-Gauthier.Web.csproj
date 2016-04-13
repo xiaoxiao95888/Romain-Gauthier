@@ -220,6 +220,9 @@
     <Content Include="images\close.png" />
     <Content Include="images\fondContact.jpg" />
     <Content Include="images\fondGauthier.jpg" />
+    <Content Include="images\gemassemble.jpg" />
+    <Content Include="images\gemassemble1.jpg" />
+    <Content Include="images\gemassemble2.jpg" />
     <Content Include="images\images.jpg" />
     <Content Include="images\ImageTest.jpg" />
     <Content Include="images\kv.jpg" />

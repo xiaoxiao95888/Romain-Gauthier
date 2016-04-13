@@ -23,8 +23,14 @@ html, body {
     color: #fff;
 }
 
-.midground {
+.beveling {
     background: url(../images/Beveling.jpg) 0 100% repeat-x;
+    -webkit-background-size: cover;
+    z-index: 3;
+    height: 100%;
+}
+.gemassemble{
+      background: url(../images/gemassemble.jpg) 0 100% repeat-x;
     -webkit-background-size: cover;
     z-index: 3;
     height: 100%;

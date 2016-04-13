@@ -22,13 +22,12 @@ function effect(index) {
         case 0:
             $("#slide1 h2").fadeIn(function () {
                 marquee($("#slide1 p"));
-            });
-            //$("#slide1 .contentregion").animateCss("fadeInUp");
-            //marquee($("#slide1 .center .bg img"));
+            });            
             break;
         case 1:
-            //$("#slide2 .bg img").animateCss("pulse");
-            //$("#slide2 .contentregion").animateCss("fadeInUp");
+            $("#slide2 h2").fadeIn(function () {
+                marquee($("#slide2 p"));
+            });
             break;
         default:
     }
@@ -60,18 +59,26 @@ $(function () {
     var supportedFlag = $.keyframe.isSupported();
     var clientWidth = document.body.clientWidth;
     var clientHeight = document.body.clientHeight;
-    var width = (clientHeight / 750) * -2500 + clientWidth;
+    var bevelingwidth = (clientHeight / 750) * -2500 + clientWidth;
+    var gemassemblewidth = (clientHeight / 540) * -1700 + clientWidth;
     $.keyframe.define([
         {
-            name: 'myfirst',
+            name: 'beveling',
             '100%': {
-                "background-position": width+"px"+" 100%"
+                "background-position": bevelingwidth + "px" + " 100%"
+            }
+            
+        },
+        {
+            name: 'gemassemble',
+            '100%': {
+                "background-position": gemassemblewidth + "px" + " 100%"
             }
         }
     ]);
    
-    $(".midground").playKeyframe({
-        name: 'myfirst', // name of the keyframe you want to bind to the selected element
+    $(".beveling").playKeyframe({
+        name: 'beveling', // name of the keyframe you want to bind to the selected element
         duration: '30s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
         timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
         delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
@@ -79,6 +86,16 @@ $(function () {
         direction: 'alternate', //[optional, default: 'normal']  which direction you want the frames to flow
         fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
         complete: function(){} //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
+    });
+    $(".gemassemble").playKeyframe({
+        name: 'gemassemble', // name of the keyframe you want to bind to the selected element
+        duration: '30s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
+        timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+        delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+        iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
+        direction: 'alternate', //[optional, default: 'normal']  which direction you want the frames to flow
+        fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+        complete: function () { } //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
     });
     var myswiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',

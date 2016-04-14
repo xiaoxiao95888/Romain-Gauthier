@@ -80,6 +80,13 @@ namespace Romain_Gauthier.Web
             //Polish
             bundles.Add(new ScriptBundle("~/bundles/polish").Include(
             "~/Scripts/js/polish.js", "~/Scripts/jquery.keyframes.js"));
+            //History
+            bundles.Add(new StyleBundle("~/Content/history").Include(
+                     "~/Content/history.css"));
+            //History
+            bundles.Add(new ScriptBundle("~/bundles/history").Include(
+            "~/Scripts/js/history.js"));
+
         }
     }
 }

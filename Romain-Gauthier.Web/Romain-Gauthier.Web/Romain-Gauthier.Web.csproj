@@ -198,6 +198,7 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Content\brandInfo.css" />
+    <Content Include="Content\history.css" />
     <Content Include="Content\polish.css" />
     <Content Include="Content\productInfo.css" />
     <Content Include="Content\swiper.css" />
@@ -209,6 +210,7 @@
     <Content Include="images\1385448165630.jpg" />
     <Content Include="images\1385448165755.jpg" />
     <Content Include="images\15787fbc-39fe-4c81-97a7-be275da2a762.jpg" />
+    <Content Include="images\4.png" />
     <Content Include="images\6f983e89-67a3-4834-8689-11f754a7505c.jpg" />
     <Content Include="images\archivebg.jpg" />
     <Content Include="images\arrow_up.png" />
@@ -220,7 +222,8 @@
     <Content Include="images\close.png" />
     <Content Include="images\fondContact.jpg" />
     <Content Include="images\fondGauthier.jpg" />
-    <Content Include="images\gemassemble.jpg" />
+    <Content Include="images\bluepointer.jpg" />
+    <Content Include="images\gem.jpg" />
     <Content Include="images\gemassemble1.jpg" />
     <Content Include="images\gemassemble2.jpg" />
     <Content Include="images\images.jpg" />
@@ -247,6 +250,7 @@
     <Content Include="images\product\RomainGauthier_LogicalOne_Rubis_Open.jpg" />
     <Content Include="images\product\slider_home-Logical_One-titatium-NEW.jpg.jpg" />
     <Content Include="images\product\ten_platinum_slider_home.jpg" />
+    <Content Include="images\Spiral.jpg" />
     <Content Include="images\topviewback.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -263,6 +267,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\js\BrandInfo.js" />
+    <Content Include="Scripts\js\history.js" />
     <Content Include="Scripts\js\login.js" />
     <Content Include="Scripts\js\polish.js" />
     <Content Include="Scripts\js\productinfo.js" />
@@ -316,6 +321,7 @@
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Home\ProductInfo.cshtml" />
     <Content Include="Views\Home\Polish.cshtml" />
+    <Content Include="Views\Home\History.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -29,6 +29,15 @@ function effect(index) {
                 marquee($("#slide2 p"));
             });
             break;
+        case 2:
+            $("#slide3 h2").fadeIn(function () {
+                marquee($("#slide3 p"));
+            });
+        case 3:
+            $("#slide4 h2").fadeIn(function () {
+                marquee($("#slide4 p"));
+            });
+            break;
         default:
     }
 }
@@ -60,7 +69,9 @@ $(function () {
     var clientWidth = document.body.clientWidth;
     var clientHeight = document.body.clientHeight;
     var bevelingwidth = (clientHeight / 750) * -2500 + clientWidth;
-    var gemassemblewidth = (clientHeight / 540) * -1700 + clientWidth;
+    var bluepointeridth = (clientHeight / 540) * -1700 + clientWidth;
+    var gemassemblewidth = (clientHeight / 750) * -928 + clientWidth;
+    var spiralwidth = (clientHeight / 682) * -2650 + clientWidth;
     $.keyframe.define([
         {
             name: 'beveling',
@@ -70,11 +81,24 @@ $(function () {
             
         },
         {
+            name: 'bluepointer',
+            '100%': {
+                "background-position": bluepointeridth + "px" + " 100%"
+            }
+        },
+        {
             name: 'gemassemble',
             '100%': {
                 "background-position": gemassemblewidth + "px" + " 100%"
             }
+        },
+        {
+            name: 'spiral',
+            '100%': {
+                "background-position": spiralwidth + "px" + " 100%"
+            }
         }
+        
     ]);
    
     $(".beveling").playKeyframe({
@@ -87,8 +111,28 @@ $(function () {
         fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
         complete: function(){} //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
     });
+    $(".bluepointer").playKeyframe({
+        name: 'bluepointer', // name of the keyframe you want to bind to the selected element
+        duration: '30s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
+        timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+        delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+        iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
+        direction: 'alternate', //[optional, default: 'normal']  which direction you want the frames to flow
+        fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+        complete: function () { } //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
+    });
     $(".gemassemble").playKeyframe({
         name: 'gemassemble', // name of the keyframe you want to bind to the selected element
+        duration: '30s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
+        timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+        delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+        iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
+        direction: 'alternate', //[optional, default: 'normal']  which direction you want the frames to flow
+        fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+        complete: function () { } //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
+    });
+    $(".spiral").playKeyframe({
+        name: 'spiral', // name of the keyframe you want to bind to the selected element
         duration: '30s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
         timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
         delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
@@ -111,7 +155,15 @@ $(function () {
     var models =
    [
        {
-           name: "装配",
+           name: "spiral",
+           index: 3
+       },
+       {
+           name: "宝石装配",
+           index: 2
+       },
+       {
+           name: "蓝色指针烧制",
            index: 1
        },
        {

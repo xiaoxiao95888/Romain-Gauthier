@@ -86,7 +86,12 @@ namespace Romain_Gauthier.Web
             //History
             bundles.Add(new ScriptBundle("~/bundles/history").Include(
             "~/Scripts/js/history.js"));
-
+            //News
+            bundles.Add(new StyleBundle("~/Content/news").Include(
+                     "~/Content/news.css"));
+            //News
+            bundles.Add(new ScriptBundle("~/bundles/news").Include(
+            "~/Scripts/js/news.js"));
         }
     }
 }

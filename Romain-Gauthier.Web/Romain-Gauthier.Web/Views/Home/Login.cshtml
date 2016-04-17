@@ -3,6 +3,12 @@
     // ViewBag.Title = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    #loggedmenu a {
+         text-decoration: none;
+         color:#000;
+    }
+</style>
 @Scripts.Render("~/bundles/login")
 <div class="col-xs-12">
     <div class="text-center" id="logo">
@@ -21,7 +27,8 @@
                         <button type="submit" class="btn btn-metal btn-sm" data-bind="click:viewModel.Login.Submit">产品培训</button>
                     </div>
                     <div class="col-xs-6 text-center">
-                        <button type="submit" class="btn btn-metal btn-sm" data-bind="click:viewModel.Login.Submit">品牌信息</button>
+                        <a class="btn btn-metal btn-sm" href="/Home/BrandInfo">品牌信息</a>
+                       
                     </div>
                 </div>
                 <div id="login">

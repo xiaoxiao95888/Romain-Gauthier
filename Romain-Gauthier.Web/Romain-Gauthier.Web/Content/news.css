@@ -1,0 +1,88 @@
+﻿.logo {
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#header-bar {
+    position: fixed;
+    margin: 0;
+    padding: 10px 0px;
+    z-index: 999;
+    background: #141414;
+    width: 100%;
+    /* height: 45px; */
+    border-bottom: 0px solid #343433;
+    text-align: center;
+    overflow: auto;
+    min-height: 45px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.timeline {
+    list-style: none;
+    padding: 20px 0 20px;
+    position: relative;
+}
+
+    .timeline > li {
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+        .timeline > li > .timeline-panel {
+            padding: 20px;
+            float: left;
+            position: relative;
+        }
+
+.timeline-title {
+    margin-top: 0;
+    color: inherit;
+}
+
+.timeline-thumbnail img {
+    padding-bottom: 10px;
+}
+
+.timeline-body > p,
+.timeline-body > ul {
+    margin-bottom: 0;
+}
+
+    .timeline-body > p + p {
+        margin-top: 5px;
+    }
+    .next, .loadnext {
+    position: fixed;
+    width: 100%;
+    top: auto;
+    bottom: 2%;
+    animation: 1.5s linear 0s normal none infinite add1;
+    -webkit-animation: 1.5s linear 0s normal none infinite add1;
+    -moz-animation: 1.5s linear 0s normal none infinite add1;
+    -ms-animation: 1.5s linear 0s normal none infinite add1;
+    -o-animation: 1.5s linear 0s normal none infinite add1;
+    z-index: 5010;
+}
+
+.next {
+    -webkit-animation-iteration-count: infinite;
+      background: #141414;
+      margin: 0;
+      bottom:0;
+      height:40px;
+      line-height:40px;
+      color:white;
+}
+.next .swiper-pagination-bullet-active,.swiper-pagination-bullet{
+    background:#fff none repeat scroll 0 0 !important;
+    margin-left:5px;
+     margin-right:5px;
+}
+
+

@@ -199,6 +199,7 @@
     </None>
     <Content Include="Content\brandInfo.css" />
     <Content Include="Content\history.css" />
+    <Content Include="Content\news.css" />
     <Content Include="Content\polish.css" />
     <Content Include="Content\productInfo.css" />
     <Content Include="Content\swiper.css" />
@@ -207,6 +208,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\10335863_382273.jpg" />
     <Content Include="images\1385448165630.jpg" />
     <Content Include="images\1385448165755.jpg" />
     <Content Include="images\15787fbc-39fe-4c81-97a7-be275da2a762.jpg" />
@@ -269,6 +271,7 @@
     <Content Include="Scripts\js\BrandInfo.js" />
     <Content Include="Scripts\js\history.js" />
     <Content Include="Scripts\js\login.js" />
+    <Content Include="Scripts\js\news.js" />
     <Content Include="Scripts\js\polish.js" />
     <Content Include="Scripts\js\productinfo.js" />
     <Content Include="Scripts\js\technology.js" />
@@ -322,6 +325,7 @@
     <Content Include="Views\Home\ProductInfo.cshtml" />
     <Content Include="Views\Home\Polish.cshtml" />
     <Content Include="Views\Home\History.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -98,7 +98,6 @@ News.viewModel.NewsSave = function () {
                         Helper.ShowErrorDialog(result.Message);
                     } else {
                         Helper.ShowSuccessDialog(Messages.Success);
-                        $("#newsmodal").modal("hide");
                         News.viewModel.Load();
                     }
                 }
@@ -116,7 +115,6 @@ News.viewModel.NewsSave = function () {
                         Helper.ShowErrorDialog(result.Message);
                     } else {
                         Helper.ShowSuccessDialog(Messages.Success);
-                        $("#newsmodal").modal("hide");
                         News.viewModel.Load();
                     }
                 }
@@ -126,6 +124,42 @@ News.viewModel.NewsSave = function () {
         Helper.ShowErrorDialog("未选择分类");
     }
     
+};
+//删除新闻
+News.viewModel.NewsDelete = function() {
+    var model = ko.mapping.toJS(News.viewModel.newsitem);
+    Helper.ShowConfirmationDialog({
+        message: "是否确认删除?",
+        confirmFunction: function () {
+            $.ajax({
+                type: "delete",
+                url: "/api/news/" + model.Id,
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify(model),
+                success: function (result) {
+                    if (result.Error) {
+                        Helper.ShowErrorDialog(result.Message);
+                    } else {
+                        Helper.ShowSuccessDialog(Messages.Success);
+                        News.viewModel.Load();
+                        model = {
+                            Id: null,
+                            Title: "",
+                            Description: "",
+                            ThumbnailUrl: "",
+                            Content: "",
+                            NewsTypeId: "",
+                            NewsTypeName: "",
+                            IsPublish: false
+                        };
+                        ko.mapping.fromJS(model, {}, News.viewModel.newsitem);
+                    }
+                }
+            });
+        }
+    });
+   
 };
 $(function () {
     ko.applyBindings(News);

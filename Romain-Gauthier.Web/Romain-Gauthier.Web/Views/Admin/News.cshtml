@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "News";
+}
+@Scripts.Render("~/bundles/admin-news")
+<script src="//cdn.staticfile.org/ckeditor/4.4.5/ckeditor.js"></script>
+<div class="row" style="padding-top: 25px;">
+    <div class="col-md-12">
+        <div style="padding-top: 10px">
+            <a class="btn btn-default" href="#" role="button" data-bind="click:viewModel.AddNews">新增</a>
+        </div>
+        <hr />
+        <div style="padding-top: 10px">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>分类</th>
+                        <th>标题</th>
+                        <th>描述</th>
+                        <th>缩略图</th>
+                        <th>发布</th>
+                        <th>日期</th>
+                        <th>编辑</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:viewModel.news">
+                    <tr>
+                        <td data-bind="text:NewsTypeName"></td>
+                        <td data-bind="html:Title"></td>
+                        <td data-bind="html:Description"></td>
+                        <td data-bind="text:Thumbnail"></td>
+                        <td data-bind="text:IsPublish"></td>
+                        <td data-bind="date:UpdateTime"></td>
+                        <td><a href="#" data-bind="click:News.viewModel.EditNews">编辑</a><a href="#">预览</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr />
+        <div style="width: 100%">
+            <div class="form-group">
+                <label>标题</label>
+                <input class="form-control" data-bind="value:viewModel.newsitem.Title" />
+            </div>
+            <div class="form-group">
+                <label>描述</label>
+                <input class="form-control" data-bind="value:viewModel.newsitem.Description" />
+            </div>
+            <div class="form-group">
+                <label>分类</label>
+                <select class="form-control" data-bind="options: viewModel.newstypes,optionsText: 'Name', optionsCaption: '选择',value:viewModel.newstypeitem"></select>
+            </div>
+            <div class="form-group">
+                <label>缩略图</label>
+                <input class="form-control" data-bind="value:viewModel.newsitem.ThumbnailUrl"/>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" data-bind="checked:viewModel.newsitem.IsPublish"> 发布
+                </label>
+            </div>
+            <div class="form-group">
+                <label>内容</label>
+                @*<textarea class="form-control" data-bind="value:viewModel.newsitem.Content"></textarea>*@
+                <textarea id="content"></textarea>
+            </div>
+            
+        </div>
+        <div style="width: 100%; text-align: center">
+            <button type="button" class="btn btn-primary" data-bind="click:viewModel.NewsSave">保存</button>
+            <button type="button" class="btn btn-danger" data-bind="click:viewModel.NewsDelete,visible:viewModel.newsitem.Id()!=null">删除</button>
+        </div>
+    </div>
+</div>
+

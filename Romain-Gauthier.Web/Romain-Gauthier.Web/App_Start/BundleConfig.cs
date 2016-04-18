@@ -29,6 +29,10 @@ namespace Romain_Gauthier.Web
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include(
                 "~/Scripts/knockout-3.2.0.js",
                 "~/Scripts/knockout.mapping-latest.js"));
+            //main
+            bundles.Add(new ScriptBundle("~/bundles/main").Include(
+               "~/Scripts/js/main.js", "~/Scripts/moment.js", "~/Scripts/moment-with-locales.min.js"));
+
             //swiper
             bundles.Add(new StyleBundle("~/Content/swiper").Include(
                       "~/Content/swiper.css"));
@@ -40,6 +44,10 @@ namespace Romain_Gauthier.Web
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/Content/animate.css"));
+            bundles.Add(new StyleBundle("~/Content/mobilecss").Include(
+                     "~/Content/bootstrap.css",
+                     "~/Content/MobileSite.css",
+                     "~/Content/animate.css"));
             bundles.Add(new ScriptBundle("~/bundles/login").Include(
                      "~/Scripts/js/login.js"));
             //animate
@@ -92,6 +100,9 @@ namespace Romain_Gauthier.Web
             //News
             bundles.Add(new ScriptBundle("~/bundles/news").Include(
             "~/Scripts/js/news.js"));
+            //ADMIN-News
+            bundles.Add(new ScriptBundle("~/bundles/admin-news").Include(
+            "~/Scripts/js/admin-news.js"));
         }
     }
 }

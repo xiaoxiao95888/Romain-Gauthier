@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Romain-Gauthier.Web", "Romain-Gauthier.Web\Romain-Gauthier.Web.csproj", "{D02F924A-6FC6-4DCC-A937-A654B038EBAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Romain-Gauthier.Web.Tests", "Romain-Gauthier.Web.Tests\Romain-Gauthier.Web.Tests.csproj", "{EDF1A7D9-A68B-4E8F-905A-B86653379B30}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Romain-Gauthier.Library", "Romain-Gauthier.Library\Romain-Gauthier.Library.csproj", "{FD24D9F9-B6A9-49AF-84B1-C53686DB86F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Romain-Gauthier.Service", "Romain-Gauthier.Service\Romain-Gauthier.Service.csproj", "{D5948F61-B4CE-467E-BD57-2140B12B60D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Romain-Gauthier.Test", "Romain-Gauthier.Test\Romain-Gauthier.Test.csproj", "{9FB481CF-FFB4-46A7-BA3A-44E5F905DCEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +21,18 @@ Global
 		{D02F924A-6FC6-4DCC-A937-A654B038EBAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D02F924A-6FC6-4DCC-A937-A654B038EBAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D02F924A-6FC6-4DCC-A937-A654B038EBAE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EDF1A7D9-A68B-4E8F-905A-B86653379B30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EDF1A7D9-A68B-4E8F-905A-B86653379B30}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EDF1A7D9-A68B-4E8F-905A-B86653379B30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EDF1A7D9-A68B-4E8F-905A-B86653379B30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD24D9F9-B6A9-49AF-84B1-C53686DB86F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD24D9F9-B6A9-49AF-84B1-C53686DB86F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD24D9F9-B6A9-49AF-84B1-C53686DB86F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD24D9F9-B6A9-49AF-84B1-C53686DB86F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5948F61-B4CE-467E-BD57-2140B12B60D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5948F61-B4CE-467E-BD57-2140B12B60D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5948F61-B4CE-467E-BD57-2140B12B60D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5948F61-B4CE-467E-BD57-2140B12B60D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FB481CF-FFB4-46A7-BA3A-44E5F905DCEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FB481CF-FFB4-46A7-BA3A-44E5F905DCEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FB481CF-FFB4-46A7-BA3A-44E5F905DCEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FB481CF-FFB4-46A7-BA3A-44E5F905DCEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

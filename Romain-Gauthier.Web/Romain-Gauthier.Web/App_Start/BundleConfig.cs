@@ -107,7 +107,7 @@ namespace Romain_Gauthier.Web
             bundles.Add(new ScriptBundle("~/bundles/admin-product").Include(
                 "~/Scripts/js/admin-product.js"));
             //admin-personnel
-            bundles.Add(new ScriptBundle("~/bundles/admin-product").Include(
+            bundles.Add(new ScriptBundle("~/bundles/admin-personnel").Include(
                 "~/Scripts/js/admin-personnel.js"));
         }
     }

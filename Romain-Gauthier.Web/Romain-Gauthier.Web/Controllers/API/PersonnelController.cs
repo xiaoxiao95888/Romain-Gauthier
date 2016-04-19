@@ -34,7 +34,8 @@ namespace Romain_Gauthier.Web.Controllers.API
                 Name = n.Name,
                 NickName = n.NickName,
                 Province = n.Province,
-                UpdateTime = n.UpdateTime
+                UpdateTime = n.UpdateTime,
+                PhoneNum = n.PhoneNum
             }).ToArray();
             return models;
         }
@@ -68,14 +69,14 @@ namespace Romain_Gauthier.Web.Controllers.API
             string license;
             var constant = new[]
             {
-                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
+                "A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "U",
                 "V", "W", "X", "Y", "Z"
             };
             var rand = new Random();
             while (true)
             {
-                var str = constant[rand.Next(0, 25)] + rand.Next(0, 9) +
-                          constant[rand.Next(0, 25)] + rand.Next(0, 9) + constant[rand.Next(0, 25)] + rand.Next(0, 9);
+                var str = constant[rand.Next(0, 23)] + rand.Next(1, 9) +
+                          constant[rand.Next(0, 23)] + rand.Next(1, 9) + constant[rand.Next(0, 23)] + rand.Next(1, 9);
                 if (allLicense.All(n => n != str))
                 {
                     license = str;
@@ -85,8 +86,9 @@ namespace Romain_Gauthier.Web.Controllers.API
             _personnelService.Insert(new Personnel
             {
                 Id = Guid.NewGuid(),
-                Name = model.Name.Trim(),
-                Email = model.Email.Trim(),
+                Name = model.Name,
+                Email = model.Email,
+                PhoneNum = model.PhoneNum,
                 License = license
             });
             return Success();
@@ -98,6 +100,10 @@ namespace Romain_Gauthier.Web.Controllers.API
             if (item == null)
             {
                 return Failed("找不人员");
+            }
+            if (item.IsDeleted)
+            {
+                return Failed("人员已被删除");
             }
             if (string.IsNullOrEmpty(model.Email))
             {
@@ -137,6 +143,7 @@ namespace Romain_Gauthier.Web.Controllers.API
                 return Failed("找不人员");
             }
             item.IsDeleted = true;
+            _personnelService.Update();
             return Success();
         }
     }

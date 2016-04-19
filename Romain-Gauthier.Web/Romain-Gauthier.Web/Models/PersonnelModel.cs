@@ -15,7 +15,13 @@ namespace Romain_Gauthier.Web.Models
         public string Name { get; set; }
         public string OpenId { get; set; }
         public string NickName { get; set; }
-        public Gender Gender { get; set; }
+        public Gender? Gender { get; set; }
+
+        public string GenderStr
+        {
+            get { return Gender != null ? Gender.ToString() : string.Empty; }
+        }
+
         public string Language { get; set; }
         public string City { get; set; }
         public string Province { get; set; }

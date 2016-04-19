@@ -18,13 +18,15 @@ namespace Romain_Gauthier.Library.Models
         public string Name { get; set; }
         public string OpenId { get; set; }
         public string NickName { get; set; }
-        public Gender Gender { get; set; }
+        public Gender? Gender { get; set; }
         public string Language { get; set; }
         public string City { get; set; }
         public string Province { get; set; }
         public string Country { get; set; }
         public string Headimgurl { get; set; }
-        public virtual  ICollection<TrainAnswer> TrainAnswers { get; set; } 
+        public virtual ICollection<TrainAnswer> TrainAnswers { get; set; }
+        public virtual ICollection<ProductType> ProductTypes { get; set; }
+        public virtual ICollection<TrainArticle> TrainArticles { get; set; }
         public DateTime? UpdateTime { get; set; }
         public DateTime CreatedTime { get; set; }
         public bool IsDeleted { get; set; }

@@ -15,7 +15,8 @@ namespace Romain_Gauthier.Library.Models
         public Guid? ParentId { get; set; }
         [ForeignKey("ParentId")]
         public virtual ProductType Parent{ get; set; }
-        public virtual ICollection<Product> Products { get; set; } 
+        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Personnel> Personnels { get; set; }
         public DateTime? UpdateTime { get; set; }
         public DateTime CreatedTime { get; set; }
         public bool IsDeleted { get; set; }

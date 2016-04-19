@@ -5,3 +5,78 @@
 
 
 @Scripts.Render("~/bundles/admin-personnel")
+<div class="row" style="padding-top: 25px;">
+    <div class="panel panel-default">
+        <div class="panel-heading">人员管理</div>
+        <div class="panel-body">
+            <div class="form-horizontal" style="max-width: 350px; margin: 0 auto">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">姓名</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" placeholder="Name" data-bind="value:viewModel.item.Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Email</label>
+                    <div class="col-md-10">
+                        <input type="email" class="form-control" placeholder="Email" data-bind="value:viewModel.item.Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Phone</label>
+                    <div class="col-md-10">
+                        <input type="number" class="form-control" placeholder="Phone" data-bind="value:viewModel.item.PhoneNum">
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <button type="button" class="btn btn-default" data-bind="click:Personnel.viewModel.Save">保存</button>
+                    <button type="button" class="btn btn-default" data-bind="click:Personnel.viewModel.Cannel">取消</button>
+                </div>
+            </div>
+        </div>
+        <!-- Table -->
+        <table class="table table-striped" data-bind="visible:viewModel.items().length!=0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>头像</th>
+                    <th>姓名</th>
+                    <th>License</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>NickName</th>
+                    <th>Gender</th>
+                    <th>Language</th>
+                    <th>City</th>
+                    <th>Province</th>
+                    <th>Country</th>
+                    <th>日期</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:viewModel.items">
+                <tr>
+                    <td data-bind="text:$index"></td>
+                    <td>
+                        <img data-bind="src:Headimgurl, visible:Headimgurl()!=null" style="width: 50px; height: 50px;" />
+                    </td>
+                    <td data-bind="text:Name"></td>
+                    <td data-bind="text:License"></td>
+                    <td data-bind="text:PhoneNum"></td>
+                    <td data-bind="text:Email"></td>
+                    <td data-bind="text:NickName"></td>
+                    <td data-bind="text:GenderStr"></td>
+                    <td data-bind="text:Language"></td>
+                    <td data-bind="text:City"></td>
+                    <td data-bind="text:Province"></td>
+                    <td data-bind="text:Country"></td>
+                    <td data-bind="date:UpdateTime"></td>
+                    <td>
+                        <span><a href="#" data-bind="click:Personnel.viewModel.Edit">编辑</a></span>
+                        <span><a href="#" data-bind="click:Personnel.viewModel.Delete">删除</a></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

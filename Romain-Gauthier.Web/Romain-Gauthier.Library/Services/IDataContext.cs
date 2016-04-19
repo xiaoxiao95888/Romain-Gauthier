@@ -17,7 +17,6 @@ namespace Romain_Gauthier.Library.Services
         IDbSet<TrainArticle> TrainArticles { get; set; }
         IDbSet<TrainQuestion> TrainQuestions { get; set; }
         IDbSet<TrainAnswer> TrainAnswers { get; set; }
-        IDbSet<TrainType> TrainTypes { get; set; }
         IDbSet<ViewRecord> ViewRecords { get; set; }
         IDbSet<ProductType> ProductTypes { get; set; }
         IDbSet<Product> Products { get; set; }

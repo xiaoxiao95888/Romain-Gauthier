@@ -10,8 +10,11 @@ namespace Romain_Gauthier.Library.Models
     public class TrainArticle : IDtStamped
     {
         public Guid Id { get; set; }
+        public string Thumbnail { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
+        public virtual ICollection<Personnel> Personnels { get; set; }
+        public virtual ICollection<TrainQuestion> TrainQuestions { get; set; }
         /// <summary>
         /// 浏览记录
         /// </summary>

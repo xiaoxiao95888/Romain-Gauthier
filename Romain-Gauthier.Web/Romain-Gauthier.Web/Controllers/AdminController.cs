@@ -17,5 +17,15 @@ namespace Romain_Gauthier.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Product()
+        {
+            return View();
+        }
+
+        public ActionResult Personnel()
+        {
+            return View();
+        }
     }
 }

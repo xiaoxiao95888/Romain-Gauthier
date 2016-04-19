@@ -19,6 +19,9 @@ namespace Romain_Gauthier.Library.Services
         IDbSet<TrainAnswer> TrainAnswers { get; set; }
         IDbSet<TrainType> TrainTypes { get; set; }
         IDbSet<ViewRecord> ViewRecords { get; set; }
+        IDbSet<ProductType> ProductTypes { get; set; }
+        IDbSet<Product> Products { get; set; }
+        IDbSet<File> Files { get; set; }
         int SaveChanges();
         IDbSet<TEntity> Set<TEntity>() where TEntity : class;
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;

@@ -20,6 +20,9 @@ namespace Romain_Gauthier.Service
         public IDbSet<TrainAnswer> TrainAnswers { get; set; }
         public IDbSet<TrainType> TrainTypes { get; set; }
         public IDbSet<ViewRecord> ViewRecords { get; set; }
+        public IDbSet<ProductType> ProductTypes { get; set; }
+        public IDbSet<Product> Products { get; set; }
+        public IDbSet<File> Files { get; set; }
         IDbSet<TEntity> IDataContext.Set<TEntity>()
         {
             return this.Set<TEntity>();

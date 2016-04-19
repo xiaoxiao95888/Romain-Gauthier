@@ -18,6 +18,10 @@ namespace Romain_Gauthier.Web
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<INewsTypeService, NewsTypeService>();
             container.RegisterType<INewsService, NewsService>();
+            container.RegisterType<IProductTypeService, ProductTypeService>();
+            container.RegisterType<IProductService, ProductService>();
+            container.RegisterType<IFileService, FileService>();
+            container.RegisterType<IPersonnelService, PersonnelService>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

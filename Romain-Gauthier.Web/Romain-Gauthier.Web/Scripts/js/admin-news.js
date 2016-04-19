@@ -159,7 +159,6 @@ News.viewModel.NewsDelete = function() {
             });
         }
     });
-   
 };
 $(function () {
     ko.applyBindings(News);

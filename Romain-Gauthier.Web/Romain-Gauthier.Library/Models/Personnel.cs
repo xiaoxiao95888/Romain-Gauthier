@@ -25,8 +25,7 @@ namespace Romain_Gauthier.Library.Models
         public string Country { get; set; }
         public string Headimgurl { get; set; }
         public virtual ICollection<TrainAnswer> TrainAnswers { get; set; }
-        public virtual ICollection<ProductType> ProductTypes { get; set; }
-        public virtual ICollection<TrainArticle> TrainArticles { get; set; }
+        public virtual ICollection<PersonnelGroup> PersonnelGroups { get; set; }
         public DateTime? UpdateTime { get; set; }
         public DateTime CreatedTime { get; set; }
         public bool IsDeleted { get; set; }

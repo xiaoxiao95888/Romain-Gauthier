@@ -28,7 +28,11 @@ namespace Romain_Gauthier.Web.Controllers
             return View();
         }
 
-        public ActionResult ProductPersonnel()
+        public ActionResult PersonnelGroup()
+        {
+            return View();
+        }
+        public ActionResult TrainArticle()
         {
             return View();
         }

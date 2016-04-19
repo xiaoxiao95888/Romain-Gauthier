@@ -84,6 +84,7 @@
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\NewsType.cs" />
     <Compile Include="Models\Personnel.cs" />
+    <Compile Include="Models\PersonnelGroup.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductType.cs" />
     <Compile Include="Models\TrainArticle.cs" />
@@ -94,9 +95,11 @@
     <Compile Include="Services\IFileService.cs" />
     <Compile Include="Services\INewsService.cs" />
     <Compile Include="Services\INewsTypeService.cs" />
+    <Compile Include="Services\IPersonnelGroupService.cs" />
     <Compile Include="Services\IPersonnelService.cs" />
     <Compile Include="Services\IProductService.cs" />
     <Compile Include="Services\IProductTypeService.cs" />
+    <Compile Include="Services\ITrainArticleService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

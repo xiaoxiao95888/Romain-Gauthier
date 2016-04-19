@@ -22,6 +22,7 @@ namespace Romain_Gauthier.Service
         public IDbSet<ProductType> ProductTypes { get; set; }
         public IDbSet<Product> Products { get; set; }
         public IDbSet<File> Files { get; set; }
+        public IDbSet<PersonnelGroup> PersonnelGroups { get; set; }
         IDbSet<TEntity> IDataContext.Set<TEntity>()
         {
             return this.Set<TEntity>();

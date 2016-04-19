@@ -73,11 +73,7 @@ News.viewModel.EditNews = function () {
             News.viewModel.newstypeitem(item);
         }
     });
-    CKEDITOR.instances.content.setData(model.Content);
-    $("#newsmodal").modal({
-        show: true,
-        backdrop: "static"
-    });
+    CKEDITOR.instances.content.setData(model.Content);    
 };
 //保存新闻
 News.viewModel.NewsSave = function () {

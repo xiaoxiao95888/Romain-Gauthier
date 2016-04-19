@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "TrainArticle";
+}
+@Scripts.Render("~/bundles/admin-trainarticle")
+<script src="//cdn.staticfile.org/ckeditor/4.4.5/ckeditor.js"></script>
+<div class="row" style="padding-top: 25px;">
+    <div class="col-md-12">
+        <table class="table table-striped" data-bind="visible:viewModel.trainarticleitems().length!=0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>主题</th>
+                    <th>内容</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:viewModel.trainarticleitems">
+                <tr>
+                    <td data-bind="text:$index"></td>
+                    <td data-bind="text:Title"></td>
+                    <td>
+                        <a href="#" data-bind="click:TrainArticle.viewModel.TrainArticleDetail">查看</a>
+                    </td>
+                    <td>
+                        <span><a href="#" data-bind="click:TrainArticle.viewModel.EditTrainArticle">编辑</a></span>
+                        <span><a href="#" data-bind="click:TrainArticle.viewModel.DeleteTrainArticle">删除</a></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="width: 100%">
+            <div class="form-group">
+                <label>培训主题</label>
+
+                <input type="text" class="form-control" placeholder="Name" data-bind="value:viewModel.trainarticleitem.Title">
+
+            </div>
+            <div class="form-group">
+                <label>培训内容</label>
+
+                <textarea id="content"></textarea>
+                @*<textarea data-bind="text:viewModel.trainarticleitem.Content" placeholder="Content" class="form-control"></textarea>*@
+
+            </div>
+            <div style="width: 100%; text-align: center">
+                <button type="button" class="btn btn-default" data-bind="click:TrainArticle.viewModel.SaveTrainArticle">保存</button>
+                <button type="button" class="btn btn-default" data-bind="click:TrainArticle.viewModel.CannelTrainArticle">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

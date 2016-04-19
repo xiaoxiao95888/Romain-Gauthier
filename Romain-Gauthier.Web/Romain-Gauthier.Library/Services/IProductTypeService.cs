@@ -13,5 +13,6 @@ namespace Romain_Gauthier.Library.Services
         void Update();
         ProductType GetProductType(Guid id);
         IQueryable<ProductType> GetProductTypes();
+        IQueryable<Personnel> GetPersonnels();
     }
 }

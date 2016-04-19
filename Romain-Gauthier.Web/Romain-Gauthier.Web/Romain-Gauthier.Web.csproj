@@ -209,6 +209,7 @@
     <Compile Include="Controllers\API\ProductController.cs" />
     <Compile Include="Controllers\API\ProductImageController.cs" />
     <Compile Include="Controllers\API\ProductTypeController.cs" />
+    <Compile Include="Controllers\API\ProductTypePersonnelController.cs" />
     <Compile Include="Controllers\API\UploadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -227,6 +228,7 @@
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\ProductImageModel.cs" />
     <Compile Include="Models\ProductTypeModel.cs" />
+    <Compile Include="Models\ProductTypePersonnelModel.cs" />
     <Compile Include="Models\ResponseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -315,6 +317,7 @@
     <Content Include="Scripts\js\admin-news.js" />
     <Content Include="Scripts\js\admin-personnel.js" />
     <Content Include="Scripts\js\admin-product.js" />
+    <Content Include="Scripts\js\admin-productpersonnel.js" />
     <Content Include="Scripts\js\BrandInfo.js" />
     <Content Include="Scripts\js\history.js" />
     <Content Include="Scripts\js\login.js" />

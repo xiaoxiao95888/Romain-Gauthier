@@ -35,5 +35,10 @@ namespace Romain_Gauthier.Service.Services
         {
             return DbContext.ProductTypes.Where(n => !n.IsDeleted);
         }
+
+        public IQueryable<Personnel> GetPersonnels()
+        {
+            return DbContext.Personnels.Where(n => !n.IsDeleted);
+        }
     }
 }

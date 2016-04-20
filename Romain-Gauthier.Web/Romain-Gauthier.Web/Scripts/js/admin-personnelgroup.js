@@ -77,7 +77,7 @@ PersonnelGroup.viewModel.Edit= function() {
 PersonnelGroup.viewModel.Delete = function () {
     var model = ko.mapping.toJS(this);
     Helper.ShowConfirmationDialog({
-        message: "删除分组后，该分组的相关权限将一并删除，是否确认删除?",
+        message: "删除分组后，该分组的相关人员的权限将一并删除，是否确认删除?",
         confirmFunction: function () {
             $.ajax({
                 type: "delete",

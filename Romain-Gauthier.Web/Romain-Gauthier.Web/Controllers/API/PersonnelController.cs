@@ -36,7 +36,7 @@ namespace Romain_Gauthier.Web.Controllers.API
                 Province = n.Province,
                 UpdateTime = n.UpdateTime,
                 PhoneNum = n.PhoneNum,
-                PersonnelGroupModels = n.PersonnelGroups.Select(p => new PersonnelGroupModel
+                PersonnelGroupModels = n.PersonnelGroups.Where(p=>!p.IsDeleted).Select(p => new PersonnelGroupModel
                 {
                     Id = p.Id,
                     Name = p.Name,

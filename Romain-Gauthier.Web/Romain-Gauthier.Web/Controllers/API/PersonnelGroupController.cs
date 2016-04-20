@@ -90,10 +90,10 @@ namespace Romain_Gauthier.Web.Controllers.API
             {
                 return Failed("找不到用户组");
             }
-            if (item.Personnels.Any(n => !n.IsDeleted))
-            {
-                return Failed("删除失败，该用户组中存在有效用户");
-            }
+            //if (item.Personnels.Any(n => !n.IsDeleted))
+            //{
+            //    return Failed("删除失败，该用户组中存在有效用户");
+            //}
             item.IsDeleted = true;
             _personnelGroupService.Update();
             return Success();

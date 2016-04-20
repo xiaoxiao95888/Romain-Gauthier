@@ -27,6 +27,16 @@ namespace Romain_Gauthier.Web.Models
         public string Province { get; set; }
         public string Country { get; set; }
         public string Headimgurl { get; set; }
+        /// <summary>
+        /// 权限组
+        /// </summary>
+        public PersonnelGroupModel[] PersonnelGroupModels { get; set; }
+
+        public string PersonnelGroups
+        {
+            get { return string.Join(",", PersonnelGroupModels.Select(n => n.Name)); }
+        }
+
         public DateTime? UpdateTime { get; set; }
     }
 }

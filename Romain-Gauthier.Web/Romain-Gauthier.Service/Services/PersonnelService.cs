@@ -40,5 +40,10 @@ namespace Romain_Gauthier.Service.Services
         {
             DbContext.SaveChanges();
         }
+
+        public IQueryable<PersonnelGroup> GetPersonnelGroups()
+        {
+            return DbContext.PersonnelGroups.Where(n => !n.IsDeleted);
+        }
     }
 }

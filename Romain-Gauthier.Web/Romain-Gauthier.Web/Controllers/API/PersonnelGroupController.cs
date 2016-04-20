@@ -19,7 +19,7 @@ namespace Romain_Gauthier.Web.Controllers.API
         }
         public object Get()
         {
-            var model = _personnelGroupService.GetPersonnelGroups().Select(n => new PersonnelGroupModel
+            var model = _personnelGroupService.GetPersonnelGroups().ToArray().Select(n => new PersonnelGroupModel
             {
                 Id = n.Id,
                 Name = n.Name,
@@ -43,19 +43,24 @@ namespace Romain_Gauthier.Web.Controllers.API
             {
                 return Failed("名称不得为空");
             }
-            var productTypeIds = model.ProductTypeModels.Select(n => n.Id).ToArray();
-            var productTypes = _personnelGroupService.GetProductTypes().Where(n => productTypeIds.Contains(n.Id)).ToArray();
-
-            var trainArticleIds = model.TrainArticleModels.Select(n => n.Id).ToArray();
-            var trainArticles = _personnelGroupService.GetTrainArticles().Where(n => trainArticleIds.Contains(n.Id)).ToArray();
-            _personnelGroupService.Insert(new PersonnelGroup
+            var item = _personnelGroupService.GetPersonnelGroup(model.Id);
+            if (item != null)
             {
-                Id = Guid.NewGuid(),
-                Description = model.Description,
-                Name = model.Name,
-                TrainArticles = trainArticles,
-                ProductTypes = productTypes
-            });
+                item.Description = model.Description;
+                item.Name = model.Name;
+                _personnelGroupService.Update();
+            }
+            else
+            {
+                _personnelGroupService.Insert(new PersonnelGroup
+                {
+                    Id = Guid.NewGuid(),
+                    Description = model.Description,
+                    Name = model.Name,
+                    //TrainArticles = trainArticles,
+                    //ProductTypes = productTypes
+                });
+            }
             return Success();
         }
         public object Put(PersonnelGroupModel model)
@@ -65,6 +70,14 @@ namespace Romain_Gauthier.Web.Controllers.API
             {
                 return Failed("找不到用户组");
             }
+            var productTypeIds = model.ProductTypeModels.Select(n => n.Id).ToList();
+            var productTypes = _personnelGroupService.GetProductTypes().Where(n => productTypeIds.Contains(n.Id)).ToList();
+            var trainArticleIds = model.TrainArticleModels.Select(n => n.Id).ToList();
+            var trainArticles = _personnelGroupService.GetTrainArticles().Where(n => trainArticleIds.Contains(n.Id)).ToList();
+            item.ProductTypes.Clear();
+            item.TrainArticles.Clear();
+            item.ProductTypes = productTypes;
+            item.TrainArticles = trainArticles;
             item.Description = model.Description;
             item.Name = model.Name;
             _personnelGroupService.Update();

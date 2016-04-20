@@ -14,9 +14,12 @@
             Province: ko.observable(),
             Country: ko.observable(),
             Headimgurl: ko.observable(),
-            UpdateTime: ko.observable()
-        }
-       
+            UpdateTime: ko.observable(),
+            PersonnelGroupModels: ko.observableArray(),
+            PersonnelGroups: ko.observable()
+        },
+        PersonnelGroups: ko.observableArray(),
+        ChosenPersonnelGroups: ko.observableArray()
     }
 };
 ko.bindingHandlers.date = {
@@ -40,6 +43,12 @@ ko.bindingHandlers.date = {
         }
     }
 };
+Personnel.viewModel.LoadPersonnelGroups = function (callback) {
+    $.get("/api/PersonnelGroup/", function (result) {
+        ko.mapping.fromJS(result, {}, Personnel.viewModel.PersonnelGroups);
+        callback();
+    });
+};
 Personnel.viewModel.Load = function () {
     $.get("/api/personnel", function (result) {
         ko.mapping.fromJS(result, {}, Personnel.viewModel.items);
@@ -49,6 +58,20 @@ Personnel.viewModel.Load = function () {
 Personnel.viewModel.Edit = function () {
     var model = ko.mapping.toJS(this);
     ko.mapping.fromJS(model, {}, Personnel.viewModel.item);
+    Personnel.viewModel.LoadPersonnelGroups(function () {
+        var model = ko.mapping.toJS(Personnel.viewModel.item);
+        ko.mapping.fromJS([], {}, Personnel.viewModel.ChosenPersonnelGroups);
+        if (model != null && model.PersonnelGroupModels != null) {
+            ko.utils.arrayForEach(Personnel.viewModel.PersonnelGroups(), function (item) {
+                for (var i = 0; i < model.PersonnelGroupModels.length; i++) {
+                    if (item.Id() === model.PersonnelGroupModels[i].Id) {
+                        Personnel.viewModel.ChosenPersonnelGroups.push(item);
+                    }
+                }
+            });
+        }
+        console.log("selected group for Train");
+    });
 };
 //取消编辑
 Personnel.viewModel.Cannel = function () {
@@ -56,48 +79,55 @@ Personnel.viewModel.Cannel = function () {
         Id: null,
         Name: "",
         PhoneNum: "",
-        Email: ""
+        Email: "",
+        PersonnelGroupModels:[]
     };
     ko.mapping.fromJS(model, {}, Personnel.viewModel.item);
+    ko.mapping.fromJS([], {}, Personnel.viewModel.ChosenPersonnelGroups);
 };
 //保存人员
 Personnel.viewModel.Save= function() {
     var model = ko.mapping.toJS(Personnel.viewModel.item);
-    if (model.Id == null) {
-        //新增
-        $.ajax({
-            type: "post",
-            url: "/api/personnel",
-            contentType: "application/json",
-            dataType: "json",
-            data: JSON.stringify(model),
-            success: function(result) {
-                if (result.Error) {
-                    Helper.ShowErrorDialog(result.Message);
-                } else {
-                    Helper.ShowSuccessDialog(Messages.Success);
-                    Personnel.viewModel.Load();
+    var groups = ko.mapping.toJS(Personnel.viewModel.ChosenPersonnelGroups);
+    if (model != null) {
+        model.PersonnelGroupModels = groups;
+        if (model.Id == null) {
+            //新增
+            $.ajax({
+                type: "post",
+                url: "/api/personnel",
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify(model),
+                success: function (result) {
+                    if (result.Error) {
+                        Helper.ShowErrorDialog(result.Message);
+                    } else {
+                        Helper.ShowSuccessDialog(Messages.Success);
+                        Personnel.viewModel.Load();
+                    }
                 }
-            }
-        });
-    } else {
-        //更新
-        $.ajax({
-            type: "put",
-            url: "/api/personnel",
-            contentType: "application/json",
-            dataType: "json",
-            data: JSON.stringify(model),
-            success: function (result) {
-                if (result.Error) {
-                    Helper.ShowErrorDialog(result.Message);
-                } else {
-                    Helper.ShowSuccessDialog(Messages.Success);
-                    Personnel.viewModel.Load();
+            });
+        } else {
+            //更新
+            $.ajax({
+                type: "put",
+                url: "/api/personnel",
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify(model),
+                success: function (result) {
+                    if (result.Error) {
+                        Helper.ShowErrorDialog(result.Message);
+                    } else {
+                        Helper.ShowSuccessDialog(Messages.Success);
+                        Personnel.viewModel.Load();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
+    
 }
 //删除人员
 Personnel.viewModel.Delete = function () {
@@ -126,4 +156,5 @@ Personnel.viewModel.Delete = function () {
 $(function() {
     ko.applyBindings(Personnel);
     Personnel.viewModel.Load();
+    Personnel.viewModel.LoadPersonnelGroups(function (){});
 })

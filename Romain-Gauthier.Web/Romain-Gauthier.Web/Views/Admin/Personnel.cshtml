@@ -26,6 +26,17 @@
                         <input type="number" class="form-control" placeholder="Phone" data-bind="value:viewModel.item.PhoneNum">
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">权限组</label>
+                    <div class="col-md-9" data-bind="foreach:viewModel.PersonnelGroups">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" data-bind="checkedValue: $data, checked: Personnel.viewModel.ChosenPersonnelGroups" />
+                                <span data-bind="text: Name"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
                 <div class="form-group text-center">
                     <button type="button" class="btn btn-default" data-bind="click:Personnel.viewModel.Save">保存</button>
                     <button type="button" class="btn btn-default" data-bind="click:Personnel.viewModel.Cannel">取消</button>
@@ -39,6 +50,7 @@
                     <th>#</th>
                     <th>头像</th>
                     <th>姓名</th>
+                    <th>权限组</th>
                     <th>License</th>
                     <th>Phone</th>
                     <th>Email</th>
@@ -56,9 +68,10 @@
                 <tr>
                     <td data-bind="text:$index"></td>
                     <td>
-                        <img data-bind="src:Headimgurl, visible:Headimgurl()!=null" style="width: 50px; height: 50px;" />
+                        <img data-bind="src:Headimgurl, visible:Headimgurl()!=null" style="width: 50px; height: 50px;"/>
                     </td>
                     <td data-bind="text:Name"></td>
+                    <td data-bind="text:PersonnelGroups"></td>
                     <td data-bind="text:License"></td>
                     <td data-bind="text:PhoneNum"></td>
                     <td data-bind="text:Email"></td>

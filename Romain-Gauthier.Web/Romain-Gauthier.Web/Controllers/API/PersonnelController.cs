@@ -21,12 +21,12 @@ namespace Romain_Gauthier.Web.Controllers.API
 
         public object Get()
         {
-            var models = _personnelService.GetPersonnels().OrderByDescending(n => n.Name).Select(n => new PersonnelModel
+            var models = _personnelService.GetPersonnels().OrderByDescending(n => n.Name).ToArray().Select(n => new PersonnelModel
             {
                 City = n.City,
                 Country = n.Country,
                 Email = n.Email,
-                Gender = (Gender)n.Gender,
+                Gender = (Gender?)n.Gender,
                 Headimgurl = n.Headimgurl,
                 Id = n.Id,
                 Language = n.Language,
@@ -35,7 +35,14 @@ namespace Romain_Gauthier.Web.Controllers.API
                 NickName = n.NickName,
                 Province = n.Province,
                 UpdateTime = n.UpdateTime,
-                PhoneNum = n.PhoneNum
+                PhoneNum = n.PhoneNum,
+                PersonnelGroupModels = n.PersonnelGroups.Select(p => new PersonnelGroupModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    ProductTypeModels = new ProductTypeModel[0],
+                    TrainArticleModels = new TrainArticleModel[0]
+                }).ToArray()
             }).ToArray();
             return models;
         }
@@ -83,13 +90,17 @@ namespace Romain_Gauthier.Web.Controllers.API
                     break;
                 }
             }
+            var personnelGroupIds = model.PersonnelGroupModels.Select(n => n.Id).ToList();
+            var personnelGroups =
+                _personnelService.GetPersonnelGroups().Where(n => personnelGroupIds.Contains(n.Id)).ToList();
             _personnelService.Insert(new Personnel
             {
                 Id = Guid.NewGuid(),
                 Name = model.Name,
                 Email = model.Email,
                 PhoneNum = model.PhoneNum,
-                License = license
+                License = license,
+                PersonnelGroups = personnelGroups
             });
             return Success();
         }
@@ -131,6 +142,11 @@ namespace Romain_Gauthier.Web.Controllers.API
             item.Email = model.Email;
             item.Name = model.Name;
             item.PhoneNum = model.PhoneNum;
+            var personnelGroupIds = model.PersonnelGroupModels.Select(n => n.Id).ToList();
+            var personnelGroups =
+                _personnelService.GetPersonnelGroups().Where(n => personnelGroupIds.Contains(n.Id)).ToList();
+            item.PersonnelGroups.Clear();
+            item.PersonnelGroups = personnelGroups;
             _personnelService.Update();
             return Success();
         }
@@ -140,7 +156,7 @@ namespace Romain_Gauthier.Web.Controllers.API
             var item = _personnelService.GetPersonnel(id);
             if (item == null)
             {
-                return Failed("找不人员");
+                return Failed("找不到人员");
             }
             item.IsDeleted = true;
             _personnelService.Update();

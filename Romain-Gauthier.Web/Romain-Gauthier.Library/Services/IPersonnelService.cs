@@ -14,5 +14,6 @@ namespace Romain_Gauthier.Library.Services
         Personnel GetPersonnel(Guid id);
         IQueryable<Personnel> GetPersonnels();
         IQueryable<string> GetLicense();
+        IQueryable<PersonnelGroup> GetPersonnelGroups();
     }
 }

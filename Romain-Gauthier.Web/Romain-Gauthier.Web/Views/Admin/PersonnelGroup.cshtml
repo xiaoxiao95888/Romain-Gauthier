@@ -1,6 +1,145 @@
-﻿
-@{
+﻿@{
    
     ViewBag.Title = "PersonnelGroup";
 }
 @Scripts.Render("~/bundles/admin-personnelgroup")
+<div class="row" style="padding-top: 25px;">
+    <div class="panel panel-default">
+        <div class="panel-heading">权限组管理</div>
+        <div class="panel-body">
+            <div class="form-horizontal" style="max-width: 350px; margin: 0 auto">
+                <div class="form-group">
+                    <label class="col-md-2 control-label">组名</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" placeholder="Name" data-bind="value:viewModel.Item.Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">描述</label>
+                    <div class="col-md-10">
+                        <textarea data-bind="value:viewModel.Item.Description" class="form-control" placeholder="Description"></textarea>
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <button type="button" class="btn btn-default" data-bind="click:PersonnelGroup.viewModel.CreateSave">保存</button>
+                    <button type="button" class="btn btn-default" data-bind="click:PersonnelGroup.viewModel.Cannel">取消</button>
+                </div>
+            </div>
+        </div>
+        <!-- Table -->
+        <table class="table table-striped" data-bind="visible:viewModel.PersonnelGroups().length!=0">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>组名</th>
+                <th>描述</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody data-bind="foreach:viewModel.PersonnelGroups">
+            <tr>
+                <td data-bind="text:$index"></td>
+                <td data-bind="text:Name"></td>
+                <td data-bind="text:Description"></td>
+                <td>
+                    <span><a href="#" data-bind="click:PersonnelGroup.viewModel.Edit">编辑</a></span>
+                    <span><a href="#" data-bind="click:PersonnelGroup.viewModel.Delete">删除</a></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">权限组权限管理（产品系列）</div>
+        <div class="panel-body">
+            <div class="form-horizontal" style="max-width: 350px; margin: 0 auto">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">权限组</label>
+                    <div class="col-md-9">
+                        <select class="form-control" data-bind="options: viewModel.PersonnelGroups,optionsText: 'Name', optionsCaption: '选择',value:viewModel.GroupForProductType,event:{change:viewModel.ChosenGroupForProductType}"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">产品系列</label>
+                    <div class="col-md-9" data-bind="foreach:viewModel.ProductTypes">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" data-bind="checkedValue: $data, checked: PersonnelGroup.viewModel.ChosenProductTypes"/>
+                                <span data-bind="text: Name"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <button type="button" class="btn btn-default" data-bind="click:PersonnelGroup.viewModel.GroupPrductTypesSave">保存</button>
+                </div>
+            </div>
+        </div>
+        <!-- Table -->
+        <table class="table table-striped" data-bind="visible:viewModel.PersonnelGroups().length!=0">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>组名</th>
+                <th>描述</th>
+                <th>产品系列</th>
+            </tr>
+            </thead>
+            <tbody data-bind="foreach:viewModel.PersonnelGroups">
+            <tr>
+                <td data-bind="text:$index"></td>
+                <td data-bind="text:Name"></td>
+                <td data-bind="text:Description"></td>
+                <td data-bind="text:ProductTypes"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">权限组权限管理（培训主题）</div>
+        <div class="panel-body">
+            <div class="form-horizontal" style="max-width: 350px; margin: 0 auto">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">权限组</label>
+                    <div class="col-md-9">
+                        <select class="form-control" data-bind="options: viewModel.PersonnelGroups,optionsText: 'Name', optionsCaption: '选择',value:viewModel.GroupForTrain,event:{change:viewModel.ChosenGroupForTrain}"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">培训主题</label>
+                    <div class="col-md-9" data-bind="foreach:viewModel.TrainArticles">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" data-bind="checkedValue: $data, checked: PersonnelGroup.viewModel.ChosenTrains" />
+                                <span data-bind="text: Title"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <button type="button" class="btn btn-default" data-bind="click:PersonnelGroup.viewModel.GroupTrainsSave">保存</button>
+                </div>
+            </div>
+        </div>
+        <!-- Table -->
+        <table class="table table-striped" data-bind="visible:viewModel.PersonnelGroups().length!=0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>组名</th>
+                    <th>描述</th>
+                    <th>培训主题</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:viewModel.PersonnelGroups">
+                <tr>
+                    <td data-bind="text:$index"></td>
+                    <td data-bind="text:Name"></td>
+                    <td data-bind="text:Description"></td>
+                    <td data-bind="text:TrainArticles"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

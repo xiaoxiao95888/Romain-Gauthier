@@ -11,12 +11,12 @@ namespace Romain_Gauthier.Web.Controllers.API
     [Authorize]
     public class BaseApiController : ApiController
     {
-        protected ResponseModel Success()
+        protected ResponseModel Success(string message = null)
         {
             return new ResponseModel
             {
                 ErrorCode = 0,
-                Message = "success",
+                Message = message,
                 Error = false
             };
         }

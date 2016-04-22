@@ -12,8 +12,10 @@ namespace Romain_Gauthier.Library.Services
         void Insert(Personnel personnel);
         void Update();
         Personnel GetPersonnel(Guid id);
+        Personnel GetPersonnel(string id);
         IQueryable<Personnel> GetPersonnels();
         IQueryable<string> GetLicense();
         IQueryable<PersonnelGroup> GetPersonnelGroups();
+        IQueryable<TrainAnswer> GetTrainAnswers();
     }
 }

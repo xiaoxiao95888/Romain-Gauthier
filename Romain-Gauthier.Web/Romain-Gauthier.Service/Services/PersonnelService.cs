@@ -20,6 +20,19 @@ namespace Romain_Gauthier.Service.Services
             return DbContext.Personnels.FirstOrDefault(n => n.Id == id);
         }
 
+        public Personnel GetPersonnel(string id)
+        {
+            try
+            {
+                var _id = new Guid(id);
+                return GetPersonnel(_id);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public IQueryable<Personnel> GetPersonnels()
         {
             return DbContext.Personnels.Where(n => !n.IsDeleted);
@@ -44,6 +57,11 @@ namespace Romain_Gauthier.Service.Services
         public IQueryable<PersonnelGroup> GetPersonnelGroups()
         {
             return DbContext.PersonnelGroups.Where(n => !n.IsDeleted);
+        }
+
+        public IQueryable<TrainAnswer> GetTrainAnswers()
+        {
+            return DbContext.TrainAnswers.Where(n => !n.IsDeleted);
         }
     }
 }

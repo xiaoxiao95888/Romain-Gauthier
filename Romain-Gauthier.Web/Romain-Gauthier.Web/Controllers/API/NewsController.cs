@@ -22,7 +22,7 @@ namespace Romain_Gauthier.Web.Controllers.API
         public object Get()
         {
             var searchkey = HttpContext.Current.Request["searchkey"] ?? "";
-           
+
             var model =
                 _nwesService.GetNewses()
                     .Where(
@@ -110,6 +110,39 @@ namespace Romain_Gauthier.Web.Controllers.API
                 Thumbnail = item.Thumbnail,
                 UpdateTime = item.UpdateTime
             };
+        }
+    }
+    [AllowAnonymous]
+    public class NewsPublishController : BaseApiController
+    {
+        private readonly INewsService _nwesService;
+        public NewsPublishController(INewsService nwesService)
+        {
+            _nwesService = nwesService;
+        }
+
+        public object Get()
+        {
+            var searchkey = HttpContext.Current.Request["searchkey"] ?? "";
+            var model =
+                _nwesService.GetNewses()
+                    .Where(
+                        n =>
+                            n.Title.Contains(searchkey) || n.Description.Contains(searchkey) ||
+                            n.NewsType.Name.Contains(searchkey)).Where(n => n.IsPublish)
+                    .Select(n => new NewsModel
+                    {
+                        Id = n.Id,
+                        Title = n.Title,
+                        Content = n.Content,
+                        Description = n.Description,
+                        IsPublish = n.IsPublish,
+                        NewsTypeName = n.NewsType.Name,
+                        NewsTypeId = n.NewsTypeId,
+                        Thumbnail = n.Thumbnail,
+                        UpdateTime = n.UpdateTime
+                    }).ToArray().GroupBy(n => n.NewsTypeId).ToArray();
+            return model;
         }
     }
 }

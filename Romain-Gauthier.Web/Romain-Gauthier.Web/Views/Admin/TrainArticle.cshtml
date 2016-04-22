@@ -29,25 +29,141 @@
                 </tr>
             </tbody>
         </table>
-
         <div style="width: 100%">
             <div class="form-group">
                 <label>培训主题</label>
-
                 <input type="text" class="form-control" placeholder="Name" data-bind="value:viewModel.trainarticleitem.Title">
-
+            </div>
+            <div class="form-group">
+                <label>缩略图</label>
+                <form method="post" enctype="multipart/form-data" action="/API/Upload" class="form-inline">
+                    <div class="form-group"><input type="file" id="file" accept=".png,.jpge,.gif,.jpg"></div>
+                    <div class="form-group"> <button type="button" class="btn btn-success" data-bind="click:TrainArticle.viewModel.Upload">上传</button></div>
+                </form>
             </div>
             <div class="form-group">
                 <label>培训内容</label>
-
                 <textarea id="content"></textarea>
                 @*<textarea data-bind="text:viewModel.trainarticleitem.Content" placeholder="Content" class="form-control"></textarea>*@
-
             </div>
             <div style="width: 100%; text-align: center">
                 <button type="button" class="btn btn-default" data-bind="click:TrainArticle.viewModel.SaveTrainArticle">保存</button>
                 <button type="button" class="btn btn-default" data-bind="click:TrainArticle.viewModel.CannelTrainArticle">取消</button>
             </div>
         </div>
+    </div>
+    <hr />
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">培训题库管理</div>
+        <div class="panel-body">
+            <div class="form-horizontal" style="max-width: 350px; margin: 0 auto">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">题目</label>
+                    <div class="col-md-9">
+                        <textarea class="form-control" placeholder="Name" data-bind="value:viewModel.TrainQuestionItem.Question"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">分数</label>
+                    <div class="col-md-9">
+                        <input type="number" class="form-control" placeholder="Score" data-bind="value:viewModel.TrainQuestionItem.Score" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">培训主题</label>
+                    <div class="col-md-9">
+                        <select class="form-control" data-bind="options: viewModel.trainarticleitems,optionsText: 'Title', optionsCaption: '选择',value:viewModel.TrainQuestionSelectTrainarticle,event:{change:viewModel.ChosenTrainarticle}"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="button" class="btn btn-default" data-bind="click:TrainArticle.viewModel.SaveQuestion">保存</button>
+                        <button type="button" class="btn btn-default" data-bind="click:TrainArticle.viewModel.CannelQuestion">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Table -->
+        <table class="table table-striped" data-bind="visible:viewModel.TrainQuestionItems().length!=0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>培训主题</th>
+                    <th>题目</th>
+                    <th>分数</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:viewModel.TrainQuestionItems">
+                <tr>
+                    <td data-bind="text:$index"></td>
+                    <td data-bind="text:TrainArticleName"></td>
+                    <td data-bind="text:Question"></td>
+                    <td data-bind="text:Score"></td>
+                    <td>
+                        <span><a href="#" data-bind="click:TrainArticle.viewModel.EditQuestion">编辑</a></span>
+                        <span><a href="#" data-bind="click:TrainArticle.viewModel.DeleteQuestion">删除</a></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">培训题库答案管理</div>
+        <div class="panel-body">
+            <div class="form-horizontal" style="max-width: 350px; margin: 0 auto">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">答案</label>
+                    <div class="col-md-9">
+                        <textarea class="form-control" placeholder="Name" data-bind="value:viewModel.TrainAnswerItem.Answer"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" data-bind="checked: viewModel.TrainAnswerItem.IsCorrect"> 是否正确
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">培训题目</label>
+                    <div class="col-md-9">
+                        <select class="form-control" data-bind="options: viewModel.TrainQuestionItems,optionsText: 'Question', optionsCaption: '选择',value:viewModel.TrainAnswerSelectTrainQuestion,event:{change:viewModel.ChosenTrainQuestion}"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button type="button" class="btn btn-default" data-bind="click:TrainArticle.viewModel.SaveAnswer">保存</button>
+                        <button type="button" class="btn btn-default" data-bind="click:TrainArticle.viewModel.CannelAnswer">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Table -->
+        <table class="table table-striped" data-bind="visible:viewModel.TrainAnswerItems().length!=0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>答案</th>
+                    <th>对错</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:viewModel.TrainAnswerItems">
+                <tr>
+                    <td data-bind="text:$index"></td>
+                    <td data-bind="text:Answer"></td>
+                    <td data-bind="text:IsCorrect"></td>
+                    <td>
+                        <span><a href="#" data-bind="click:TrainArticle.viewModel.EditAnswer">编辑</a></span>
+                        <span><a href="#" data-bind="click:TrainArticle.viewModel.DeleteAnswer">删除</a></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

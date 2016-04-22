@@ -100,6 +100,19 @@ namespace Romain_Gauthier.Web
             //News
             bundles.Add(new ScriptBundle("~/bundles/news").Include(
             "~/Scripts/js/news.js"));
+            //TrainArticle
+            bundles.Add(new ScriptBundle("~/bundles/TrainArticle").Include(
+                "~/Scripts/js/TrainArticle.js"));
+            //TrainArticle
+            bundles.Add(new StyleBundle("~/Content/TrainArticle").Include(
+                     "~/Content/TrainArticle.css"));
+            //TrainArticle
+            bundles.Add(new StyleBundle("~/Content/TrainArticleDetail").Include(
+                     "~/Content/TrainArticleDetail.css"));
+            //TrainArticleDetail
+            bundles.Add(new ScriptBundle("~/bundles/TrainArticleDetail").Include(
+                "~/Scripts/js/TrainArticleDetail.js"));
+
             //ADMIN-News
             bundles.Add(new ScriptBundle("~/bundles/admin-news").Include(
             "~/Scripts/js/admin-news.js"));

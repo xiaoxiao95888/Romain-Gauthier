@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_SwiperLayout.cshtml";
+}
+@Scripts.Render("~/bundles/bootstrap")
+@Styles.Render("~/Content/bootstrap")
+@Styles.Render("~/Content/News")
+@Styles.Render("~/Content/animate")
+@model Romain_Gauthier.Web.Models.NewsModel
+<div class="container-fluid">
+    <div id="header-bar" data-position="fixed">
+        <div id="logo">
+            <a href="#" title="Romain Gauthier" rel="home"><img src="~/images/logo@2x.png" alt="Romain Gauthier" class="retina" id="logoImg" width="220" height="77"></a>
+        </div>
+    </div>
+    <div style="height:100px;">
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <ul class="timeline swiper-slide">
+                <li>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">@Html.Raw(Model.Title)</h4>
+                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> @Model.Flag</small></p>
+                        </div>
+                        <div class="timeline-body">
+                           @Html.Raw(Model.Content)
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- Add Pagination -->
+    </div>
+</div>

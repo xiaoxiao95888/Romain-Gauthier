@@ -59,7 +59,9 @@
     <Compile Include="Services\PersonnelService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\ProductTypeService.cs" />
+    <Compile Include="Services\TrainAnswerService.cs" />
     <Compile Include="Services\TrainArticleService.cs" />
+    <Compile Include="Services\TrainQuestionService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

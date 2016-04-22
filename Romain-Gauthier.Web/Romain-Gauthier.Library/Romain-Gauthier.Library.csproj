@@ -99,7 +99,9 @@
     <Compile Include="Services\IPersonnelService.cs" />
     <Compile Include="Services\IProductService.cs" />
     <Compile Include="Services\IProductTypeService.cs" />
+    <Compile Include="Services\ITrainAnswerService.cs" />
     <Compile Include="Services\ITrainArticleService.cs" />
+    <Compile Include="Services\ITrainQuestionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

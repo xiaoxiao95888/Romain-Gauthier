@@ -53,7 +53,10 @@ namespace Romain_Gauthier.Web.Controllers.API
             }
             item.Title = model.Title;
             item.Content = model.Content;
-            item.Thumbnail = model.Thumbnail;
+            if (!string.IsNullOrEmpty(model.Thumbnail))
+            {
+                item.Thumbnail = model.Thumbnail;
+            }
             _trainArticleService.Update();
             return Success();
         }
@@ -65,7 +68,12 @@ namespace Romain_Gauthier.Web.Controllers.API
                 return Failed("无法找到该次培训");
             }           
             item.IsDeleted = true;
-            item.TrainQuestions.ForEach(n => n.IsDeleted = true);
+            item.TrainQuestions.ForEach(n =>
+            {
+                n.IsDeleted = true;
+                n.TrainAnswers.ForEach(p => p.IsDeleted = true);
+
+            });
             _trainArticleService.Update();
             return Success();
         }

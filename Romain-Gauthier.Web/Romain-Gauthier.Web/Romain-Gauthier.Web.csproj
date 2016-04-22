@@ -203,14 +203,19 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\API\BaseApiController.cs" />
+    <Compile Include="Controllers\API\BindLicenseController.cs" />
     <Compile Include="Controllers\API\NewsController.cs" />
     <Compile Include="Controllers\API\NewsTypeController.cs" />
     <Compile Include="Controllers\API\PersonnelController.cs" />
     <Compile Include="Controllers\API\PersonnelGroupController.cs" />
+    <Compile Include="Controllers\API\PersonnelTrainArticleController.cs" />
     <Compile Include="Controllers\API\ProductController.cs" />
     <Compile Include="Controllers\API\ProductImageController.cs" />
     <Compile Include="Controllers\API\ProductTypeController.cs" />
+    <Compile Include="Controllers\API\SubmitAnswersController.cs" />
+    <Compile Include="Controllers\API\TrainAnswerController.cs" />
     <Compile Include="Controllers\API\TrainArticleController.cs" />
+    <Compile Include="Controllers\API\TrainQuestionController.cs" />
     <Compile Include="Controllers\API\UploadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -231,7 +236,9 @@
     <Compile Include="Models\ProductImageModel.cs" />
     <Compile Include="Models\ProductTypeModel.cs" />
     <Compile Include="Models\ResponseModel.cs" />
+    <Compile Include="Models\TrainAnswerModel.cs" />
     <Compile Include="Models\TrainArticleModel.cs" />
+    <Compile Include="Models\TrainQuestionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -251,6 +258,7 @@
     <Content Include="Content\productInfo.css" />
     <Content Include="Content\swiper.css" />
     <Content Include="Content\technology.css" />
+    <Content Include="Content\TrainArticle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -329,6 +337,8 @@
     <Content Include="Scripts\js\polish.js" />
     <Content Include="Scripts\js\productinfo.js" />
     <Content Include="Scripts\js\technology.js" />
+    <Content Include="Scripts\js\TrainArticle.js" />
+    <Content Include="Scripts\js\TrainArticleDetail.js" />
     <Content Include="Scripts\knockout-3.2.0.js" />
     <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -390,9 +400,13 @@
     <Content Include="Views\Admin\Personnel.cshtml" />
     <Content Include="Views\Admin\PersonnelGroup.cshtml" />
     <Content Include="Views\Admin\TrainArticle.cshtml" />
+    <Content Include="Views\Home\TrainArticle.cshtml" />
+    <Content Include="Views\Home\TrainArticleDetail.cshtml" />
+    <Content Include="Views\Home\NewsDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Infrastructure\Utilites\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

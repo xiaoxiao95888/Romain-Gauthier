@@ -24,6 +24,9 @@ namespace Romain_Gauthier.Web
             container.RegisterType<IPersonnelService, PersonnelService>();
             container.RegisterType<IPersonnelGroupService, PersonnelGroupService>();
             container.RegisterType<ITrainArticleService, TrainArticleService>();
+            container.RegisterType<ITrainQuestionService, TrainQuestionService>();
+            container.RegisterType<ITrainAnswerService, TrainAnswerService>();
+
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

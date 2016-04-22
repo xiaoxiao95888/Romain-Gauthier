@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "TrainArticle";
+    Layout = "~/Views/Shared/_SwiperLayout.cshtml";
+}
+@Scripts.Render("~/bundles/bootstrap")
+@Styles.Render("~/Content/bootstrap")
+@Scripts.Render("~/bundles/knockout")
+@Styles.Render("~/Content/TrainArticle")
+@Scripts.Render("~/bundles/TrainArticleDetail")
+<style>
+    a {
+         text-decoration: none;
+         color:#000;
+    }
+     .btn-metal {
+         background-image: linear-gradient(to bottom, #b88b5d 0px, #513d29 100%);
+         background-repeat: repeat-x;
+         border-color: #ccc;
+         border: 1px solid #5e5e5e;
+         /*text-shadow: 0 1px 0 #fff;*/
+     }
+</style>
+<div id="header-bar" data-position="fixed">
+    <div id="logo">
+        <a href="#" title="Romain Gauthier" rel="home"><img src="~/images/logo@2x.png" alt="Romain Gauthier" class="retina" id="logoImg" width="220" height="77"></a>
+    </div>
+</div>
+<div style="height:95px;"></div>
+<div class="container-fluid">
+    <div class="banner">
+        <div class="contentregion txt4" style="width: 80%; margin: 5% auto;">
+            <div class="content" data-bind="html:viewModel.TrainArticleItem.Content">
+            </div>
+
+            <div class="content" data-bind="foreach:viewModel.TrainArticleItem.TrainQuestionItems">
+                <P data-bind="text:Question"></P>
+                <div data-bind="foreach:TrainAnswerModels">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" data-bind="attr:{name:TrainQuestionId()},checkedValue: $data, event:{change:TrainArticleDetail.viewModel.ChosenAnswerItem}">
+                            <span data-bind="text:Answer"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="text-center" style="width: 100%">
+                <a class="btn btn-metal btn-sm" data-bind="click:viewModel.Submit">提交</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+

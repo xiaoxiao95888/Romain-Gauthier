@@ -134,14 +134,14 @@ namespace Romain_Gauthier.Web.Controllers.API
                     {
                         Id = n.Id,
                         Title = n.Title,
-                        Content = n.Content,
+                        //Content = n.Content,
                         Description = n.Description,
                         IsPublish = n.IsPublish,
                         NewsTypeName = n.NewsType.Name,
                         NewsTypeId = n.NewsTypeId,
                         Thumbnail = n.Thumbnail,
                         UpdateTime = n.UpdateTime
-                    }).ToArray().GroupBy(n => n.NewsTypeId).ToArray();
+                    }).ToArray().GroupBy(n => n.NewsTypeId).Select(n => new { Key = n.Key, Items = n.ToArray() }).ToArray();
             return model;
         }
     }

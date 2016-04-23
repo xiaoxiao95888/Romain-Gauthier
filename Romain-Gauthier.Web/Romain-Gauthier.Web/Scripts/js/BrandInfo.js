@@ -22,6 +22,7 @@ $(function () {
         if (link.hasClass("hover")) {
             if (e.target.nodeName === "A") {
                 e.target.click();
+                e.preventDefault();
             } else {
                 link.find("p").fadeIn();
                 link.removeClass("hover");

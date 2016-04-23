@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Http;
 using Romain_Gauthier.Library.Services;
 using Romain_Gauthier.Web.Models;
+using Romain_Gauthier.Web.Infrastructure;
 
 namespace Romain_Gauthier.Web.Controllers.API
 {
@@ -24,8 +25,8 @@ namespace Romain_Gauthier.Web.Controllers.API
 
         public object Post(TrainAnswerModel[] models)
         {
-            var currentUserId = HttpContext.Current.User.Identity.Name;
-            var currentUser = _personnelService.GetPersonnel(currentUserId);
+            var openId = HttpContext.Current.User.Identity.Name;
+            var currentUser = _personnelService.GetPersonnelByOpenId(openId);
             var answerIds = models.Select(n => n.Id).ToArray();
             if (currentUser.TrainAnswers.Any(p => answerIds.Contains(p.Id)))
             {
@@ -38,8 +39,7 @@ namespace Romain_Gauthier.Web.Controllers.API
                 currentUser.TrainAnswers.Add(item);
             }
             _personnelService.Update();
-            return Success(string.Format("提交成功！您的此次测评分数为:{0}", score));
-            return null;
+            return Success(string.Format("提交成功！您的此次测评分数为:{0}", score));          
         }
     }
 }

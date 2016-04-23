@@ -19,68 +19,37 @@
     <div style="height:100px;">
 
     </div>
-    <div class="swiper-container">
-        <div class="swiper-wrapper" data-bind="froeach:viewModel.ItemTypes">
-            <ul class="timeline swiper-slide" data-bind="foreach:$data">
-                <li>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="timeline-title" data-bind="text:Title"></h4>
-                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i>
-                                <span data-bind="text:' '+Flag()"></span>
-                                </small></p>
-                        </div>
-                        <div class="timeline-thumbnail">
-                            <img data-bind="src:ThumbnailUrl" />
-                        </div>
-                        <div class="timeline-body">
-                            <p data-bind="text:Description"></p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            @*<ul class="timeline swiper-slide">
-                <li>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago via Twitter</small></p>
-                        </div>
-                        <div class="timeline-thumbnail">
-                            <img src="~/images/10335863_382273.jpg" />
-                        </div>
-                        <div class="timeline-body">
-                            <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhi.</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago via Twitter</small></p>
-                        </div>
-                        <div class="timeline-thumbnail">
 
-                        </div>
-                        <div class="timeline-body">
-                            <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.</p>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="timeline-panel">
-                        <div class="timeline-heading">
-                            <h4 class="timeline-title">Mussum ipsum cacilds</h4>
-                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 11 hours ago via Twitter</small></p>
-                        </div>
-                        <div class="timeline-body">
-                            <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.</p>
-                        </div>
-                    </div>
-                </li>
-            </ul>*@
+    <div class="swiper-container">
+        <div class="swiper-wrapper" data-bind="template: { name: 'ultemplate', foreach: viewModel.ItemTypes }">
         </div>
+        <script type="text/html" id="ultemplate">
+            <ul class="timeline swiper-slide" data-bind="template: { name: 'litemplate', foreach: Items }"></ul>
+        </script>
+        <script type="text/html" id="litemplate">
+            <li>
+                <a data-bind="template: { name: 'body-template', data: $data },attr:{href:'/home/NewsDetail/'+Id()}"></a>
+            </li>
+        </script>
+        <script type="text/html" id="body-template">
+            <div class="timeline-panel" style="width:100%">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title" data-bind="text:Title"></h4>
+                    <p>
+                        <small class="text-muted">
+                            <i class="glyphicon glyphicon-time"></i>
+                            <span data-bind="text:' '+Flag()"></span>
+                        </small>
+                    </p>
+                </div>
+                <div class="timeline-thumbnail">
+                    <img data-bind="src:ThumbnailUrl" />
+                </div>
+                <div class="timeline-body">
+                    <p data-bind="text:Description"></p>
+                </div>
+            </div>
+        </script>
         <!-- Add Pagination -->
     </div>
     <div class="swiper-pagination next"></div>

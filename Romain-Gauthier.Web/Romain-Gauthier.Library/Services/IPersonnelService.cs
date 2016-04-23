@@ -13,6 +13,7 @@ namespace Romain_Gauthier.Library.Services
         void Update();
         Personnel GetPersonnel(Guid id);
         Personnel GetPersonnel(string id);
+        Personnel GetPersonnelByOpenId(string openId);
         IQueryable<Personnel> GetPersonnels();
         IQueryable<string> GetLicense();
         IQueryable<PersonnelGroup> GetPersonnelGroups();

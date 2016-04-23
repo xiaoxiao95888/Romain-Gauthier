@@ -8,6 +8,7 @@ namespace Romain_Gauthier.Library.Models.Enum
 {
     public enum Gender
     {
+        未知,
         男,
         女
     }

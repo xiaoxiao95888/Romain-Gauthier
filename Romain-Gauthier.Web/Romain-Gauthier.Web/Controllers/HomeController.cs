@@ -8,6 +8,7 @@ using Romain_Gauthier.Library.Services;
 using Romain_Gauthier.Service;
 using Romain_Gauthier.Service.Services;
 using Romain_Gauthier.Web.Models;
+using System.Configuration;
 
 namespace Romain_Gauthier.Web.Controllers
 {
@@ -83,9 +84,9 @@ namespace Romain_Gauthier.Web.Controllers
 
         public ActionResult TrainArticle()
         {
-            //测试登录
-            var userId = "D2C3C9C7-81CD-4AE5-81AB-53C702072FBA";
-            FormsAuthentication.SetAuthCookie(userId, false);
+            ////测试登录
+            //var userId = "D2C3C9C7-81CD-4AE5-81AB-53C702072FBA";
+            //FormsAuthentication.SetAuthCookie(userId, false);
             return View();
         }
         public ActionResult TrainArticleDetail()
@@ -105,6 +106,16 @@ namespace Romain_Gauthier.Web.Controllers
                 NewsTypeName = item.NewsType.Name
             };
             return View(model);
+        }
+        public ActionResult Accredit()
+        {
+            var backUrl = "http://romaingauthier.mangoeasy.com/home/login/";
+            var state = Guid.NewGuid();
+            var weChartloginUrl =
+                string.Format(
+                    "https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type=code&scope=snsapi_userinfo&state={2}#wechat_redirect",
+                    ConfigurationManager.AppSettings["AppId"], backUrl, state);
+            return Redirect(weChartloginUrl);
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Http;
 using Romain_Gauthier.Library.Services;
 using Romain_Gauthier.Web.Models;
+using Romain_Gauthier.Web.Infrastructure;
 
 namespace Romain_Gauthier.Web.Controllers.API
 {
@@ -22,8 +23,8 @@ namespace Romain_Gauthier.Web.Controllers.API
 
         public object Get()
         {
-            var currentUserId = HttpContext.Current.User.Identity.Name;
-            var currentUser = _personnelService.GetPersonnel(currentUserId);
+            var openId = HttpContext.Current.User.Identity.Name;
+            var currentUser = _personnelService.GetPersonnelByOpenId(openId);
             var trainArticles = currentUser.PersonnelGroups.SelectMany(n => n.TrainArticles).Distinct();
             var model = trainArticles.Select(n => new TrainArticleModel
             {
@@ -41,8 +42,8 @@ namespace Romain_Gauthier.Web.Controllers.API
         /// <returns></returns>
         public object Get(Guid id)
         {
-            var currentUserId = HttpContext.Current.User.Identity.Name;
-            var currentUser = _personnelService.GetPersonnel(currentUserId);
+            var openId = HttpContext.Current.User.Identity.Name;
+            var currentUser = _personnelService.GetPersonnelByOpenId(openId);
             var trainArticles = currentUser.PersonnelGroups.SelectMany(n => n.TrainArticles).Distinct().FirstOrDefault(n => n.Id == id);
             if (trainArticles != null && trainArticles.IsDeleted == false)
             {

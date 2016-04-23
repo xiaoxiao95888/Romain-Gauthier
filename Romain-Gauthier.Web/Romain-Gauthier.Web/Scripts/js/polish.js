@@ -22,7 +22,7 @@ function effect(index) {
         case 0:
             $("#slide1 h2").fadeIn(function () {
                 marquee($("#slide1 p"));
-            });            
+            });
             break;
         case 1:
             $("#slide2 h2").fadeIn(function () {
@@ -45,7 +45,7 @@ function marquee($element) {
     var $loopimages = $element;
     var $next = 1;			// fixed, please do not modfy;
     var $current = 0;		// fixed, please do not modfy;
-    var $interval = 5000;	// You can set single picture show time;
+    var $interval = 15000;	// You can set single picture show time;
     var $fadeTime = 800;	// You can set fadeing-transition time;
     var $imgNum = $loopimages.length;		// How many pictures do you have
     nextFadeIn();
@@ -78,7 +78,7 @@ $(function () {
             '100%': {
                 "background-position": bevelingwidth + "px" + " 100%"
             }
-            
+
         },
         {
             name: 'bluepointer',
@@ -98,9 +98,9 @@ $(function () {
                 "background-position": spiralwidth + "px" + " 100%"
             }
         }
-        
+
     ]);
-   
+
     $(".beveling").playKeyframe({
         name: 'beveling', // name of the keyframe you want to bind to the selected element
         duration: '30s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
@@ -109,7 +109,7 @@ $(function () {
         iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
         direction: 'alternate', //[optional, default: 'normal']  which direction you want the frames to flow
         fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
-        complete: function(){} //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
+        complete: function () { } //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
     });
     $(".bluepointer").playKeyframe({
         name: 'bluepointer', // name of the keyframe you want to bind to the selected element

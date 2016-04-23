@@ -63,5 +63,10 @@ namespace Romain_Gauthier.Service.Services
         {
             return DbContext.TrainAnswers.Where(n => !n.IsDeleted);
         }
+
+        public Personnel GetPersonnelByOpenId(string openId)
+        {
+            return DbContext.Personnels.FirstOrDefault(n => n.OpenId == openId);
+        }
     }
 }

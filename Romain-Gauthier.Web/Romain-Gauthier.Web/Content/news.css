@@ -33,7 +33,12 @@ img {
         margin-bottom: 20px;
         position: relative;
     }
-
+    .timeline > li > a > .timeline-panel {
+            padding: 20px;
+            float: left;
+            position: relative;
+            color:#333333
+        }
         .timeline > li > .timeline-panel {
             padding: 20px;
             float: left;

@@ -219,8 +219,10 @@
     <Compile Include="Controllers\API\NewsTypeController.cs" />
     <Compile Include="Controllers\API\PersonnelController.cs" />
     <Compile Include="Controllers\API\PersonnelGroupController.cs" />
+    <Compile Include="Controllers\API\PersonnelGroupFileController.cs" />
     <Compile Include="Controllers\API\PersonnelTrainArticleController.cs" />
     <Compile Include="Controllers\API\ProductController.cs" />
+    <Compile Include="Controllers\API\PersonnelImageController.cs" />
     <Compile Include="Controllers\API\ProductImageController.cs" />
     <Compile Include="Controllers\API\ProductTypeController.cs" />
     <Compile Include="Controllers\API\SubmitAnswersController.cs" />
@@ -236,8 +238,12 @@
     </Compile>
     <Compile Include="Infrastructure\CustomIdentity.cs" />
     <Compile Include="Infrastructure\CustomPrincipal.cs" />
+    <Compile Include="Infrastructure\Utilites\MailHelp.cs" />
+    <Compile Include="Infrastructure\Utilites\MakeThumbnailHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Enum\FileType.cs" />
     <Compile Include="Models\Enum\Gender.cs" />
+    <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NewsModel.cs" />
@@ -264,6 +270,7 @@
     </None>
     <Content Include="Content\brandInfo.css" />
     <Content Include="Content\history.css" />
+    <Content Include="Content\imagedownload.css" />
     <Content Include="Content\MobileSite.css" />
     <Content Include="Content\news.css" />
     <Content Include="Content\polish.css" />
@@ -332,11 +339,13 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.easing.1.3.js" />
     <Content Include="Scripts\jquery.keyframes.js" />
+    <Content Include="Scripts\jquery.nailthumb.1.1.js" />
     <Content Include="Scripts\jquery.scrollTo.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\admin-file.js" />
     <Content Include="Scripts\js\admin-news.js" />
     <Content Include="Scripts\js\admin-personnel.js" />
     <Content Include="Scripts\js\admin-personnelgroup.js" />
@@ -344,6 +353,7 @@
     <Content Include="Scripts\js\admin-trainarticle.js" />
     <Content Include="Scripts\js\BrandInfo.js" />
     <Content Include="Scripts\js\history.js" />
+    <Content Include="Scripts\js\imagedownload.js" />
     <Content Include="Scripts\js\login.js" />
     <Content Include="Scripts\js\Main.js" />
     <Content Include="Scripts\js\news.js" />
@@ -417,10 +427,10 @@
     <Content Include="Views\Home\TrainArticleDetail.cshtml" />
     <Content Include="Views\Home\NewsDetail.cshtml" />
     <Content Include="Views\Home\Accredit.cshtml" />
+    <Content Include="Views\Admin\File.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Infrastructure\Utilites\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

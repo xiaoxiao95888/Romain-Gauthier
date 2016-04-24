@@ -128,6 +128,14 @@ namespace Romain_Gauthier.Web
             //admin-trainarticle
             bundles.Add(new ScriptBundle("~/bundles/admin-trainarticle").Include(
           "~/Scripts/js/admin-trainarticle.js"));
+            //admin-file"
+            bundles.Add(new ScriptBundle("~/bundles/admin-file").Include(
+         "~/Scripts/js/admin-file.js"));
+            //ImageDownload
+            bundles.Add(new ScriptBundle("~/bundles/ImageDownload").Include("~/Scripts/js/ImageDownload.js"));
+            //ImageDownload
+            bundles.Add(new StyleBundle("~/Content/ImageDownload").Include(
+                     "~/Content/ImageDownload.css"));
         }
     }
 }

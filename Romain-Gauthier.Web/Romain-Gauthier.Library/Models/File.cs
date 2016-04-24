@@ -18,6 +18,10 @@ namespace Romain_Gauthier.Library.Models
         public Guid? ProductId { get; set; }
         [ForeignKey("ProductId")]
         public virtual  Product Product { get; set; }
+        public Guid? PersonnelGroupId { get; set; }
+        [ForeignKey("PersonnelGroupId")]
+        public virtual PersonnelGroup PersonnelGroup { get; set; }
+        public string Thumbnail { get; set; }
         public DateTime? UpdateTime { get; set; }
         public DateTime CreatedTime { get; set; }
         public bool IsDeleted { get; set; }

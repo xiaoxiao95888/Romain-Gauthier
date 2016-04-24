@@ -79,14 +79,15 @@ namespace Romain_Gauthier.Web.Controllers
 
         public ActionResult ImageDownload()
         {
+            ////测试登录
+            //var openId = "oqHRAs6E352cpo0u8OkcMou5e9EQ";
+            //FormsAuthentication.SetAuthCookie(openId, false);
             return View();
         }
 
         public ActionResult TrainArticle()
         {
-            ////测试登录
-            //var userId = "D2C3C9C7-81CD-4AE5-81AB-53C702072FBA";
-            //FormsAuthentication.SetAuthCookie(userId, false);
+           
             return View();
         }
         public ActionResult TrainArticleDetail()

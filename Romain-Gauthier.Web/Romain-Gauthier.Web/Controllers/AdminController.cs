@@ -36,5 +36,9 @@ namespace Romain_Gauthier.Web.Controllers
         {
             return View();
         }
+        public ActionResult File()
+        {
+            return View();
+        }
     }
 }

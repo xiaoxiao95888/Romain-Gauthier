@@ -9,6 +9,8 @@ using Romain_Gauthier.Library.Models;
 using Romain_Gauthier.Library.Models.Enum;
 using Romain_Gauthier.Library.Services;
 using Romain_Gauthier.Web.Models;
+using Romain_Gauthier.Web.Infrastructure.Utilites;
+using System.IO;
 
 namespace Romain_Gauthier.Web.Controllers.API
 {
@@ -36,9 +38,9 @@ namespace Romain_Gauthier.Web.Controllers.API
         }
         public object Post(ProductImageModel model)
         {
+            var filepath = ConfigurationManager.AppSettings["FilePath"] + model.FileName;
             if (model.FileName == null || model.ProductId == null)
-            {
-                var filepath = ConfigurationManager.AppSettings["FilePath"] + model.FileName;
+            {               
                 try
                 {
                     System.IO.File.Delete(filepath);
@@ -49,13 +51,21 @@ namespace Romain_Gauthier.Web.Controllers.API
                 }
                 return Failed("操作失败");
             }
-            _fileService.Insert(new File
+           
+            var fileName = Path.GetFileName(filepath);
+            var fileExtension = Path.GetExtension(fileName);
+            var thumbnailname = Guid.NewGuid() + fileExtension;
+
+
+            MakeThumbnailHelper.MakeThumbnail(filepath, ConfigurationManager.AppSettings["FilePath"] + thumbnailname, 120, 120, "Cut");
+            _fileService.Insert(new Library.Models.File
             {
                 Id = Guid.NewGuid(),
                 FileName = model.FileName,
                 ProductId = model.ProductId,
                 FileType = FileType.图片,
-                Name = model.Name
+                Name = model.Name,
+                Thumbnail = thumbnailname
             });
             return Success();
         }

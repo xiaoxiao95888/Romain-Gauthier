@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "File";
+}
+@Scripts.Render("~/bundles/admin-file")
+<div class="row" style="padding-top: 25px;">
+  
+    <div class="panel panel-default">
+        <div class="panel-heading">文件管理</div>
+        <div class="panel-body">
+            <div class="form-horizontal" style="max-width: 350px; margin: 0 auto">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">文件名称(显示在前台的名称)</label>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" placeholder="Name" data-bind="value:viewModel.File.Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">权限组</label>
+                    <div class="col-md-8">
+                        <select class="form-control" data-bind="options: viewModel.PersonnelGroups,optionsText: 'Name', optionsCaption: '选择',value:viewModel.PersonnelGroup,event:{change:viewModel.ChosenGroupForFile}"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">选择文件</label>
+                    <div class="col-md-8">
+                        <form method="post" enctype="multipart/form-data" action="/API/Upload">
+                            <input type="file" id="file">
+                        </form>
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <button type="button" class="btn btn-default" data-bind="click:File.viewModel.Upload">上传</button>
+                </div>
+            </div>
+        </div>
+        <!-- Table -->
+        <table class="table table-striped" data-bind="visible:viewModel.Files().length!=0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>文件</th>                   
+                    <th>权限组</th>
+                    <th>下载</th>  
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach:viewModel.Files">
+                <tr>
+                    <td data-bind="text:$index"></td>                    
+                    <td data-bind="text:Name"></td>
+                    <td data-bind="text:PersonnelGroupName"></td>
+                    <td>
+                        <a href="#" data-bind="text:'下载',attr:{href:Url}" target="_blank"></a>
+                    </td>
+                    <td>                        
+                        <span><a href="#" data-bind="click:File.viewModel.Delete">删除</a></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ 
+</div>
+

@@ -39,7 +39,8 @@ namespace Romain_Gauthier.Web.Controllers.API
                         NewsTypeName = n.NewsType.Name,
                         NewsTypeId = n.NewsTypeId,
                         Thumbnail = n.Thumbnail,
-                        UpdateTime = n.UpdateTime
+                        UpdateTime = n.UpdateTime,
+                        ExternalUrl=n.ExternalUrl
                     }).ToArray();
             return model;
         }
@@ -56,7 +57,8 @@ namespace Romain_Gauthier.Web.Controllers.API
                     Description = model.Description,
                     NewsTypeId = model.NewsTypeId,
                     Title = model.Title,
-                    Thumbnail = model.Thumbnail
+                    Thumbnail = model.Thumbnail,
+                    ExternalUrl=model.ExternalUrl
                 });
                 return Success();
             }
@@ -78,6 +80,7 @@ namespace Romain_Gauthier.Web.Controllers.API
                 item.IsPublish = model.IsPublish;
                 item.Thumbnail = model.Thumbnail;
                 item.NewsTypeId = model.NewsTypeId;
+                item.ExternalUrl = model.ExternalUrl;
                 _nwesService.Update();
                 return Success();
             }
@@ -129,7 +132,7 @@ namespace Romain_Gauthier.Web.Controllers.API
                     .Where(
                         n =>
                             n.Title.Contains(searchkey) || n.Description.Contains(searchkey) ||
-                            n.NewsType.Name.Contains(searchkey)).Where(n => n.IsPublish)
+                            n.NewsType.Name.Contains(searchkey)).Where(n => n.IsPublish).OrderByDescending(n=>n.CreatedTime)
                     .Select(n => new NewsModel
                     {
                         Id = n.Id,
@@ -140,7 +143,8 @@ namespace Romain_Gauthier.Web.Controllers.API
                         NewsTypeName = n.NewsType.Name,
                         NewsTypeId = n.NewsTypeId,
                         Thumbnail = n.Thumbnail,
-                        UpdateTime = n.UpdateTime
+                        UpdateTime = n.UpdateTime,
+                        ExternalUrl=n.ExternalUrl
                     }).ToArray().GroupBy(n => n.NewsTypeId).Select(n => new { Key = n.Key, Items = n.ToArray() }).ToArray();
             return model;
         }

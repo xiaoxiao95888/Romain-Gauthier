@@ -10,6 +10,7 @@ namespace Romain_Gauthier.Web.Models
     {        
         public Guid Id { get; set; }
         public string Thumbnail { get; set; }
+        public int? Index { get; set; }
         public string Url
         {
             get

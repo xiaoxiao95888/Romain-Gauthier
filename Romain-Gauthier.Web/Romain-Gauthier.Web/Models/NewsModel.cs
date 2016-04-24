@@ -18,6 +18,7 @@ namespace Romain_Gauthier.Web.Models
         /// </summary>
         public string Description { get; set; }
         public string Thumbnail { get; set; }
+        public string ExternalUrl { get; set; }
 
         public string ThumbnailUrl
         {
@@ -56,6 +57,6 @@ namespace Romain_Gauthier.Web.Models
         public string NewsTypeName { get; set; }
         public bool IsPublish { get; set; }
         public DateTime? UpdateTime { get; set; }
-       
+
     }
 }

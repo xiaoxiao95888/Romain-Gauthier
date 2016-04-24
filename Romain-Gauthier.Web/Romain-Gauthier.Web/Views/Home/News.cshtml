@@ -28,7 +28,7 @@
         </script>
         <script type="text/html" id="litemplate">
             <li>
-                <a data-bind="template: { name: 'body-template', data: $data },attr:{href:'/home/NewsDetail/'+Id()}"></a>
+                <a data-bind="template: { name: 'body-template', data: $data },attr:{href:ExternalUrl()==null? ('/home/NewsDetail/'+Id()):ExternalUrl}"></a>
             </li>
         </script>
         <script type="text/html" id="body-template">
@@ -43,7 +43,7 @@
                     </p>
                 </div>
                 <div class="timeline-thumbnail">
-                    <img data-bind="src:ThumbnailUrl" />
+                    <img data-bind="attr:{src:ThumbnailUrl} " />
                 </div>
                 <div class="timeline-body">
                     <p data-bind="text:Description"></p>

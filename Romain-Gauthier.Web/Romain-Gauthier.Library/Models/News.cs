@@ -28,6 +28,7 @@ namespace Romain_Gauthier.Library.Models
         [ForeignKey("NewsTypeId")]
         public virtual  NewsType NewsType { get; set; }
         public bool IsPublish { get; set; }
+        public string ExternalUrl { get; set; }
         /// <summary>
         /// 浏览记录
         /// </summary>

@@ -9,9 +9,11 @@
             Title: ko.observable(),
             Description: ko.observable(),
             ThumbnailUrl: ko.observable(),
+            Thumbnail: ko.observable(),
             Content: ko.observable(),
             NewsTypeId: ko.observable(),
             NewsTypeName: ko.observable(),
+            ExternalUrl: ko.observable(),
             IsPublish: ko.observable(),
         },
         newstypeitem: ko.observable(),
@@ -58,6 +60,7 @@ News.viewModel.AddNews = function () {
         Content: "",
         NewsTypeId: "",
         NewsTypeName: "",
+        ExternalUrl: "",
         IsPublish: false
     };
     ko.mapping.fromJS(model, {}, News.viewModel.newsitem);
@@ -156,6 +159,63 @@ News.viewModel.NewsDelete = function() {
         }
     });
 };
+//上传图片
+News.viewModel.Upload = function () {
+    var model = ko.mapping.toJS(News.viewModel.newsitem);   
+     if (model.Title == null) {
+        Helper.ShowErrorDialog("必须填写新闻名称");
+    } else {        
+        var file = document.getElementById("file").files[0];
+        if (file != null) {
+            if (file.size > 5120000) {
+                Helper.ShowErrorDialog("文件大小超出限制");
+            } else if (file.type.indexOf("image") === -1) {
+                Helper.ShowErrorDialog("文件类型超出限制");
+            } else {
+                var fd = new FormData();
+                fd.append("file", file);
+                var xhr = new XMLHttpRequest();
+                xhr.upload.addEventListener("progress", uploadProgress, false);
+                xhr.addEventListener("load", uploadComplete, false);
+                xhr.addEventListener("error", uploadFailed, false);
+                xhr.addEventListener("abort", uploadCanceled, false);
+                xhr.open("POST", "/Api/Upload");
+                xhr.send(fd);
+            }
+
+        }
+    }
+}
+function uploadProgress(evt) {
+    if (evt.lengthComputable) {
+        var percentComplete = Math.round(evt.loaded * 100 / evt.total);
+        //document.getElementById("progressNumber").innerHTML = percentComplete.toString() + "%";
+    }
+    else {
+        //document.getElementById("progressNumber").innerHTML = "unable to compute";
+    }
+}
+function uploadComplete(evt) {
+    /* This event is raised when the server send back a response */
+    var response = JSON.parse(evt.target.response);
+    if (!response.Error) {
+        //上传成功
+        //刷新素材列表
+        var fileName = response.FileName;        
+        News.viewModel.newsitem.Thumbnail(fileName);
+        Helper.ShowSuccessDialog("上传成功");
+    } else {
+        //上传失败
+        Helper.ShowErrorDialog("上传失败");
+    }
+}
+function uploadFailed(evt) {
+    //alert("There was an error attempting to upload the file.");
+    Helper.ShowErrorDialog("There was an error attempting to upload the file.");
+}
+function uploadCanceled(evt) {
+    alert("The upload has been canceled by the user or the browser dropped the connection.");
+}
 $(function () {
     ko.applyBindings(News);
     News.viewModel.Load();

@@ -5,7 +5,8 @@
             Id: ko.observable(),
             Thumbnail: ko.observable(),
             Title: ko.observable(),
-            Content: ko.observable()
+            Content: ko.observable(),
+            Index: ko.observable()
         },
         TrainQuestionItems: ko.observableArray(),
         TrainQuestionItem: {
@@ -163,7 +164,8 @@ TrainArticle.viewModel.CannelTrainArticle = function () {
         Id: null,
         Thumbnail: "",
         Title: "",
-        Content: ""
+        Content: "",
+        Index:""
     };
     ko.mapping.fromJS(model, {}, TrainArticle.viewModel.trainarticleitem);
     CKEDITOR.instances.content.setData("");

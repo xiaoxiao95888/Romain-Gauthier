@@ -13,6 +13,7 @@ namespace Romain_Gauthier.Library.Models
         public string Thumbnail { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
+        public int? Index { get; set; }
         public virtual ICollection<TrainQuestion> TrainQuestions { get; set; }
         public virtual ICollection<PersonnelGroup> PersonnelGroups { get; set; }
         /// <summary>

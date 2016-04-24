@@ -87,7 +87,9 @@ namespace Romain_Gauthier.Web.Controllers
 
         public ActionResult TrainArticle()
         {
-           
+            ////测试登录
+            //var openId = "oqHRAs6E352cpo0u8OkcMou5e9EQ";
+            //FormsAuthentication.SetAuthCookie(openId, false);
             return View();
         }
         public ActionResult TrainArticleDetail()

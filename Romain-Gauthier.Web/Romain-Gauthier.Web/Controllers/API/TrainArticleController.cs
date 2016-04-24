@@ -20,11 +20,12 @@ namespace Romain_Gauthier.Web.Controllers.API
         }
         public object Get()
         {
-            var model = _trainArticleService.GetTrainArticles().Select(n => new TrainArticleModel
+            var model = _trainArticleService.GetTrainArticles().OrderBy(n=>n.Index).Select(n => new TrainArticleModel
             {
                 Id = n.Id,
                 Title = n.Title,
-                Content = n.Content
+                Content = n.Content,
+                Index=n.Index
 
             }).ToArray();
             return model;
@@ -40,7 +41,8 @@ namespace Romain_Gauthier.Web.Controllers.API
                 Id = Guid.NewGuid(),
                 Title = model.Title,
                 Content = model.Content,
-                Thumbnail=model.Thumbnail
+                Thumbnail=model.Thumbnail,
+                Index=model.Index
             });
             return Success();
         }
@@ -52,6 +54,7 @@ namespace Romain_Gauthier.Web.Controllers.API
                 return Failed("无法找到该次培训");
             }
             item.Title = model.Title;
+            item.Index = model.Index;
             item.Content = model.Content;
             if (!string.IsNullOrEmpty(model.Thumbnail))
             {

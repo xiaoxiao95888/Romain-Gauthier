@@ -25,7 +25,7 @@ namespace Romain_Gauthier.Web.Controllers.API
         {
             var openId = HttpContext.Current.User.Identity.Name;
             var currentUser = _personnelService.GetPersonnelByOpenId(openId);
-            var trainArticles = currentUser.PersonnelGroups.SelectMany(n => n.TrainArticles).Distinct();
+            var trainArticles = currentUser.PersonnelGroups.SelectMany(n => n.TrainArticles).Where(n=>!n.IsDeleted).Distinct().OrderBy(n=>n.Index);
             var model = trainArticles.Select(n => new TrainArticleModel
             {
                 Id = n.Id,

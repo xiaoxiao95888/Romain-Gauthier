@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Polish";
+    Layout = null;
+}
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+@Scripts.Render("~/bundles/swiper")
+@Scripts.Render("~/bundles/jquery")
+@Styles.Render("~/Content/TrainContent")
+@Styles.Render("~/Content/swiper")
+@Styles.Render("~/Content/animate")
+@Scripts.Render("~/bundles/knockout")
+@Scripts.Render("~/bundles/TrainContent")
+<body data-bind="html:viewModel.Item.TrainContent"></body>

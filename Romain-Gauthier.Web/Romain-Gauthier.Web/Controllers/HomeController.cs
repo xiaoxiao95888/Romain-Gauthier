@@ -98,6 +98,15 @@ namespace Romain_Gauthier.Web.Controllers
         {
             return View();
         }
+        //显示培训的内容
+        public ActionResult TrainContent()
+        {
+            //测试登录
+            var openId = "oqHRAs6E352cpo0u8OkcMou5e9EQ";
+            FormsAuthentication.SetAuthCookie(openId, false);
+            return View();
+        }
+        //显示测试题目
         public ActionResult TrainArticleDetail()
         {
             return View();

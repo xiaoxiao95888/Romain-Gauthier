@@ -12,7 +12,14 @@ namespace Romain_Gauthier.Library.Models
         public Guid Id { get; set; }
         public string Thumbnail { get; set; }
         public string Title { get; set; }
+        /// <summary>
+        /// 考题前的提示内容
+        /// </summary>
         public string Content { get; set; }
+        /// <summary>
+        /// 培训的内容
+        /// </summary>
+        public string TrainContent { get; set; }
         public int? Index { get; set; }
         public virtual ICollection<TrainQuestion> TrainQuestions { get; set; }
         public virtual ICollection<PersonnelGroup> PersonnelGroups { get; set; }

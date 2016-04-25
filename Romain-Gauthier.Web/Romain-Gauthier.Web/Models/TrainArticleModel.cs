@@ -20,6 +20,13 @@ namespace Romain_Gauthier.Web.Models
             }
         }
         public string Title { get; set; }
+        /// <summary>
+        /// 考题前的提示内容
+        /// </summary>
         public string Content { get; set; }
+        /// <summary>
+        /// 培训的内容
+        /// </summary>
+        public string TrainContent { get; set; }
     }
 }

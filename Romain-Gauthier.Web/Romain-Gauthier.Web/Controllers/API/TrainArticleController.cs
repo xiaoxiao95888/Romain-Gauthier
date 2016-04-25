@@ -25,8 +25,9 @@ namespace Romain_Gauthier.Web.Controllers.API
                 Id = n.Id,
                 Title = n.Title,
                 Content = n.Content,
-                Index=n.Index
-
+                Index=n.Index,
+                TrainContent=n.TrainContent
+                
             }).ToArray();
             return model;
         }
@@ -42,7 +43,8 @@ namespace Romain_Gauthier.Web.Controllers.API
                 Title = model.Title,
                 Content = model.Content,
                 Thumbnail=model.Thumbnail,
-                Index=model.Index
+                Index=model.Index,
+                TrainContent = model.TrainContent
             });
             return Success();
         }
@@ -56,6 +58,7 @@ namespace Romain_Gauthier.Web.Controllers.API
             item.Title = model.Title;
             item.Index = model.Index;
             item.Content = model.Content;
+            item.TrainContent = model.TrainContent;
             if (!string.IsNullOrEmpty(model.Thumbnail))
             {
                 item.Thumbnail = model.Thumbnail;

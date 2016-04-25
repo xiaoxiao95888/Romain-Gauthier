@@ -142,6 +142,11 @@ namespace Romain_Gauthier.Web
             //ImageDownload
             bundles.Add(new StyleBundle("~/Content/FileDownload").Include(
                      "~/Content/FileDownload.css"));
+            //TrainContent
+            bundles.Add(new StyleBundle("~/Content/TrainContent").Include(
+                     "~/Content/TrainContent.css"));
+            //TrainContent
+            bundles.Add(new ScriptBundle("~/bundles/TrainContent").Include("~/Scripts/js/TrainContent.js"));
         }
     }
 }

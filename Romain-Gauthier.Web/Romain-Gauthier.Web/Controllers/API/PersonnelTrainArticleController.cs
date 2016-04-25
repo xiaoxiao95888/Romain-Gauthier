@@ -29,7 +29,6 @@ namespace Romain_Gauthier.Web.Controllers.API
             var model = trainArticles.Select(n => new TrainArticleModel
             {
                 Id = n.Id,
-                //Content = n.Content,
                 Thumbnail = n.Thumbnail,
                 Title = n.Title
             }).ToArray();
@@ -52,7 +51,42 @@ namespace Romain_Gauthier.Web.Controllers.API
                     Id = trainArticles.Id,
                     Content = trainArticles.Content,
                     Thumbnail = trainArticles.Thumbnail,
-                    Title = trainArticles.Title
+                    Title = trainArticles.Title,                   
+                };
+            }
+            return null;
+        }
+    }
+    /// <summary>
+    /// 获取详细的培训内容
+    /// </summary>
+    public class PersonnelTrainArticleContentController : BaseApiController
+    {
+        private readonly ITrainArticleService _trainArticleService;
+        private readonly IPersonnelService _personnelService;
+        public PersonnelTrainArticleContentController(ITrainArticleService trainArticleService, IPersonnelService personnelService)
+        {
+            _trainArticleService = trainArticleService;
+            _personnelService = personnelService;
+        }      
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id">trainArticle id</param>
+        /// <returns></returns>
+        public object Get(Guid id)
+        {
+            var openId = HttpContext.Current.User.Identity.Name;
+            var currentUser = _personnelService.GetPersonnelByOpenId(openId);
+            var trainArticles = currentUser.PersonnelGroups.SelectMany(n => n.TrainArticles).Distinct().FirstOrDefault(n => n.Id == id);
+            if (trainArticles != null && trainArticles.IsDeleted == false)
+            {
+                return new TrainArticleModel
+                {
+                    Id = trainArticles.Id,                   
+                    Thumbnail = trainArticles.Thumbnail,
+                    Title = trainArticles.Title,
+                    TrainContent = trainArticles.TrainContent
                 };
             }
             return null;

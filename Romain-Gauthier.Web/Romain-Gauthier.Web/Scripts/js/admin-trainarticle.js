@@ -6,6 +6,7 @@
             Thumbnail: ko.observable(),
             Title: ko.observable(),
             Content: ko.observable(),
+            TrainContent: ko.observable(),
             Index: ko.observable()
         },
         TrainQuestionItems: ko.observableArray(),
@@ -116,12 +117,18 @@ function uploadCanceled(evt) {
 TrainArticle.viewModel.EditTrainArticle = function () {
     var model = ko.mapping.toJS(this);
     ko.mapping.fromJS(model, {}, TrainArticle.viewModel.trainarticleitem);
+    //测试题前的提示内容
     CKEDITOR.instances.content.setData(model.Content);
+    //培训的内容
+    CKEDITOR.instances.traincontent.setData(model.TrainContent);
 };
 //保存培训
 TrainArticle.viewModel.SaveTrainArticle = function () {
     var model = ko.mapping.toJS(TrainArticle.viewModel.trainarticleitem);
+    //测试题前的提示内容
     model.Content = CKEDITOR.instances.content.getData();
+    //培训的内容
+    model.TrainContent = CKEDITOR.instances.traincontent.getData();
     if (model.Id == null) {
         //新增的
         $.ajax({
@@ -165,10 +172,15 @@ TrainArticle.viewModel.CannelTrainArticle = function () {
         Thumbnail: "",
         Title: "",
         Content: "",
+        TrainContent: "",
         Index:""
     };
-    ko.mapping.fromJS(model, {}, TrainArticle.viewModel.trainarticleitem);
+    ko.mapping.fromJS(model, {}, TrainArticle.viewModel.trainarticleitem);  
+    
+    //测试题前的提示内容
     CKEDITOR.instances.content.setData("");
+    //培训的内容
+    CKEDITOR.instances.traincontent.setData("");
 };
 //删除培训
 TrainArticle.viewModel.DeleteTrainArticle = function () {
@@ -412,5 +424,8 @@ $(function () {
         // Load the German interface.
         language: 'zh-cn',
     });
-
+    CKEDITOR.replace('traincontent', {
+        // Load the German interface.
+        language: 'zh-cn',
+    });
 });

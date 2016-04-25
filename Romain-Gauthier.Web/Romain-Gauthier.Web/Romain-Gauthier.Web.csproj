@@ -212,12 +212,12 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\API\BaseApiController.cs" />
     <Compile Include="Controllers\API\BindLicenseController.cs" />
-    <Compile Include="Controllers\API\PersonnelFileController.cs" />
     <Compile Include="Controllers\API\HeaderSettingController.cs" />
     <Compile Include="Controllers\API\LoginController.cs" />
     <Compile Include="Controllers\API\NewsController.cs" />
     <Compile Include="Controllers\API\NewsTypeController.cs" />
     <Compile Include="Controllers\API\PersonnelController.cs" />
+    <Compile Include="Controllers\API\PersonnelFileController.cs" />
     <Compile Include="Controllers\API\PersonnelGroupController.cs" />
     <Compile Include="Controllers\API\PersonnelGroupFileController.cs" />
     <Compile Include="Controllers\API\PersonnelTrainArticleController.cs" />
@@ -281,6 +281,7 @@
     <Content Include="Content\swiper.css" />
     <Content Include="Content\technology.css" />
     <Content Include="Content\TrainArticle.css" />
+    <Content Include="Content\TrainContent.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -290,6 +291,17 @@
     <Content Include="images\1385448165630.jpg" />
     <Content Include="images\1385448165755.jpg" />
     <Content Include="images\15787fbc-39fe-4c81-97a7-be275da2a762.jpg" />
+    <Content Include="images\2016enraged\1.jpg" />
+    <Content Include="images\2016enraged\2.jpg" />
+    <Content Include="images\2016enraged\3.jpg" />
+    <Content Include="images\2016enraged\arrow_up.png" />
+    <Content Include="images\2016enraged\IMG_0540.jpg" />
+    <Content Include="images\2016enraged\IMG_0541.jpg" />
+    <Content Include="images\2016enraged\Romain_Gauthier_Logical_One.jpg" />
+    <Content Include="images\2016enraged\Romain_Gauthier_Logical_One2.jpg" />
+    <Content Include="images\2016enraged\Screen Shot 2016-04-21 at 5.14.25 PM.png" />
+    <Content Include="images\2016enraged\Screen Shot 2016-04-21 at 5.14.36 PM.png" />
+    <Content Include="images\2016enraged\Screen Shot 2016-04-21 at 5.25.03 PM.png" />
     <Content Include="images\35D7D27B-92C5-41C6-A2C4-2714E2E1F8E3.jpg" />
     <Content Include="images\4.png" />
     <Content Include="images\6f983e89-67a3-4834-8689-11f754a7505c.jpg" />
@@ -372,6 +384,7 @@
     <Content Include="Scripts\js\technology.js" />
     <Content Include="Scripts\js\TrainArticle.js" />
     <Content Include="Scripts\js\TrainArticleDetail.js" />
+    <Content Include="Scripts\js\TrainContent.js" />
     <Content Include="Scripts\knockout-3.2.0.js" />
     <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -441,6 +454,7 @@
     <Content Include="Views\Home\FileDownload.cshtml" />
     <Content Include="Views\Home\FileDownloadAccredit.cshtml" />
     <Content Include="Views\Home\ImageDownloadAccredit.cshtml" />
+    <Content Include="Views\Home\TrainContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

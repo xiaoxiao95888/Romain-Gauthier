@@ -76,7 +76,16 @@ namespace Romain_Gauthier.Web.Controllers
         {
             return View();
         }
-
+        public ActionResult ImageDownloadAccredit()
+        {
+            var backUrl = "http://romaingauthier.mangoeasy.com/home/imagedownload/";
+            var state = Guid.NewGuid();
+            var imagedownloadUrl =
+                string.Format(
+                    "https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type=code&scope=snsapi_userinfo&state={2}#wechat_redirect",
+                    ConfigurationManager.AppSettings["AppId"], backUrl, state);
+            return Redirect(imagedownloadUrl);
+        }
         public ActionResult ImageDownload()
         {
             ////测试登录
@@ -87,9 +96,6 @@ namespace Romain_Gauthier.Web.Controllers
 
         public ActionResult TrainArticle()
         {
-            ////测试登录
-            //var openId = "oqHRAs6E352cpo0u8OkcMou5e9EQ";
-            //FormsAuthentication.SetAuthCookie(openId, false);
             return View();
         }
         public ActionResult TrainArticleDetail()
@@ -109,6 +115,24 @@ namespace Romain_Gauthier.Web.Controllers
                 NewsTypeName = item.NewsType.Name
             };
             return View(model);
+        }
+
+        public ActionResult FileDownloadAccredit()
+        {
+            var backUrl = "http://romaingauthier.mangoeasy.com/home/filedownload/";
+            var state = Guid.NewGuid();
+            var fileDownloadloginUrl =
+                string.Format(
+                    "https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type=code&scope=snsapi_userinfo&state={2}#wechat_redirect",
+                    ConfigurationManager.AppSettings["AppId"], backUrl, state);
+            return Redirect(fileDownloadloginUrl);
+        }
+        public ActionResult FileDownload()
+        {
+            ////测试登录
+            //var openId = "oqHRAs6E352cpo0u8OkcMou5e9EQ";
+            //FormsAuthentication.SetAuthCookie(openId, false);
+            return View();
         }
         public ActionResult Accredit()
         {

@@ -15,6 +15,7 @@ namespace Romain_Gauthier.Library.Models
         public virtual ICollection<Personnel> Personnels { get; set; }
         public virtual ICollection<TrainArticle> TrainArticles { get; set; }
         public virtual ICollection<ProductType> ProductTypes { get; set; }
+        public virtual ICollection<File> Files { get; set; }
         public DateTime? UpdateTime { get; set; }
         public DateTime CreatedTime { get; set; }
         public bool IsDeleted { get; set; }

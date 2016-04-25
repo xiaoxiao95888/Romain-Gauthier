@@ -47,7 +47,8 @@ namespace Romain_Gauthier.Web
             bundles.Add(new StyleBundle("~/Content/mobilecss").Include(
                      "~/Content/bootstrap.css",
                      "~/Content/MobileSite.css",
-                     "~/Content/animate.css"));
+                     "~/Content/animate.css",
+                     "~/Content/font-awesome.css"));
             bundles.Add(new ScriptBundle("~/bundles/login").Include(
                      "~/Scripts/js/login.js"));
             //animate
@@ -136,6 +137,11 @@ namespace Romain_Gauthier.Web
             //ImageDownload
             bundles.Add(new StyleBundle("~/Content/ImageDownload").Include(
                      "~/Content/ImageDownload.css"));
+            //FileDownload
+            bundles.Add(new ScriptBundle("~/bundles/FileDownload").Include("~/Scripts/js/FileDownload.js"));
+            //ImageDownload
+            bundles.Add(new StyleBundle("~/Content/FileDownload").Include(
+                     "~/Content/FileDownload.css"));
         }
     }
 }

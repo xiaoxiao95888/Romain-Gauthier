@@ -30,10 +30,10 @@ namespace Romain_Gauthier.Web.Controllers.API
             {
                 Id = n.Id,
                 FileName = n.FileName,
-                ProductId = n.ProductId.Value,
+                ProductId = n.ProductId,
                 ProductName = n.Product.Name,
                 ProductTypeId=n.ProductId,                
-                UpdateTime = n.UpdateTime.Value,
+                UpdateTime = n.UpdateTime,
                 ProductTypeName = n.Product.ProductType.Name,
                 Name = n.Name,
                 Thumbnail=n.Thumbnail
@@ -46,6 +46,11 @@ namespace Romain_Gauthier.Web.Controllers.API
 
             return model;
         }
+        /// <summary>
+        /// 下载
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public object Post(ProductImageModel model)
         {
             var item = _fileService.GetFile(model.Id);

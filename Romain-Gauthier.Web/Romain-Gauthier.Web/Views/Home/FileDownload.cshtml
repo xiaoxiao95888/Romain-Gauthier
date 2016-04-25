@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "FileDownload";
+    Layout = "~/Views/Shared/_MobileLayout.cshtml";
+}
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/knockout")
+@Scripts.Render("~/bundles/FileDownload")
+@Styles.Render("~/Content/FileDownload")
+<style>
+    .bs-example-type .table tr:first-child td {
+        border-top: 0 none;
+    }
+
+    .bs-example-type .table td {
+        border-color: #333333;
+        padding: 15px 0;
+    }
+</style>
+
+<div class="container-fluid">
+    <div id="header-bar" data-position="fixed">
+        <div id="logo">
+            <a href="#" title="Romain Gauthier" rel="home"><img src="~/images/logo@2x.png" alt="Romain Gauthier" class="retina" id="logoImg" width="220" height="77"></a>
+        </div>
+    </div>
+    <div style="height: 120px;"></div>
+    <div class="text-center" style="width: 100%; color: #d1cdc9; padding-top: 150px; " data-bind="visible:FileDownload.viewModel.Logined()!=true">
+        <i class="fa fa-spinner fa-spin"></i> 正在验证身份，请稍候.
+    </div>
+    <div style="width: 100%; padding-top: 100px;" class="text-center" data-bind="visible:viewModel.Items().length==0 && FileDownload.viewModel.Logined()!=null">
+        <p>对不起，没有可供您下载的文件。</p>
+    </div>
+    <div style="width: 90%; margin: 5% auto; color: #d1cdc9;" class="bs-example-type">
+        <table class="table">
+            <tbody data-bind="foreach:viewModel.Items">
+                <tr data-bind="click:FileDownload.viewModel.Download">
+                    <td data-bind="text:Name" class="col-xs-9"></td>
+                    <td style="white-space: nowrap;">
+                        <small data-bind="text:Flag" class="col-xs-3 text-right" style="color: #767676; vertical-align: middle;"></small>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

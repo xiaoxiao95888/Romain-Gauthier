@@ -32,6 +32,6 @@ namespace Romain_Gauthier.Web.Models
         public string ProductName { get; set; }
         public Guid? ProductTypeId { get; set; }
         public string ProductTypeName { get; set; }
-        public DateTime UpdateTime { get; set; }
+        public DateTime? UpdateTime { get; set; }
     }
 }

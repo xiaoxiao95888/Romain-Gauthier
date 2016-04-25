@@ -13,9 +13,8 @@ namespace Romain_Gauthier.Web.Infrastructure.Utilites
         /// 下载文件
         /// </summary>
         /// <param name="mail"></param>
-        /// <param name="salesFlowFile"></param>
         /// <param name="empName"></param>
-        /// <param name="url"></param>
+        /// <param name="filePath"></param>
         public static void SendMailForImage(string mail,string empName,string filePath)
         {
             var username = ConfigurationManager.AppSettings["MailUser"];

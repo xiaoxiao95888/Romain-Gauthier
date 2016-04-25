@@ -1,38 +1,37 @@
-﻿var ImageDownload = {
+﻿var FileDownload = {
     viewModel: {
         Items: ko.observableArray(),
-        Logined: ko.observable()
+        Logined: ko.observable(),
     }
 };
 
 //获取图片列表
-ImageDownload.viewModel.Load = function () {
-    $.get("/api/PersonnelImage/", function (data) {
-        ko.mapping.fromJS(data, {}, ImageDownload.viewModel.Items);
+FileDownload.viewModel.Load = function () {
+    $.get("/api/PersonnelFile/", function (data) {
+        ko.mapping.fromJS(data, {}, FileDownload.viewModel.Items);
     });
 
 };
-
 //下载
-ImageDownload.viewModel.Download = function() {
+FileDownload.viewModel.Download = function () {
     var model = ko.mapping.toJS(this);
-    ImageDownload.viewModel.ShowProcess();
+    FileDownload.viewModel.ShowProcess();
     $.ajax({
         type: "post",
-        url: "/api/PersonnelImage/",
+        url: "/api/PersonnelFile/" + model.Id,
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify(model),
         success: function (result) {
             if (result.Error) {
-                alert("文件下载失败");               
+                alert("文件下载失败");
             } else {
-                ImageDownload.viewModel.HideProcess();
+                FileDownload.viewModel.HideProcess();
             }
         }
     });
 };
-ImageDownload.viewModel.ShowProcess = function () {
+FileDownload.viewModel.ShowProcess = function () {
     $("#ProcessDialog").find(".modal-body").empty();
     $("#ProcessDialog").find(".modal-body").html("<i class=\"fa fa-spinner fa-spin\"></i> 正在发送邮件至您邮箱");
     $("#ProcessDialog").modal({
@@ -40,7 +39,7 @@ ImageDownload.viewModel.ShowProcess = function () {
         show: true
     });
 }
-ImageDownload.viewModel.HideProcess = function () {
+FileDownload.viewModel.HideProcess = function () {
     $("#ProcessDialog").find(".modal-body").empty();
     $("#ProcessDialog").find(".modal-body").html("文件已发送至您邮箱，请及时查收");
     setTimeout(function () {
@@ -55,6 +54,7 @@ function getQueryStringByName(name) {
     return result[1];
 }
 function login() {
+    
     $.get("/api/WeChatUser/", function (getuser) {
         if (getuser.Error) {
             var model = {
@@ -90,12 +90,12 @@ function login() {
                                     success: function (result) {
                                         if (result.Error) {
                                             //登录失败
-                                            ImageDownload.viewModel.Logined(false);
+                                            FileDownload.viewModel.Logined(false);
                                             alert("您尚未获得授权！");
 
                                         } else {
                                             //登录成功
-                                            ImageDownload.viewModel.Logined(true);
+                                            FileDownload.viewModel.Logined(true);
                                         }
                                     }
                                 });
@@ -105,14 +105,15 @@ function login() {
                 });
             });
 
+
         } else {
-            ImageDownload.viewModel.Logined(true);
+            FileDownload.viewModel.Logined(true);
         }
 
     });
 }
 $(function () {
-    ko.applyBindings(ImageDownload);
-    ImageDownload.viewModel.Load();
+    ko.applyBindings(FileDownload);
+    FileDownload.viewModel.Load();
     login();
 });

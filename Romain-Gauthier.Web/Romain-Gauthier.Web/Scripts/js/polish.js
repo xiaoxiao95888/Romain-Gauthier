@@ -16,29 +16,42 @@ $.fn.extend({
         });
     }
 });
+//已经出发过动画的区域
+var hasmarquee = [];
 //切换屏幕后的动画
 function effect(index) {
-    switch (index) {
-        case 0:
-            $("#slide1 h2").fadeIn(function () {
+    if (index === 0) {
+        $("#slide1 h2").fadeIn(function () {
+            if (hasmarquee.indexOf(0) === -1) {
                 marquee($("#slide1 p"));
-            });
-            break;
-        case 1:
-            $("#slide2 h2").fadeIn(function () {
+                hasmarquee.push(0);
+            }
+        });
+    }
+    if (index === 1) {
+        $("#slide2 h2").fadeIn(function () {
+            if (hasmarquee.indexOf(1) === -1) {
                 marquee($("#slide2 p"));
-            });
-            break;
-        case 2:
-            $("#slide3 h2").fadeIn(function () {
+                hasmarquee.push(1);
+            }
+        });
+    }
+    if (index === 2) {
+        $("#slide3 h2").fadeIn(function () {
+            if (hasmarquee.indexOf(2) === -1) {
                 marquee($("#slide3 p"));
-            });
-        case 3:
-            $("#slide4 h2").fadeIn(function () {
+                hasmarquee.push(2);
+            }
+        });
+    }
+    if (index === 3) {
+        $("#slide4 h2").fadeIn(function () {
+            if (hasmarquee.indexOf(3) === -1) {
                 marquee($("#slide4 p"));
-            });
-            break;
-        default:
+                hasmarquee.push(3);
+            }
+
+        });
     }
 }
 function marquee($element) {
@@ -146,9 +159,6 @@ $(function () {
         paginationClickable: true,
         direction: 'vertical',
         onSlideChangeEnd: function (swiper) {
-            pageturning(swiper.activeIndex);
-        },
-        onSlideChange: function () {
             effect(swiper.activeIndex);
         }
     });
@@ -174,5 +184,5 @@ $(function () {
     ko.applyBindings(Polish);
     ko.mapping.fromJS(models, {}, Polish.viewModel.items);
     Polish.viewModel.myswiper(myswiper);
-    pageturning(0);
+    effect(0);
 });

@@ -212,7 +212,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\API\BaseApiController.cs" />
     <Compile Include="Controllers\API\BindLicenseController.cs" />
-    <Compile Include="Controllers\API\FileController.cs" />
+    <Compile Include="Controllers\API\PersonnelFileController.cs" />
     <Compile Include="Controllers\API\HeaderSettingController.cs" />
     <Compile Include="Controllers\API\LoginController.cs" />
     <Compile Include="Controllers\API\NewsController.cs" />
@@ -269,6 +269,9 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Content\brandInfo.css" />
+    <Content Include="Content\FileDownload.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\history.css" />
     <Content Include="Content\imagedownload.css" />
     <Content Include="Content\MobileSite.css" />
@@ -279,6 +282,7 @@
     <Content Include="Content\technology.css" />
     <Content Include="Content\TrainArticle.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -332,6 +336,11 @@
     <Content Include="images\topviewback.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
     <None Include="Properties\PublishProfiles\r.local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -352,6 +361,7 @@
     <Content Include="Scripts\js\admin-product.js" />
     <Content Include="Scripts\js\admin-trainarticle.js" />
     <Content Include="Scripts\js\BrandInfo.js" />
+    <Content Include="Scripts\js\FileDownload.js" />
     <Content Include="Scripts\js\history.js" />
     <Content Include="Scripts\js\imagedownload.js" />
     <Content Include="Scripts\js\login.js" />
@@ -428,6 +438,9 @@
     <Content Include="Views\Home\NewsDetail.cshtml" />
     <Content Include="Views\Home\Accredit.cshtml" />
     <Content Include="Views\Admin\File.cshtml" />
+    <Content Include="Views\Home\FileDownload.cshtml" />
+    <Content Include="Views\Home\FileDownloadAccredit.cshtml" />
+    <Content Include="Views\Home\ImageDownloadAccredit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

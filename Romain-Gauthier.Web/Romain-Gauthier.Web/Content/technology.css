@@ -33,6 +33,7 @@ img {
 
 .content p {
     padding-bottom: 10px;
+     text-align: justify;
 }
 
 .contentregion {

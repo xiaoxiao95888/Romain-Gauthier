@@ -11,4 +11,18 @@
 @Styles.Render("~/Content/animate")
 @Scripts.Render("~/bundles/knockout")
 @Scripts.Render("~/bundles/TrainContent")
-<body data-bind="html:viewModel.Item.TrainContent"></body>
+
+
+<body style="background-color: #000">
+<div data-bind="html:viewModel.Item.TrainContent" >
+
+</div>
+    <div data-bind="visible:TrainContent.viewModel.Item.TrainContent()==null" style="background-color: #000;position:fixed;margin:auto;left:0; right:0; top:0; bottom:0;width:200px; height:150px;">
+        <p style="color: #fff">培训尚未开始，敬请期待！</p>
+    </div>
+</body>
+
+
+
+
+

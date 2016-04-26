@@ -2,13 +2,19 @@
 @{
     ViewBag.Title = "ProductInfo";
     Layout = "~/Views/Shared/_SwiperLayout.cshtml";
-}@Scripts.Render("~/bundles/bootstrap")
+}
+@Scripts.Render("~/bundles/bootstrap")
 @Styles.Render("~/Content/bootstrap")
 @Styles.Render("~/Content/productInfo")
 @Styles.Render("~/Content/animate")
 @Scripts.Render("~/bundles/knockout")
 @Scripts.Render("~/bundles/productInfo")
-
+<style>
+    p h3 {
+        font-size: 14px;
+        font-weight: bold;
+    }
+</style>
 <div class="container-fluid" style="height: 100%;margin: 0 auto;">
     <div class="logo">
         <img src="/images/logo-nav.png">
@@ -16,90 +22,104 @@
     <div class="navBtn" data-bind="click:viewModel.shownavigation">
         <img src="/images/nav.png">
     </div>
-    <div class="navlist" style="left: -180px;">
+    <div class="navlist" style="left: -200px;">
         <div style="width:10%;left:auto;right:6%;top:2%;" class="layer nClose" data-bind="click:viewModel.navigationClose"><img src="/images/close.png"></div>
-        <div style="width:60%;left:18%;top:8%;" class="layer navHead"></div>
-        <ul style="width: 100%; left: 0; top: 8%;" class="layer navlist_panel">
+        <div style="width: 60%; left: 18%; top: 8%;" class="layer navHead"></div>
+        <ul style="width: 100%; left: 0; top: 8%;" class="layer navlist_panel" data-bind="template: { name: 'litemplate', foreach: viewModel.Items }"></ul>
+        <script type="text/html" id="litemplate">
             <li class="uli">
-                <span data-bind="text:ProductInfo.viewModel.product.name" style="padding: 0 15px;height: 30px;line-height: 30px;color: #bf9060; "></span>
+                <span data-bind="text:name" style="padding: 0 15px; height: 30px; line-height: 30px; color: #bf9060;"></span>
             </li>
-            <!-- ko foreach:viewModel.product.items -->
+            <!-- ko foreach:items -->
             <li class="uli">
-                <a href="#" class="hl navF" data-bind="text:name,css:{active1:$index()==ProductInfo.viewModel.currentItem.index()},click:ProductInfo.viewModel.navigation"></a>
+                <a href="#" class="hl navF" data-bind="text:name,css:{active1:index()==ProductInfo.viewModel.currentItem.index()},click:ProductInfo.viewModel.navigation"></a>
             </li>
             <!-- /ko -->
-        </ul>
+        </script>
+
+        @*<ul style="width: 100%; left: 0; top: 8%;" class="layer navlist_panel">
+                <li class="uli">
+                    <span data-bind="text:ProductInfo.viewModel.product.name" style="padding: 0 15px;height: 30px;line-height: 30px;color: #bf9060; "></span>
+                </li>
+                <!-- ko foreach:viewModel.product.items -->
+                <li class="uli">
+                    <a href="#" class="hl navF" data-bind="text:name,css:{active1:$index()==ProductInfo.viewModel.currentItem.index()},click:ProductInfo.viewModel.navigation"></a>
+                </li>
+                <!-- /ko -->
+            </ul>*@
     </div>
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide" id="slide1">
-                <div class="topview" style="display:none">
+                <div class="topview" style="display: none">
                     <div class="layer bg">
                         <img src="/images/topviewback.jpg">
                     </div>
                     <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
-                        <div style="position: relative;width: 100%;max-height:336px;margin-bottom:20px; overflow: hidden;overflow-y:auto;" class="swiper-no-swiping">
-                            <table class="table table-bordered table-responsive">
-                                <thead>
-                                    <tr>
-                                        <th>aaa</th>
-                                        <th>bbb</th>
-                                        <th>ccc</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>11111</td>
-                                        <td>22222</td>
-                                        <td>33333</td>
-                                    </tr>
-                                    <tr>
-                                        <td>11111</td>
-                                        <td>22222</td>
-                                        <td>33333</td>
-                                    </tr>
-                                    <tr>
-                                        <td>11111</td>
-                                        <td>22222</td>
-                                        <td>33333</td>
-                                    </tr>
-                                    <tr>
-                                        <td>11111</td>
-                                        <td>22222</td>
-                                        <td>33333</td>
-                                    </tr>
-                                    <tr>
-                                        <td>11111</td>
-                                        <td>22222</td>
-                                        <td>33333</td>
-                                    </tr>
-                                    <tr>
-                                        <td>11111</td>
-                                        <td>22222</td>
-                                        <td>33333</td>
-                                    </tr>
-                                    <tr>
-                                        <td>11111</td>
-                                        <td>22222</td>
-                                        <td>33333</td>
-                                    </tr>
-                                    <tr>
-                                        <td>11111</td>
-                                        <td>22222</td>
-                                        <td>33333</td>
-                                    </tr>
-                                    <tr>
-                                        <td>11111</td>
-                                        <td>22222</td>
-                                        <td>33333</td>
-                                    </tr>
-                                    <tr>
-                                        <td>44444</td>
-                                        <td>44444</td>
-                                        <td>44444</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div style="position: relative; width: 100%; max-height: 430px; margin-bottom: 20px; overflow: hidden; overflow-y: auto;" class="swiper-no-swiping">
+                            <p>
+                                <strong>Logical One 黑色钛金属</strong>
+                            </p>
+
+                            <p>
+                                <strong>款式</strong>
+                            </p>
+
+                            <p>黑色ADLC（碳镀层）钛金属表壳以及ADLC隐形碳镀层处理的5级自然钛金属钯加工工艺的机芯</p>
+
+                            <p>
+                                <strong>部件和指示器</strong>
+                            </p>
+
+                            <p>小时，分钟，秒；46小时的能量储存指示器；按压式上链系统；创新设计包括平面式芝麻链(chain-and-fusee)恒定动力系统(Constant Force)，搭配红宝石链条，和蜗型齿轮。</p>
+
+                            <p>
+                                <strong>表盘和指针</strong>
+                            </p>
+
+                            <p>白珐琅表盘搭配18k 金底板配得火焰蓝的钢制指针，或是 黑色珐琅表盘搭配18k金底板配得18k 金指针，或是 黑色的黄铜表盘加上特有的巴黎钉饰纹配有18k 金指针</p>
+
+                            <p>
+                                <strong>Romain Gauthier 特有机芯</strong>
+                            </p>
+
+                            <p>尺寸：35.5 mm x 10.5mm</p>
+
+                            <p>能力储存：46小时</p>
+
+                            <p>红宝石总量：63颗，其中26颗装配在能量动衡芝麻链上</p>
+
+                            <p>机芯组件：359个零部件</p>
+
+                            <p>均衡频率：28,800 vph/4Hz</p>
+
+                            <p>机芯包含材质：钢，不锈钢，铍铜，黄铜，钛，和德银（国际标准925纯银，精度三层18k 白金防氧化层，铂金般效果，永不褪色）</p>
+
+                            <p>专利：4项</p>
+
+                            <p>打磨工艺：最高等级钟表制造打磨</p>
+
+                            <p>
+                                <strong>表壳：</strong>
+                            </p>
+
+                            <p>尺寸：43mm x 15mm</p>
+
+                            <p>防水：30m/3atm/100ft</p>
+
+                            <p>蓝宝石镜面防折射处理</p>
+
+                            <p>2时位置调时按钮</p>
+
+                            <p>9时位置按压式上链按钮</p>
+
+                            <p>
+                                <strong>表带及表扣：</strong>
+                            </p>
+
+                            <p>翻毛皮皮表带及手工双色缝线以及黑色钛金属针扣</p>
+
+
                         </div>
                         <div style="text-align: center;" class="collectionButton">
                             <a href="#" data-bind="click:viewModel.technicalclose">
@@ -109,10 +129,9 @@
                     </div>
                 </div>
                 <div class="center">
-                    <div class="layer bg" style="top:8%">
-                        <img style="display: none" src="/images/product/Presitge_HMS/HMS_TEN/HMS_TEN_platinum.jpg" />
-                        <img style="display: none" src="/images/product/Presitge_HMS/HMS_TEN/HMS_TEN_red_gold.jpg" />
-                        <img style="display: none" src="/images/product/Presitge_HMS/HMS_TEN/HMS_TEN_white.jpg" />
+                    <div class="layer bg" style="top: 8%">
+                        <img src="/images/product/Logical_one/Black_titanium/Romain_Gauthier_Logical_One_Black_Titanium_9.jpg" />
+
                     </div>
                     <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%; visibility: inherit; width: 80%;">
                         <div class="main-title-blog">
@@ -122,54 +141,1467 @@
                         </div>
                         <div class="content">
                             <p>
-                                Prestige HMS Ten是为了庆祝RomainGauthier十周年纪念而创作的。它具有全新设计的偏心时针和分针表盘以及半开放镂空式的秒针小表盘。此款腕表全手工打磨的自制机芯可以从表的背面观赏，其极具特色的符合人体工学的表冠位于表壳背面。
+                                Logical One Black Titanium是Romain Gauthier推出的第一款运动型产品。轻量化的设计理念以及新材质的大量应用使其重量仅有贵金属款式的三分之一，此款腕表同样搭载Romain Gauthier获得2013年日内瓦高级钟表大赏‘最复杂男士腕表奖项’的机芯，它包含了革命性蜗牛凸轮和可使摩擦降低到最小化的红宝石链条（专利技术），再加上蓝宝石内衬发条盒使它对动力进行恒定输出，并提供46小时的恒定动力。Logical One Black Titanium是以运动为设计理念，打磨呈现符合运动的刚性波纹。
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="swiper-slide" id="slide2">
-                <div class="layer bg">
-                    <img src="/images/product/Presitge_HMS/Platinum/Romain_Gauthier_Prestige_HMS_platinum_7.jpg">
-                </div>
-                <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%;  visibility: inherit; width: 80%;">
-                    <div class="main-title-blog">
-                        <h2><span data-bind="text:ProductInfo.viewModel.currentItem.name"></span></h2>
+                <div class="topview" style="display: none">
+                    <div class="layer bg">
+                        <img src="/images/topviewback.jpg">
                     </div>
-                    <div class="content">
-                        <p>
-                            Collection Prestige features an original in-house movement and design. The elegant hand-guiolloched open dial with off-center time indication is fairly traditional, but the innovative manufacture movement is anything but.
-                        </p>
+                    <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
+                        <div style="position: relative; width: 100%; max-height: 430px; margin-bottom: 20px; overflow: hidden; overflow-y: auto;" class="swiper-no-swiping">
+                            <p>
+                                <strong>Logical One 自然钛金属</strong>
+                            </p>
+
+                            <p>
+                                <strong>款式</strong>
+                            </p>
+
+                            <p>anthracite ADLC隐形碳镀层处理的5级自然钛金属表壳和钯加工工艺的机芯</p>
+
+                            <p>
+                                <strong>部件和指示器</strong>
+                            </p>
+
+                            <p>小时，分钟，秒；46小时的能量储存指示器；按压式上链系统；创新设计包括平面式芝麻链(chain-and-fusee)恒定动力系统(Constant Force)，搭配红宝石链条，和蜗型齿轮。</p>
+
+                            <p>
+                                <strong>表盘和指针</strong>
+                            </p>
+
+                            <p>白珐琅表盘搭配18k 金底板配得火焰蓝的钢制指针，或是 黑色珐琅表盘搭配18k金底板配得18k 金指针，或是 黑色的黄铜表盘加上特有的巴黎钉饰纹配有18k 金指针</p>
+
+                            <p>
+                                <strong>Romain Gauthier 特有机芯</strong>
+                            </p>
+
+                            <p>尺寸：35.5 mm x 10.5mm</p>
+
+                            <p>能力储存：46小时</p>
+
+                            <p>红宝石总量：63颗，其中26颗装配在能量动衡芝麻链上</p>
+
+                            <p>机芯组件：359个零部件</p>
+
+                            <p>均衡频率：28,800 vph/4Hz</p>
+
+                            <p>机芯包含材质：钢，不锈钢，铍铜，黄铜，钛，和德银（国际标准925纯银，精度三层18k 白金防氧化层，铂金般效果，永不褪色）</p>
+
+                            <p>专利：4项</p>
+
+                            <p>打磨工艺：最高等级钟表制造打磨</p>
+
+                            <p>
+                                <strong>表壳：</strong>
+                            </p>
+
+                            <p>尺寸：43mm x 15mm</p>
+
+                            <p>防水：30m/3atm/100ft</p>
+
+                            <p>蓝宝石镜面防折射处理</p>
+
+                            <p>2时位置调时按钮</p>
+
+                            <p>9时位置按压式上链按钮</p>
+
+                            <p>
+                                <strong>表带：</strong>
+                            </p>
+
+                            <p>哑光黑色鳄鱼皮表带及瑞士手工灰色缝线以及钛金属针扣</p>
+
+                            <p>产品亮点： Logical One自然钛金属的鬼斧神工之处就在于它运用于表壳和机芯的不同打磨之间的对比：光与暗，抛光和拉丝处理。恒定动力系统的主板、发条盒桥梁和下桥是a deep anthracite ADLC打磨工艺。并且，亮钯处理的黄铜帮助平衡桥、擒纵轮的桥梁和动力储存显示桥淋漓尽致的体现其精细的打磨。同样地，恒定动力系统的上桥是由浅色的自然钛金属组成的。</p>
+
+                        </div>
+                        <div style="text-align: center;" class="collectionButton">
+                            <a href="#" data-bind="click:viewModel.technicalclose">
+                                返回
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="layer bg" style="top: 8%">
+                        <img src="/images/product/Logical_one/Natural_titanium/Romain_Gauthier_Logical_One_Natural_Titanium_13.jpg" />
+
+                    </div>
+                    <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%; visibility: inherit; width: 80%;">
+                        <div class="main-title-blog">
+                            <h2>
+                                <span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a>
+                            </h2>
+                        </div>
+                        <div class="content">
+                            <p>
+                                Romain Gauthier的Logical One Natural Titanium是以运动与典雅作为设计理念，同时兼顾新材质的运动性，以及贵金属材质的典雅，此款腕表搭载Romain Gauthier获得2013年日内瓦高级钟表大赏‘最复杂男士腕表’奖项的机芯。它包含了革命性蜗牛凸轮和可使摩擦降低到最小化的红宝石链条，再加上蓝宝石内衬发条盒使它可以对动力进行恒定输出，并提供46小时的恒定动力。在打磨工艺上Logical One Natural Titanium融合新材质刚性的打磨方式以及贵金属典雅的风格。
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="swiper-slide" id="slide3">
-                <div class="layer bg">
-                    <img src="/images/product/Presitge_HMS/Red_gold/Romain_Gauthier_Prestige_HMS_red_gold_2.jpg">
-                </div>
-                <div class="contentregion layer txt4" style="left: 10%; top: 12%; bottom: auto; visibility: inherit; width: 80%;">
-                    <div class="main-title-blog">
-                        <h2><span data-bind="text:ProductInfo.viewModel.currentItem.name"></span></h2>
+                <div class="topview" style="display: none">
+                    <div class="layer bg">
+                        <img src="/images/topviewback.jpg">
                     </div>
-                    <div class="content">
-                        <p>
-                            Collection Prestige features an original in-house movement and design. The elegant hand-guiolloched open dial with off-center time indication is fairly traditional, but the innovative manufacture movement is anything but.
-                        </p>
+                    <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
+                        <div style="position: relative; width: 100%; max-height: 430px; margin-bottom: 20px; overflow: hidden; overflow-y: auto;" class="swiper-no-swiping">
+                            <p>
+                                <strong>Logical One 白金红金铂金</strong>
+                            </p>
+
+                            <p>
+                                <strong>款式</strong>
+                            </p>
+
+                            <p>18k 白金表壳搭配了4.5 N（应变硬化指数）的玫瑰喷金机芯</p>
+
+                            <p>18k 红金表壳搭配了NAC涂层（一种将主桥和主夹板涂黑的电镀工艺）机芯限量20只</p>
+
+                            <p>950 铂金（铂金含量95%）表壳搭配了钯（航天航空汽车特殊金属）的机芯限量20只</p>
+
+                            <p>
+                                <strong>部件和指示器</strong>
+                            </p>
+
+                            <p>小时，分钟，秒；46小时的能量储存指示器；按压式上链系统；创新设计包括平面式芝麻链(chain-and-fusee)恒定动力系统(Constant Force)，搭配红宝石链条和蜗型齿轮。</p>
+
+                            <p>
+                                <strong>表盘和指针</strong>
+                            </p>
+
+                            <p>白珐琅表盘搭配18k 金底板配火焰蓝的钢制指针，或黑色珐琅表盘搭配18k金底板配得18k 金指针，或黑色的黄铜表盘加上特有的巴黎钉饰纹配有18k 金指针</p>
+
+                            <p>
+                                <strong>RG 特有机芯</strong>
+                            </p>
+
+                            <p>尺寸：35.5 mm x 10.5mm</p>
+
+                            <p>能力储存：46小时</p>
+
+                            <p>红宝石总量：63颗，其中26颗装配在能量动衡芝麻链上</p>
+
+                            <p>机芯组件：359个零部件</p>
+
+                            <p>均衡频率：28,800 vph/4Hz</p>
+
+                            <p>机芯包含材质：钢，不锈钢，铍铜，黄铜，钛，和德银（国际标准925纯银，精度三层18k 白金防氧化层，铂金般效果，永不褪色）</p>
+
+                            <p>专利：4项</p>
+
+                            <p>打磨工艺：最高等级手工打磨</p>
+
+                            <p>
+                                <strong>表壳：</strong>
+                            </p>
+
+                            <p>尺寸：43mm x 15mm</p>
+
+                            <p>防水：30m/3atm/100ft</p>
+
+                            <p>蓝宝石镜面防折射处理工艺</p>
+
+                            <p>2时位置调时按钮</p>
+
+                            <p>9时位置按压式上链按钮</p>
+
+                            <p>
+                                <strong>表带：</strong>
+                            </p>
+
+                            <p>鳄鱼皮表带及手工缝线并根据表壳金属适配的针扣</p>
+
+                        </div>
+                        <div style="text-align: center;" class="collectionButton">
+                            <a href="#" data-bind="click:viewModel.technicalclose">
+                                返回
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="layer bg" style="top: 8%">
+                        <img src="/images/product/Logical_one/Platinum/Romain_Gauthier_Logical_One_platinum_6.jpg" />
+
+                    </div>
+                    <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%; visibility: inherit; width: 80%;">
+                        <div class="main-title-blog">
+                            <h2>
+                                <span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a>
+                            </h2>
+                        </div>
+                        <div class="content">
+                            <p>
+                                Romain Gauthier的Logical One可被称为顶级瑞士制表的典范。此款腕表获得2013年日内瓦高级钟表大赏‘最复杂男士腕表’奖项。它包含了革命性蜗牛凸轮和可使摩擦降低到最小化的红宝石链条，再加上蓝宝石内衬发条盒使它可以对动力进行恒定输出，并提供46小时的恒定动力。Logical One是精密制表的圣杯。其精美的手工打磨装饰，从其正面和背面皆可欣赏这枚自主生产的高度复杂机芯。
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="swiper-slide" id="slide4">
-                <div class="layer bg">
-                    <img src="/images/product/Presitge_HMS/White_gold/Romain_Gauthier_Prestige_HMS_white_gold_1.jpg">
-                </div>
-                <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%;  visibility: inherit; width: 80%;">
-                    <div class="main-title-blog">
-                        <h2><span data-bind="text:ProductInfo.viewModel.currentItem.name"></span></h2>
+                <div class="topview" style="display: none">
+                    <div class="layer bg">
+                        <img src="/images/topviewback.jpg">
                     </div>
-                    <div class="content">
-                        <p>
-                            Collection Prestige features an original in-house movement and design. The elegant hand-guiolloched open dial with off-center time indication is fairly traditional, but the innovative manufacture movement is anything but.
-                        </p>
+                    <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
+                        <div style="position: relative; width: 100%; max-height: 430px; margin-bottom: 20px; overflow: hidden; overflow-y: auto;" class="swiper-no-swiping">
+                            <p>
+                                <strong>Logical One 白金红金铂金</strong>
+                            </p>
+
+                            <p>
+                                <strong>款式</strong>
+                            </p>
+
+                            <p>18k 白金表壳搭配了4.5 N（应变硬化指数）的玫瑰喷金机芯</p>
+
+                            <p>18k 红金表壳搭配了NAC涂层（一种将主桥和主夹板涂黑的电镀工艺）机芯限量20只</p>
+
+                            <p>950 铂金（铂金含量95%）表壳搭配了钯（航天航空汽车特殊金属）的机芯限量20只</p>
+
+                            <p>
+                                <strong>部件和指示器</strong>
+                            </p>
+
+                            <p>小时，分钟，秒；46小时的能量储存指示器；按压式上链系统；创新设计包括平面式芝麻链(chain-and-fusee)恒定动力系统(Constant Force)，搭配红宝石链条和蜗型齿轮。</p>
+
+                            <p>
+                                <strong>表盘和指针</strong>
+                            </p>
+
+                            <p>白珐琅表盘搭配18k 金底板配火焰蓝的钢制指针，或黑色珐琅表盘搭配18k金底板配得18k 金指针，或黑色的黄铜表盘加上特有的巴黎钉饰纹配有18k 金指针</p>
+
+                            <p>
+                                <strong>RG 特有机芯</strong>
+                            </p>
+
+                            <p>尺寸：35.5 mm x 10.5mm</p>
+
+                            <p>能力储存：46小时</p>
+
+                            <p>红宝石总量：63颗，其中26颗装配在能量动衡芝麻链上</p>
+
+                            <p>机芯组件：359个零部件</p>
+
+                            <p>均衡频率：28,800 vph/4Hz</p>
+
+                            <p>机芯包含材质：钢，不锈钢，铍铜，黄铜，钛，和德银（国际标准925纯银，精度三层18k 白金防氧化层，铂金般效果，永不褪色）</p>
+
+                            <p>专利：4项</p>
+
+                            <p>打磨工艺：最高等级手工打磨</p>
+
+                            <p>
+                                <strong>表壳：</strong>
+                            </p>
+
+                            <p>尺寸：43mm x 15mm</p>
+
+                            <p>防水：30m/3atm/100ft</p>
+
+                            <p>蓝宝石镜面防折射处理工艺</p>
+
+                            <p>2时位置调时按钮</p>
+
+                            <p>9时位置按压式上链按钮</p>
+
+                            <p>
+                                <strong>表带：</strong>
+                            </p>
+
+                            <p>鳄鱼皮表带及手工缝线并根据表壳金属适配的针扣</p>
+
+
+                        </div>
+                        <div style="text-align: center;" class="collectionButton">
+                            <a href="#" data-bind="click:viewModel.technicalclose">
+                                返回
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="layer bg" style="top: 8%">
+                        <img src="/images/product/Logical_one/Red_gold/Romain_Gauthier_Logical_One_red_gold_5.jpg" />
+
+                    </div>
+                    <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%; visibility: inherit; width: 80%;">
+                        <div class="main-title-blog">
+                            <h2>
+                                <span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a>
+                            </h2>
+                        </div>
+                        <div class="content">
+                            <p>
+                                Romain Gauthier的Logical One可被称为顶级瑞士制表的典范。此款腕表获得2013年日内瓦高级钟表大赏‘最复杂男士腕表’奖项。它包含了革命性蜗牛凸轮和可使摩擦降低到最小化的红宝石链条，再加上蓝宝石内衬发条盒使它可以对动力进行恒定输出，并提供46小时的恒定动力。Logical One是精密制表的圣杯。其精美的手工打磨装饰，从其正面和背面皆可欣赏这枚自主生产的高度复杂机芯。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="slide5">
+                <div class="topview" style="display: none">
+                    <div class="layer bg">
+                        <img src="/images/topviewback.jpg">
+                    </div>
+                    <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
+                        <div style="position: relative; width: 100%; max-height: 430px; margin-bottom: 20px; overflow: hidden; overflow-y: auto;" class="swiper-no-swiping">
+                            <p>
+                                <strong>Logical One 白金红金铂金</strong>
+                            </p>
+
+                            <p>
+                                <strong>款式</strong>
+                            </p>
+
+                            <p>18k 白金表壳搭配了4.5 N（应变硬化指数）的玫瑰喷金机芯</p>
+
+                            <p>18k 红金表壳搭配了NAC涂层（一种将主桥和主夹板涂黑的电镀工艺）机芯限量20只</p>
+
+                            <p>950 铂金（铂金含量95%）表壳搭配了钯（航天航空汽车特殊金属）的机芯限量20只</p>
+
+                            <p>
+                                <strong>部件和指示器</strong>
+                            </p>
+
+                            <p>小时，分钟，秒；46小时的能量储存指示器；按压式上链系统；创新设计包括平面式芝麻链(chain-and-fusee)恒定动力系统(Constant Force)，搭配红宝石链条和蜗型齿轮。</p>
+
+                            <p>
+                                <strong>表盘和指针</strong>
+                            </p>
+
+                            <p>白珐琅表盘搭配18k 金底板配火焰蓝的钢制指针，或黑色珐琅表盘搭配18k金底板配得18k 金指针，或黑色的黄铜表盘加上特有的巴黎钉饰纹配有18k 金指针</p>
+
+                            <p>
+                                <strong>RG 特有机芯</strong>
+                            </p>
+
+                            <p>尺寸：35.5 mm x 10.5mm</p>
+
+                            <p>能力储存：46小时</p>
+
+                            <p>红宝石总量：63颗，其中26颗装配在能量动衡芝麻链上</p>
+
+                            <p>机芯组件：359个零部件</p>
+
+                            <p>均衡频率：28,800 vph/4Hz</p>
+
+                            <p>机芯包含材质：钢，不锈钢，铍铜，黄铜，钛，和德银（国际标准925纯银，精度三层18k 白金防氧化层，铂金般效果，永不褪色）</p>
+
+                            <p>专利：4项</p>
+
+                            <p>打磨工艺：最高等级手工打磨</p>
+
+                            <p>
+                                <strong>表壳：</strong>
+                            </p>
+
+                            <p>尺寸：43mm x 15mm</p>
+
+                            <p>防水：30m/3atm/100ft</p>
+
+                            <p>蓝宝石镜面防折射处理工艺</p>
+
+                            <p>2时位置调时按钮</p>
+
+                            <p>9时位置按压式上链按钮</p>
+
+                            <p>
+                                <strong>表带：</strong>
+                            </p>
+
+                            <p>鳄鱼皮表带及手工缝线并根据表壳金属适配的针扣</p>
+                        </div>
+                        <div style="text-align: center;" class="collectionButton">
+                            <a href="#" data-bind="click:viewModel.technicalclose">
+                                返回
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="layer bg" style="top: 8%">
+                        <img src="/images/product/Logical_one/White_gold/Romain_Gauthier_Logical_One_white_gold_3.jpg" />
+
+                    </div>
+                    <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%; visibility: inherit; width: 80%;">
+                        <div class="main-title-blog">
+                            <h2>
+                                <span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a>
+                            </h2>
+                        </div>
+                        <div class="content">
+                            <p>
+                                Romain Gauthier的Logical One可被称为顶级瑞士制表的典范。此款腕表获得2013年日内瓦高级钟表大赏‘最复杂男士腕表’奖项。它包含了革命性蜗牛凸轮和可使摩擦降低到最小化的红宝石链条，再加上蓝宝石内衬发条盒使它可以对动力进行恒定输出，并提供46小时的恒定动力。Logical One是精密制表的圣杯。其精美的手工打磨装饰，从其正面和背面皆可欣赏这枚自主生产的高度复杂机芯。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="slide6">
+                <div class="topview" style="display: none">
+                    <div class="layer bg">
+                        <img src="/images/topviewback.jpg">
+                    </div>
+                    <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
+                        <div style="position: relative; width: 100%; max-height: 430px; margin-bottom: 20px; overflow: hidden; overflow-y: auto;" class="swiper-no-swiping">
+                            <p>
+                                <strong>Logical One SECRET: EMPIRE'S SECRET SONG DYNASTY</strong>
+                            </p>
+
+                            <p>
+                                <strong>特别款式，仅生产一枚</strong>
+                            </p>
+
+                            <p>18k 红金表壳搭配红金表盖；表盖工艺以北宋著名宫廷画师张择端清明上河图为原型，由瑞士国宝级精雕师olivier vaucher历时605天完成。</p>
+
+                            <p>
+                                <strong>表盘和指针</strong>
+                            </p>
+
+                            <p>白珐琅表盘搭配18k 金底板，火焰烧制而成的蓝钢指针</p>
+
+                            <p>
+                                <strong>RG 特有机芯</strong>
+                            </p>
+
+                            <p>尺寸：35.5 mm x 10.5mm</p>
+
+                            <p>能力储存：46小时</p>
+
+                            <p>红宝石总量：63颗，其中26颗装配在能量动衡芝麻链上</p>
+
+                            <p>机芯组件：359个零部件</p>
+
+                            <p>均衡频率：28,800 vph/4Hz</p>
+
+                            <p>机芯包含材质：钢，不锈钢，铍铜，黄铜，钛，和德银（国际标准925纯银，精度三层18k 白金防氧化层，铂金般效果，永不褪色）</p>
+
+                            <p>专利：4项</p>
+
+                            <p>打磨工艺：最高等级钟表制造打磨</p>
+
+                            <p>
+                                <strong>表壳：</strong>
+                            </p>
+
+                            <p>材质：18k红金</p>
+
+                            <p>尺寸：43mm x 15mm</p>
+
+                            <p>防水：30m/3atm/100ft</p>
+
+                            <p>蓝宝石镜面防折射处理</p>
+
+                            <p>2时位置调时按钮</p>
+
+                            <p>9时位置按压式上链按钮</p>
+
+                            <p>5时位置开盖按键</p>
+
+                            <p>
+                                <strong>表带：</strong>
+                            </p>
+
+                            <p>棕色鳄鱼皮表带及瑞士手工缝线，18k红金针扣</p>
+
+                        </div>
+                        <div style="text-align: center;" class="collectionButton">
+                            <a href="#" data-bind="click:viewModel.technicalclose">
+                                返回
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="layer bg" style="top: 8%">
+                        <img src="/images/product/Logical_one_secret/Montre Chine Web1.jpg" />
+
+                    </div>
+                    <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%; visibility: inherit; width: 80%;">
+                        <div class="main-title-blog">
+                            <h2>
+                                <span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a>
+                            </h2>
+                        </div>
+                        <div class="content">
+                            <p>
+                                搭配获得多项专利与奖项的自产机芯，这款机芯具有颠覆性的蜗牛凸轮和可使摩擦降低到最小化的红宝石链条，再加上蓝宝石内衬发条盒使它可以提供近两天的恒定动力。此款腕表的表盖艺术工艺由瑞士国宝级精雕师Olivier Vaucher历时605天完成，其工艺淋漓尽致地展现了宋朝-中国文明黄金时代的人文，艺术，哲学等。此腕表为帝国秘密系列作品，仅生产一枚。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="slide7">
+                <div class="topview" style="display: none">
+                    <div class="layer bg">
+                        <img src="/images/topviewback.jpg">
+                    </div>
+                    <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
+                        <div style="position: relative; width: 100%; max-height: 430px; margin-bottom: 20px; overflow: hidden; overflow-y: auto;" class="swiper-no-swiping">
+                            <p><strong>PRESTIGE HM 白金 红 金 铂 金</strong></p>
+
+                            <p><strong>技术参数</strong></p>
+
+                            <p><strong>版本</strong></p>
+
+                            <p>18k白金限量38块</p>
+
+                            <p>18k红金黑表盘限量38块</p>
+
+                            <p>18k红金香槟表盘限量38块</p>
+
+                            <p>950铂金限量38块</p>
+
+                            <p>表盘钻石镶嵌总重3.86克拉法式长条面包式切割成的60颗钻石</p>
+
+                            <p>18k白金限量8块</p>
+
+                            <p>18k红金黑表盘限量8块</p>
+
+                            <p>18k红金香槟表盘限量8块</p>
+
+                            <p>950铂金限量8块</p>
+
+                            <p><strong>特色</strong></p>
+
+                            <p>接近12时位置的偏心小时与分钟副表盘</p>
+
+                            <p>多材质光滑多环打磨表盘</p>
+
+                            <p>绝对地手工打磨,工厂自制机芯</p>
+
+                            <p>背盘可见机芯</p>
+
+                            <p>高雅表壳</p>
+
+                            <p>符合人体工学地平整时间调教表冠</p>
+
+                            <p><strong>表盘和指针</strong></p>
+
+                            <p>光滑打磨的副表盘</p>
+
+                            <p>围绕小时与分钟副表盘的多环打磨</p>
+
+                            <p>罗马数字Roman numerals</p>
+
+                            <p>配合表盘风格的坚实金属时针与分针</p>
+
+                            <p><strong>机芯与打磨</strong></p>
+
+                            <p>工厂自制机芯Calibre 2206 HM</p>
+
+                            <p>通过表壳背后平整的表冠手动调教时间</p>
+
+                            <p>动力储存: 60小时</p>
+
+                            <p>珠宝数量: 22</p>
+
+                            <p>零件数量: 128</p>
+
+                            <p>平衡频率: 28,800 vph / 4Hz Features</p>
+
+                            <p>打磨:最高级别高级钟表打磨</p>
+
+                            <p><strong>表壳</strong></p>
+
+                            <p>尺寸: 41mm x 12.1mm</p>
+
+                            <p>防水性: 30m /3 atm/100 ft</p>
+
+                            <p><strong>表带</strong></p>
+
+                            <p>瑞士手工缝制鳄鱼皮；配合表盘的金属表扣</p>
+
+                        </div>
+                        <div style="text-align: center;" class="collectionButton">
+                            <a href="#" data-bind="click:viewModel.technicalclose">
+                                返回
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="layer bg" style="top: 8%">
+                        <img src="/images/product/Presitge HM/diamond-set/Romain_Gauthier_Prestige_HM_platinum_diamond-set_bezel_3.jpg" />
+
+                    </div>
+                    <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%; visibility: inherit; width: 80%;">
+                        <div class="main-title-blog">
+                            <h2>
+                                <span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a>
+                            </h2>
+                        </div>
+                        <div class="content">
+                            <p>
+                                此款腕表装配Romain Gauthier自主研发机芯，全手工打磨完成，其小时和分针位于偏心表盘，符合人体工学的表冠位于表壳背面，用于时间的调节与手动上链。调校器是由Romain Gauthier特别设计的平衡轮以及他发明的极具效率的托盘三角杠杆组成。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="slide8">
+                <div class="topview" style="display: none">
+                    <div class="layer bg">
+                        <img src="/images/topviewback.jpg">
+                    </div>
+                    <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
+                        <div style="position: relative; width: 100%; max-height: 430px; margin-bottom: 20px; overflow: hidden; overflow-y: auto;" class="swiper-no-swiping">
+                            <p>
+                                <strong>PRESTIGE HM白金红金铂金</strong>
+                            </p>
+
+                            <p>
+                                <strong>版本</strong>
+                            </p>
+
+                            <p>18k白金限量38块</p>
+
+                            <p>18k红金黑表盘限量38块</p>
+
+                            <p>18k红金香槟表盘限量38块</p>
+
+                            <p>950铂金限量38块</p>
+
+                            <p>表盘钻石镶嵌总重3.86克拉法式长条面包式切割成的60颗钻石</p>
+
+                            <p>18k白金限量8块</p>
+
+                            <p>18k红金黑表盘限量8块</p>
+
+                            <p>18k红金香槟表盘限量8块</p>
+
+                            <p>950铂金限量8块</p>
+
+                            <p>
+                                <strong>特色</strong>
+                            </p>
+
+                            <p>接近12时位置的偏心小时与分钟副表盘</p>
+
+                            <p>多材质光滑多环打磨表盘</p>
+
+                            <p>绝对地手工打磨,工厂自制机芯</p>
+
+                            <p>背盘可见机芯</p>
+
+                            <p>高雅表壳</p>
+
+                            <p>符合人体工学地平整时间调教表冠</p>
+
+                            <p>
+                                <strong>表盘和指针</strong>
+                            </p>
+
+                            <p>光滑打磨的副表盘</p>
+
+                            <p>围绕小时与分钟副表盘的多环打磨</p>
+
+                            <p>罗马数字Roman numerals</p>
+
+                            <p>配合表盘风格的坚实金属时针与分针</p>
+
+                            <p>
+                                <strong>机芯与打磨</strong>
+                            </p>
+
+                            <p>工厂自制机芯Calibre 2206 HM</p>
+
+                            <p>通过表壳背后平整的表冠手动调教时间</p>
+
+                            <p>动力储存: 60小时</p>
+
+                            <p>珠宝数量: 22</p>
+
+                            <p>零件数量: 128</p>
+
+                            <p>平衡频率: 28,800 vph / 4Hz Features</p>
+
+                            <p>打磨:最高级别高级钟表打磨</p>
+
+                            <p>
+                                <strong>表壳</strong>
+                            </p>
+
+                            <p>尺寸: 41mm x 12.1mm</p>
+
+                            <p>防水性: 30m /3 atm/100 ft</p>
+
+                            <p>
+                                <strong>表带</strong>
+                            </p>
+
+                            <p>瑞士手工缝制鳄鱼皮；配合表盘的金属表扣</p>
+
+                        </div>
+                        <div style="text-align: center;" class="collectionButton">
+                            <a href="#" data-bind="click:viewModel.technicalclose">
+                                返回
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="layer bg" style="top: 8%">
+                        <img src="/images/product/Presitge HM/platinum/Romain_Gauthier_Prestige_HM_platinum_4.jpg" />
+
+                    </div>
+                    <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%; visibility: inherit; width: 80%;">
+                        <div class="main-title-blog">
+                            <h2>
+                                <span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a>
+                            </h2>
+                        </div>
+                        <div class="content">
+                            <p>
+                                此款腕表装配Romain Gauthier自主研发机芯，全手工打磨完成，其小时和分针位于偏心表盘，符合人体工学的表冠位于表壳背面，用于时间的调节与手动上链。调校器是由Romain Gauthier特别设计的平衡轮以及他发明的极具效率的托盘三角杠杆组成。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="slide9">
+                <div class="topview" style="display: none">
+                    <div class="layer bg">
+                        <img src="/images/topviewback.jpg">
+                    </div>
+                    <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
+                        <div style="position: relative; width: 100%; max-height: 430px; margin-bottom: 20px; overflow: hidden; overflow-y: auto;" class="swiper-no-swiping">
+                            <p>
+                                <strong>PRESTIGE HM白金红金铂金</strong>
+                            </p>
+
+                            <p>
+                                <strong>技术参数</strong>
+                            </p>
+
+                            <p>
+                                <strong>版本</strong>
+                            </p>
+
+                            <p>18k白金限量38块</p>
+
+                            <p>18k红金黑表盘限量38块</p>
+
+                            <p>18k红金香槟表盘限量38块</p>
+
+                            <p>950铂金限量38块</p>
+
+                            <p>表盘钻石镶嵌总重3.86克拉法式长条面包式切割成的60颗钻石</p>
+
+                            <p>18k白金限量8块</p>
+
+                            <p>18k红金黑表盘限量8块</p>
+
+                            <p>18k红金香槟表盘限量8块</p>
+
+                            <p>950铂金限量8块</p>
+
+                            <p>
+                                <strong>特色</strong>
+                            </p>
+
+                            <p>接近12时位置的偏心小时与分钟副表盘</p>
+
+                            <p>多材质光滑多环打磨表盘</p>
+
+                            <p>绝对地手工打磨,工厂自制机芯</p>
+
+                            <p>背盘可见机芯</p>
+
+                            <p>高雅表壳</p>
+
+                            <p>符合人体工学地平整时间调教表冠</p>
+
+                            <p>
+                                <strong>表盘和指针</strong>
+                            </p>
+
+                            <p>光滑打磨的副表盘</p>
+
+                            <p>围绕小时与分钟副表盘的多环打磨</p>
+
+                            <p>罗马数字Roman numerals</p>
+
+                            <p>配合表盘风格的坚实金属时针与分针</p>
+
+                            <p>
+                                <strong>机芯与打磨</strong>
+                            </p>
+
+                            <p>工厂自制机芯Calibre 2206 HM</p>
+
+                            <p>通过表壳背后平整的表冠手动调教时间</p>
+
+                            <p>动力储存: 60小时</p>
+
+                            <p>珠宝数量: 22</p>
+
+                            <p>零件数量: 128</p>
+
+                            <p>平衡频率: 28,800 vph / 4Hz Features</p>
+
+                            <p>打磨:最高级别高级钟表打磨</p>
+
+                            <p>
+                                <strong>表壳</strong>
+                            </p>
+
+                            <p>尺寸: 41mm x 12.1mm</p>
+
+                            <p>防水性: 30m /3 atm/100 ft</p>
+
+                            <p>
+                                <strong>表带</strong>
+                            </p>
+
+                            <p>瑞士手工缝制鳄鱼皮；配合表盘的金属表扣</p>
+
+                        </div>
+                        <div style="text-align: center;" class="collectionButton">
+                            <a href="#" data-bind="click:viewModel.technicalclose">
+                                返回
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="layer bg" style="top: 8%">
+                        <img src="/images/product/Presitge HM/red_gold/red_gold_black_dial/Romain_Gauthier_Prestige_HM_red_gold_black_dial_5.jpg" />
+
+                    </div>
+                    <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%; visibility: inherit; width: 80%;">
+                        <div class="main-title-blog">
+                            <h2>
+                                <span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a>
+                            </h2>
+                        </div>
+                        <div class="content">
+                            <p>
+                                此款腕表装配Romain Gauthier自主研发机芯，全手工打磨完成，其小时和分针位于偏心表盘，符合人体工学的表冠位于表壳背面，用于时间的调节与手动上链。调校器是由Romain Gauthier特别设计的平衡轮以及他发明的极具效率的托盘三角杠杆组成。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="slide10">
+                <div class="topview" style="display: none">
+                    <div class="layer bg">
+                        <img src="/images/topviewback.jpg">
+                    </div>
+                    <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
+                        <div style="position: relative; width: 100%; max-height: 430px; margin-bottom: 20px; overflow: hidden; overflow-y: auto;" class="swiper-no-swiping">
+                            <p>
+                                <strong>PRESTIGE HM白金红金铂金</strong>
+                            </p>
+
+                            <p>
+                                <strong>版本</strong>
+                            </p>
+
+                            <p>18k白金限量38块</p>
+
+                            <p>18k红金黑表盘限量38块</p>
+
+                            <p>18k红金香槟表盘限量38块</p>
+
+                            <p>950铂金限量38块</p>
+
+                            <p>表盘钻石镶嵌总重3.86克拉法式长条面包式切割成的60颗钻石</p>
+
+                            <p>18k白金限量8块</p>
+
+                            <p>18k红金黑表盘限量8块</p>
+
+                            <p>18k红金香槟表盘限量8块</p>
+
+                            <p>950铂金限量8块</p>
+
+                            <p>
+                                <strong>特色</strong>
+                            </p>
+
+                            <p>接近12时位置的偏心小时与分钟副表盘</p>
+
+                            <p>多材质光滑多环打磨表盘</p>
+
+                            <p>绝对地手工打磨,工厂自制机芯</p>
+
+                            <p>背盘可见机芯</p>
+
+                            <p>高雅表壳</p>
+
+                            <p>符合人体工学地平整时间调教表冠</p>
+
+                            <p>
+                                <strong>表盘和指针</strong>
+                            </p>
+
+                            <p>光滑打磨的副表盘</p>
+
+                            <p>围绕小时与分钟副表盘的多环打磨</p>
+
+                            <p>罗马数字Roman numerals</p>
+
+                            <p>配合表盘风格的坚实金属时针与分针</p>
+
+                            <p>
+                                <strong>机芯与打磨</strong>
+                            </p>
+
+                            <p>工厂自制机芯Calibre 2206 HM</p>
+
+                            <p>通过表壳背后平整的表冠手动调教时间</p>
+
+                            <p>动力储存: 60小时</p>
+
+                            <p>珠宝数量: 22</p>
+
+                            <p>零件数量: 128</p>
+
+                            <p>平衡频率: 28,800 vph / 4Hz Features</p>
+
+                            <p>打磨:最高级别高级钟表打磨</p>
+
+                            <p>
+                                <strong>表壳</strong>
+                            </p>
+
+                            <p>尺寸: 41mm x 12.1mm</p>
+
+                            <p>防水性: 30m /3 atm/100 ft</p>
+
+                            <p>
+                                <strong>表带</strong>
+                            </p>
+
+                            <p>瑞士手工缝制鳄鱼皮；配合表盘的金属表扣</p>
+
+
+                        </div>
+                        <div style="text-align: center;" class="collectionButton">
+                            <a href="#" data-bind="click:viewModel.technicalclose">
+                                返回
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="layer bg" style="top: 8%">
+                        <img src="/images/product/Presitge HM/red_gold/red_gold_champagne_dial/Romain_Gauthier_Prestige_HM_red_gold_champagne_dial_4.jpg" />
+
+                    </div>
+                    <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%; visibility: inherit; width: 80%;">
+                        <div class="main-title-blog">
+                            <h2>
+                                <span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a>
+                            </h2>
+                        </div>
+                        <div class="content">
+                            <p>
+                                此款腕表装配Romain Gauthier自主研发机芯，全手工打磨完成，其小时和分针位于偏心表盘，符合人体工学的表冠位于表壳背面，用于时间的调节与手动上链。调校器是由Romain Gauthier特别设计的平衡轮以及他发明的极具效率的托盘三角杠杆组成。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="slide11">
+                <div class="topview" style="display: none">
+                    <div class="layer bg">
+                        <img src="/images/topviewback.jpg">
+                    </div>
+                    <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
+                        <div style="position: relative; width: 100%; max-height: 430px; margin-bottom: 20px; overflow: hidden; overflow-y: auto;" class="swiper-no-swiping">
+                            <p>
+                                <strong>PRESTIGE HM白金红金铂金</strong>
+                            </p>
+
+                            <p>
+                                <strong>版本</strong>
+                            </p>
+
+                            <p>18k白金限量38块</p>
+
+                            <p>18k红金黑表盘限量38块</p>
+
+                            <p>18k红金香槟表盘限量38块</p>
+
+                            <p>950铂金限量38块</p>
+
+                            <p>表盘钻石镶嵌总重3.86克拉法式长条面包式切割成的60颗钻石</p>
+
+                            <p>18k白金限量8块</p>
+
+                            <p>18k红金黑表盘限量8块</p>
+
+                            <p>18k红金香槟表盘限量8块</p>
+
+                            <p>950铂金限量8块</p>
+
+                            <p>
+                                <strong>特色</strong>
+                            </p>
+
+                            <p>接近12时位置的偏心小时与分钟副表盘</p>
+
+                            <p>多材质光滑多环打磨表盘</p>
+
+                            <p>绝对地手工打磨,工厂自制机芯</p>
+
+                            <p>背盘可见机芯</p>
+
+                            <p>高雅表壳</p>
+
+                            <p>符合人体工学地平整时间调教表冠</p>
+
+                            <p>
+                                <strong>表盘和指针</strong>
+                            </p>
+
+                            <p>光滑打磨的副表盘</p>
+
+                            <p>围绕小时与分钟副表盘的多环打磨</p>
+
+                            <p>罗马数字Roman numerals</p>
+
+                            <p>配合表盘风格的坚实金属时针与分针</p>
+
+                            <p>
+                                <strong>机芯与打磨</strong>
+                            </p>
+
+                            <p>工厂自制机芯Calibre 2206 HM</p>
+
+                            <p>通过表壳背后平整的表冠手动调教时间</p>
+
+                            <p>动力储存: 60小时</p>
+
+                            <p>珠宝数量: 22</p>
+
+                            <p>零件数量: 128</p>
+
+                            <p>平衡频率: 28,800 vph / 4Hz Features</p>
+
+                            <p>打磨:最高级别高级钟表打磨</p>
+
+                            <p>
+                                <strong>表壳</strong>
+                            </p>
+
+                            <p>尺寸: 41mm x 12.1mm</p>
+
+                            <p>防水性: 30m /3 atm/100 ft</p>
+
+                            <p>
+                                <strong>表带</strong>
+                            </p>
+
+                            <p>瑞士手工缝制鳄鱼皮；配合表盘的金属表扣</p>
+
+                        </div>
+                        <div style="text-align: center;" class="collectionButton">
+                            <a href="#" data-bind="click:viewModel.technicalclose">
+                                返回
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="layer bg" style="top: 8%">
+                        <img src="/images/product/Presitge HM/white gold/Romain_Gauthier_Prestige_HM_white_gold_6.jpg" />
+                    </div>
+                    <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%; visibility: inherit; width: 80%;">
+                        <div class="main-title-blog">
+                            <h2>
+                                <span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a>
+                            </h2>
+                        </div>
+                        <div class="content">
+                            <p>
+                                此款腕表装配Romain Gauthier自主研发机芯，全手工打磨完成，其小时和分针位于偏心表盘，符合人体工学的表冠位于表壳背面，用于时间的调节与手动上链。调校器是由Romain Gauthier特别设计的平衡轮以及他发明的极具效率的托盘三角杠杆组成。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="slide12">
+                <div class="topview" style="display: none">
+                    <div class="layer bg">
+                        <img src="/images/topviewback.jpg">
+                    </div>
+                    <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
+                        <div style="position: relative; width: 100%; max-height: 430px; margin-bottom: 20px; overflow: hidden; overflow-y: auto;" class="swiper-no-swiping">
+                            <p><strong>PRESTIGE HMSTEN 白金红金铂金</strong></p>
+
+                            <p><strong>版本</strong></p>
+
+                            <p>18k白金, anthracite表盘 － 10枚限量</p>
+
+                            <p>18k红金 －浅色表盘 － 10枚限量</p>
+
+                            <p>950铂金表壳， 蓝色表盘 － 10枚限量</p>
+
+                            <p><strong>特色</strong></p>
+
+                            <p>接近12时位置的偏心小时与分钟副表盘</p>
+
+                            <p>五时位置扇形秒针</p>
+
+                            <p>五时和八时位置表盘突显平衡轮(balance wheel)和秒针装置(seconds gear)</p>
+
+                            <p>光滑多环打磨的多层次表盘</p>
+
+                            <p>绝对地手工打磨,工厂自制机芯</p>
+
+                            <p>背盘可见机芯</p>
+
+                            <p>符合人体工学地平整时间调教表冠</p>
+
+                            <p><strong>表盘和指针</strong></p>
+
+                            <p>偏心的小时和分钟副表盘，12时位置雕刻R. Gauthier标志</p>
+
+                            <p>五时位置扇形秒针</p>
+
+                            <p>镀金小时和分钟指针；金表盘</p>
+
+                            <p>镀铑小时和分钟指针；铂金表盘</p>
+
+                            <p><strong>机芯与打磨</strong></p>
+
+                            <p>工厂自制机芯Calibre 2206 HMS</p>
+
+                            <p>动力储存: 60小时</p>
+
+                            <p>珠宝数量: 22</p>
+
+                            <p>零件数量: 128</p>
+
+                            <p>平衡频率: 28,800 vph / 4Hz Features</p>
+
+                            <p>打磨:最高级别高级钟表手工打磨，包括手工打磨螺丝以及手工打磨的珠宝对立面、锥面和桥面</p>
+
+                            <p><strong>表壳</strong></p>
+
+                            <p>尺寸: 41mm x 12.1mm</p>
+
+                            <p>防水性: 10m /1 atm/30</p>
+
+                            <p><strong>表带</strong></p>
+
+                            <p>瑞士手工缝制鳄鱼皮；配合表壳材质的金属表扣</p>
+
+
+                        </div>
+                        <div style="text-align: center;" class="collectionButton">
+                            <a href="#" data-bind="click:viewModel.technicalclose">
+                                返回
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="layer bg" style="top: 8%">
+                        <img src="/images/product/Presitge_HMS/HMS_TEN/HMS_TEN_platinum.jpg" style="display: none"/>
+                        <img src="/images/product/Presitge_HMS/HMS_TEN/HMS_TEN_red_gold.jpg"  style="display: none"/>
+                        <img src="/images/product/Presitge_HMS/HMS_TEN/HMS_TEN_white.jpg"   style="display: none"/>
+                    </div>
+                    <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%; visibility: inherit; width: 80%;">
+                        <div class="main-title-blog">
+                            <h2>
+                                <span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a>
+                            </h2>
+                        </div>
+                        <div class="content">
+                            <p>
+                                Prestige HMS Ten是为了庆祝Romain Gauthier十周年纪念而创作的。它具有全新设计的偏心时针和分针表盘以及半开放镂空式的秒针小表盘。此款腕表全手工打磨的自制机芯可以从表的背面观赏，其极具特色的符合人体工学的表冠位于表壳背面。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="slide13">
+                <div class="topview" style="display:none">
+                    <div class="layer bg">
+                        <img src="/images/topviewback.jpg">
+                    </div>
+                    <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
+                        <div style="position: relative;width: 100%;max-height:336px;margin-bottom:20px; overflow: hidden;overflow-y:auto;" class="swiper-no-swiping">
+                            <p><strong>PRESTIGE HMS白金红金铂金</strong></p>
+
+                            <p><strong>版本</strong></p>
+
+                            <p>18k白金</p>
+
+                            <p>18k红金</p>
+
+                            <p>950铂金</p>
+
+                            <p><strong>特色</strong></p>
+
+                            <p>接近12时位置的偏心小时与分钟副表盘</p>
+
+                            <p>五时位置扇形秒针</p>
+
+                            <p>五时和八时位置表盘突显平衡轮(balance wheel)和秒针装置(seconds gear)</p>
+
+                            <p>光滑多环打磨的多层次表盘</p>
+
+                            <p>绝对地手工打磨,工厂自制机芯</p>
+
+                            <p>背盘可见机芯</p>
+
+                            <p>符合人体工学地平整时间调教表冠</p>
+
+                            <p><strong>表盘和指针</strong></p>
+
+                            <p>偏心的小时和分钟副表盘，12时位置雕刻R. Gauthier标志</p>
+
+                            <p>五时位置扇形秒针</p>
+
+                            <p>镀金小时和分钟指针；白金和红金表盘</p>
+
+                            <p>镀铑小时和分钟指针；铂金表盘</p>
+
+                            <p><strong>机芯与打磨</strong></p>
+
+                            <p>工厂自制机芯Calibre 2206 HMS</p>
+
+                            <p>动力储存: 60小时</p>
+
+                            <p>珠宝数量: 22</p>
+
+                            <p>零件数量: 128</p>
+
+                            <p>平衡频率: 28,800 vph / 4Hz Features</p>
+
+                            <p>打磨:最高级别高级钟表手工打磨，包括手工打磨螺丝以及手工打磨的珠宝对立面、锥面和桥面</p>
+
+                            <p><strong>表壳</strong></p>
+
+                            <p>尺寸: 41mm x 12.1mm</p>
+
+                            <p>防水性: 10m /1 atm/30</p>
+
+                            <p><strong>表带</strong></p>
+
+                            <p>瑞士手工缝制鳄鱼皮；配合表壳材质的贵金属表扣</p>
+
+
+                        </div>
+                        <div style="text-align: center;" class="collectionButton">
+                            <a href="#" data-bind="click:viewModel.technicalclose">
+                                返回
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="layer bg" style="top:0">
+                        <img src="/images/product/Presitge_HMS/Platinum/Romain_Gauthier_Prestige_HMS_platinum_7.jpg" />
+                    </div>
+                    <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%; visibility: inherit; width: 80%;">
+                        <div class="main-title-blog">
+                            <h2>
+                                <span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a>
+                            </h2>
+                        </div>
+                        <div class="content">
+                            <p>
+                                独特设计的主表盘多弧形切面，展示着内部机芯精密微型工程和自制机芯的绝美工艺。此款腕表从机芯打磨方式与多重打磨工艺应用，结构排布，将瑞士传统制造工艺与微型工学完美结合。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide" id="slide14">
+                <div class="topview" style="display:none">
+                    <div class="layer bg">
+                        <img src="/images/topviewback.jpg">
+                    </div>
+                    <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
+                        <div style="position: relative;width: 100%;max-height:336px;margin-bottom:20px; overflow: hidden;overflow-y:auto;" class="swiper-no-swiping">
+                            <p><strong>PRESTIGE HMS白金红金铂金</strong></p>
+
+                            <p><strong>版本</strong></p>
+
+                            <p>18k白金</p>
+
+                            <p>18k红金</p>
+
+                            <p>950铂金</p>
+
+                            <p><strong>特色</strong></p>
+
+                            <p>接近12时位置的偏心小时与分钟副表盘</p>
+
+                            <p>五时位置扇形秒针</p>
+
+                            <p>五时和八时位置表盘突显平衡轮(balance wheel)和秒针装置(seconds gear)</p>
+
+                            <p>光滑多环打磨的多层次表盘</p>
+
+                            <p>绝对地手工打磨,工厂自制机芯</p>
+
+                            <p>背盘可见机芯</p>
+
+                            <p>符合人体工学地平整时间调教表冠</p>
+
+                            <p><strong>表盘和指针</strong></p>
+
+                            <p>偏心的小时和分钟副表盘，12时位置雕刻R. Gauthier标志</p>
+
+                            <p>五时位置扇形秒针</p>
+
+                            <p>镀金小时和分钟指针；白金和红金表盘</p>
+
+                            <p>镀铑小时和分钟指针；铂金表盘</p>
+
+                            <p><strong>机芯与打磨</strong></p>
+
+                            <p>工厂自制机芯Calibre 2206 HMS</p>
+
+                            <p>动力储存: 60小时</p>
+
+                            <p>珠宝数量: 22</p>
+
+                            <p>零件数量: 128</p>
+
+                            <p>平衡频率: 28,800 vph / 4Hz Features</p>
+
+                            <p>打磨:最高级别高级钟表手工打磨，包括手工打磨螺丝以及手工打磨的珠宝对立面、锥面和桥面</p>
+
+                            <p><strong>表壳</strong></p>
+
+                            <p>尺寸: 41mm x 12.1mm</p>
+
+                            <p>防水性: 10m /1 atm/30</p>
+
+                            <p><strong>表带</strong></p>
+
+                            <p>瑞士手工缝制鳄鱼皮；配合表壳材质的贵金属表扣</p>
+
+
+                        </div>
+                        <div style="text-align: center;" class="collectionButton">
+                            <a href="#" data-bind="click:viewModel.technicalclose">
+                                返回
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="layer bg">
+                        <img src="/images/product/Presitge_HMS/Red_gold/Romain_Gauthier_Prestige_HMS_red_gold_2.jpg">
+                    </div>
+                    <div class="contentregion layer txt4" style="left: 10%; top: 12%; bottom: auto; visibility: inherit; width: 80%;">
+                        <div class="main-title-blog">
+                            <h2><span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a></h2>
+                        </div>
+                        <div class="content">
+                            <p>独特设计的主表盘多弧形切面，展示着内部机芯精密微型工程和自制机芯的绝美工艺。此款腕表从机芯打磨方式与多重打磨工艺应用，结构排布，将瑞士传统制造工艺与微型工学完美结合。</p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-slide" id="slide15">
+                <div class="topview" style="display: none">
+                    <div class="layer bg">
+                        <img src="/images/topviewback.jpg">
+                    </div>
+                    <div class="contentregion layer txt4 absolute-center" style="width: 80%;">
+                        <div style="position: relative; width: 100%; max-height: 336px; margin-bottom: 20px; overflow: hidden; overflow-y: auto;" class="swiper-no-swiping">
+                            <p><strong>PRESTIGE HMS白金红金铂金</strong></p>
+
+                            <p><strong>版本</strong></p>
+
+                            <p>18k白金</p>
+
+                            <p>18k红金</p>
+
+                            <p>950铂金</p>
+
+                            <p><strong>特色</strong></p>
+
+                            <p>接近12时位置的偏心小时与分钟副表盘</p>
+
+                            <p>五时位置扇形秒针</p>
+
+                            <p>五时和八时位置表盘突显平衡轮(balance wheel)和秒针装置(seconds gear)</p>
+
+                            <p>光滑多环打磨的多层次表盘</p>
+
+                            <p>绝对地手工打磨,工厂自制机芯</p>
+
+                            <p>背盘可见机芯</p>
+
+                            <p>符合人体工学地平整时间调教表冠</p>
+
+                            <p><strong>表盘和指针</strong></p>
+
+                            <p>偏心的小时和分钟副表盘，12时位置雕刻R. Gauthier标志</p>
+
+                            <p>五时位置扇形秒针</p>
+
+                            <p>镀金小时和分钟指针；白金和红金表盘</p>
+
+                            <p>镀铑小时和分钟指针；铂金表盘</p>
+
+                            <p><strong>机芯与打磨</strong></p>
+
+                            <p>工厂自制机芯Calibre 2206 HMS</p>
+
+                            <p>动力储存: 60小时</p>
+
+                            <p>珠宝数量: 22</p>
+
+                            <p>零件数量: 128</p>
+
+                            <p>平衡频率: 28,800 vph / 4Hz Features</p>
+
+                            <p>打磨:最高级别高级钟表手工打磨，包括手工打磨螺丝以及手工打磨的珠宝对立面、锥面和桥面</p>
+
+                            <p><strong>表壳</strong></p>
+
+                            <p>尺寸: 41mm x 12.1mm</p>
+
+                            <p>防水性: 10m /1 atm/30</p>
+
+                            <p><strong>表带</strong></p>
+
+                            <p>瑞士手工缝制鳄鱼皮；配合表壳材质的贵金属表扣</p>
+
+                        </div>
+                        <div style="text-align: center;" class="collectionButton">
+                            <a href="#" data-bind="click:viewModel.technicalclose">
+                                返回
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="layer bg">
+                        <img src="/images/product/Presitge_HMS/White_gold/Romain_Gauthier_Prestige_HMS_white_gold_1.jpg">
+                    </div>
+                    <div class="contentregion layer txt4" style="left: 10%; top: auto; bottom: 10.5%;  visibility: inherit; width: 80%;">
+                        <div class="main-title-blog">
+                            <h2><span data-bind="text:ProductInfo.viewModel.currentItem.name"></span><a style="font-size: 0.5em; color: #fff; float: right" href="#" data-bind="click:viewModel.technical">技术参数</a></h2>
+                        </div>
+                        <div class="content">
+                            <p>
+                                独特设计的主表盘多弧形切面，展示着内部机芯精密微型工程和自制机芯的绝美工艺。此款腕表从机芯打磨方式与多重打磨工艺应用，结构排布，将瑞士传统制造工艺与微型工学完美结合。
+
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

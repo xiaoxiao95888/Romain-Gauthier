@@ -69,7 +69,9 @@ html, body {
 .center {
     text-shadow: 0 0 8px rgb(0, 0, 0);
 }
-
+.center p {
+       text-align: justify;
+}
 .next, .loadnext {
     position: absolute;
     width: 8%;

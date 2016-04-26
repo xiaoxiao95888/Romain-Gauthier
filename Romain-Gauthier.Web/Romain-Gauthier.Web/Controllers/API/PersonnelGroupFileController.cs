@@ -80,8 +80,9 @@ namespace Romain_Gauthier.Web.Controllers.API
             {
 
             }
+            
             item.IsDeleted = true;
-            _personnelGroupService.Update();
+            _fileService.Update();
             return Success();
         }
     }

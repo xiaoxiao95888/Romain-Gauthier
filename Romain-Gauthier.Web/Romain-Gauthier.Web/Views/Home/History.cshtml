@@ -1,7 +1,7 @@
 ﻿<meta name="format-detection" content="telephone=no" />
 @{
     ViewBag.Title = "Romain Guthier";
-    Layout = "~/Views/Shared/_MobileLayout.cshtml";
+    Layout = "~/Views/Shared/_SwiperLayout.cshtml";
 }
 @Scripts.Render("~/bundles/bootstrap")
 @Styles.Render("~/Content/bootstrap")
@@ -9,166 +9,196 @@
 @Styles.Render("~/Content/animate")
 @Scripts.Render("~/bundles/knockout")
 @Scripts.Render("~/bundles/History")
-<div class="container-fluid">
-    <div id="header-bar" data-position="fixed">
-        <div id="logo">
-            <a href="#" title="Romain Gauthier" rel="home"><img src="~/images/logo@2x.png" alt="Romain Gauthier" class="retina" id="logoImg" width="220" height="77"></a>
-        </div>
-    </div>
-    <div style="height:120px;"></div>
-    <div class="container2">
+<style>
+    .swiper-pagination-bullet-active, .swiper-pagination-bullet {
+        background: #fff none repeat scroll 0 0 !important;
+    }
 
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>HM</h5>
-                <span>2002年</span>
-                <p>第一枚机芯的研发</p>
+    .jieshao p {
+        line-height: 30px;
+    }
+</style>
+<div class="container-fluid">
+    <div class="swiper-container" style="background-color:#000">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+
+                <img src="~/images/Romain_Gauthier_portrait_11.jpg" />
+                <img src="~/images/logo@2x.png" alt="Romain Gauthier" style="padding:20px;">
+                @*<h3 style="text-align:center;color:#a4a4a4;">Romain Gauthier</h3>*@
+                <div style="padding:20px; color:#a4a4a4; text-align: justify;" class="jieshao">
+                    <p>1975年出生于瑞士勒桑捷(Le Sentier) ，汝拉山谷(Vallée de Joux)的Romain Gauthier，从小即受瑞士制表核心的熏陶，滋养了对传统制表技艺的热情。1997年，在取得精密机械工程结构学位后，Gauthier开始担任机械工程设计师。随后的几年中，开始接触管理领域，并将该部门扩充为欧洲设备最好、产能最有效率的工厂之一。2002年，Gauthier取得管理硕士学位，而他的毕业论文正是自己公司的创业计划书 。</p>
+                    <p>在多年的秘密努力下，Romain Gauthier终于在2005年推出同名品牌Romain Gauthier，以及PrestigeHM表款。透过透明背面展现出手工完成的自制机芯，创新的上链机制与偏心的显示机能，都是品牌未來的方向定调。2010 年，推出Prestige HMS，部分镂空的表盘，更能欣赏特制平衡摆轮与独特的秒针轮系装置。2013年，全新机械设计的Logical One將Romain Gauthier带向了新的里程碑。腕表以专利的平面式芝麻链(chain-and-fusee)恒定动力系统(Constant Force)，搭配红宝石链、人体工学的按压上链系统，以及46小时动力储存的显示，表盘清晰可见的平衡摆轮，再加上蓝宝石水晶设计的主发条盒，多项创新技术让他的专业地位贏得业界肯定。这款作品完美展示Romain Gauthier兼具对传统的尊崇和创新能力，因而在当年的日内瓦钟表大展(Grand Prix d’Horlogerie de Genève, GPHG)，获得年度最佳男士复杂功能腕表的大奖(Best Men’s Complications Watch)。而去年Romain Gauthier推出的Logical One Secret，再度将制表科学与美学的结合带到全新的境界。特殊设计的表盖可做为艺术与其他如镶嵌宝石、微型手绘、雕刻、珐琅等技巧的底座。按下一个不显眼的按把，就能掀开外壳，看见Logical One艺术一般的复杂恒定动力机芯。</p>
+                    <p>拥有先进的设备、自动化的床台装置，聘请技术精湛的员工，让Romain Gauthier位于勒桑捷的总部成为具有代表性的突破性的自制工厂。在这里，每一件优质的制表零部件都可以被制造，从设计，研发、制造、组装、打磨，调教直至完成所有我们今日所见的最终腕表作品。Romain Gauthier尊重最纯正的传统钟表制造工艺，所以每一枚机芯都是在Romian Gauthier工厂生产并由经验丰富的制表师手工打磨而成。</p>
+                </div>
+
             </div>
+            <div class="swiper-slide">
+                <div id="header-bar" data-position="fixed">
+                    <div id="logo">
+                        <a href="#" title="Romain Gauthier" rel="home"><img src="~/images/logo@2x.png" alt="Romain Gauthier" class="retina" id="logoImg" width="220" height="77"></a>
+                    </div>
+                </div>
+                <div style="height:120px;"></div>
+                <div class="container2">
+
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>HM</h5>
+                            <span>2002年</span>
+                            <p>第一枚机芯的研发</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>HM</h5>
+                            <span>2003年</span>
+                            <p>第一枚腕表的概念设计</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>HM</h5>
+                            <span>2005年</span>
+                            <p>第一枚表款的零部件生产</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>HM</h5>
+                            <span>2006年</span>
+                            <p>完成第一枚腕表的打磨与装配</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>HM</h5>
+                            <span>2006年</span>
+                            <p>命名第一款产品名称Prestige HM</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>HM</h5>
+                            <span>2007年</span>
+                            <p>参加巴塞尔国际钟表珠宝展并展出Prestige HM表款</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>HM</h5>
+                            <span>2008-2010年</span>
+                            <p>生产五只定制款HM</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>HMS</h5>
+                            <span>2009年</span>
+                            <p>针对HM机芯设计、重新计算加入秒针功能，命名为Prestige HMS</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>HMS</h5>
+                            <span>2010年</span>
+                            <p>参加巴塞尔国际钟表珠宝展并展出红金、白金、铂金HMS表款</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>HMS</h5>
+                            <span>2011年</span>
+                            <p>推出具有现代设计的非贵金属腕表，即天然钛金属材质腕表</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>HMS</h5>
+                            <span>2015年</span>
+                            <p>品牌十周年，HMS进行重新设计，推出HMS TEN十周年纪念</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>HMS</h5>
+                            <span>2016年</span>
+                            <p>品牌推出运动系列，黑色ADLC钛金属材质腕表</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>Logical One</h5>
+                            <span>2009年</span>
+                            <p>腕表的概念设计，定位超复杂功能腕表</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>Logical One</h5>
+                            <span>2009年</span>
+                            <p>开始机芯的研发与设计，命名为Logical One</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>Logical One</h5>
+                            <span>2012年</span>
+                            <p>制造并生产Logical One表款</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>Logical One</h5>
+                            <span>2013年</span>
+                            <p>参加巴塞尔国际钟表珠宝展并展出红金和铂金Logical One表款</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>Logical One</h5>
+                            <span>2014年</span>
+                            <p>推出Logical One Secret高级定制腕表</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>Logical One</h5>
+                            <span>2015年</span>
+                            <p>制造并生产白金和黑色钛金属的Logical One 表款</p>
+                        </div>
+                    </div>
+                    <div class="timeline-block timeline-block-right">
+                        <div class="marker"></div>
+                        <div class="timeline-content">
+                            <h5>Logical One</h5>
+                            <span>2016年</span>
+                            <p>制造并生产自然钛金属，以及BTW系列的Logical One表款</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>HM</h5>
-                <span>2003年</span>
-                <p>第一枚腕表的概念设计</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>HM</h5>
-                <span>2005年</span>
-                <p>第一枚表款的零部件生产</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>HM</h5>
-                <span>2006年</span>
-                <p>完成第一枚腕表的打磨与装配</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>HM</h5>
-                <span>2006年</span>
-                <p>命名第一款产品名称Prestige HM</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>HM</h5>
-                <span>2007年</span>
-                <p>参加巴塞尔国际钟表珠宝展并展出Prestige HM表款</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>HM</h5>
-                <span>2008-2010年</span>
-                <p>生产五只定制款HM</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>HMS</h5>
-                <span>2009年</span>
-                <p>针对HM机芯设计、重新计算加入秒针功能，命名为Prestige HMS</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>HMS</h5>
-                <span>2010年</span>
-                <p>参加巴塞尔国际钟表珠宝展并展出红金、白金、铂金HMS表款</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>HMS</h5>
-                <span>2011年</span>
-                <p>推出具有现代设计的非贵金属腕表，即天然钛金属材质腕表</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>HMS</h5>
-                <span>2015年</span>
-                <p>品牌十周年，HMS进行重新设计，推出HMS TEN十周年纪念</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>HMS</h5>
-                <span>2016年</span>
-                <p>品牌推出运动系列，黑色ADLC钛金属材质腕表</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>Logical One</h5>
-                <span>2009年</span>
-                <p>腕表的概念设计，定位超复杂功能腕表</p>
-            </div>
-        </div>        
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>Logical One</h5>
-                <span>2009年</span>
-                <p>开始机芯的研发与设计，命名为Logical One</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>Logical One</h5>
-                <span>2012年</span>
-                <p>制造并生产Logical One表款</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>Logical One</h5>
-                <span>2013年</span>
-                <p>参加巴塞尔国际钟表珠宝展并展出红金和铂金Logical One表款</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>Logical One</h5>
-                <span>2014年</span>
-                <p>推出Logical One Secret高级定制腕表</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>Logical One</h5>
-                <span>2015年</span>
-                <p>制造并生产白金和黑色钛金属的Logical One 表款</p>
-            </div>
-        </div>
-        <div class="timeline-block timeline-block-right">
-            <div class="marker"></div>
-            <div class="timeline-content">
-                <h5>Logical One</h5>
-                <span>2016年</span>
-                <p>制造并生产自然钛金属，以及BTW系列的Logical One表款</p>
-            </div>
-        </div>
+        <div class="swiper-pagination"></div>
     </div>
+
 </div>

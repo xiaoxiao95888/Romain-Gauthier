@@ -26,7 +26,8 @@ namespace Romain_Gauthier.Web.Controllers.API
                 Id = n.Id,
                 Name = n.Name,
                 ParentId = n.ParentId,
-                ParentName = n.Parent != null ? n.Parent.Name : string.Empty
+                ParentName = n.Parent != null ? n.Parent.Name : string.Empty,
+                Index=n.Index                
             }).ToArray();
             return model;
         }
@@ -43,7 +44,8 @@ namespace Romain_Gauthier.Web.Controllers.API
                 {
                     Id = Guid.NewGuid(),
                     Name = model.Name,
-                    ParentId = model.ParentId
+                    ParentId = model.ParentId,
+                    Index=model.Index
                 });
                 return Success();
             }
@@ -56,6 +58,7 @@ namespace Romain_Gauthier.Web.Controllers.API
             {
                 item.Name = model.Name;
                 item.ParentId = model.ParentId;
+                item.Index = model.Index;
                 _productTypeService.Update();
                 return Success();
             }

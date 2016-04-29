@@ -13,7 +13,9 @@
             Id: ko.observable(),
             Name: ko.observable(),
             ParentId: ko.observable(),
-            ParentName: ko.observable()
+            ParentName: ko.observable(),
+            Index: ko.observable()
+
         },
         productimage: {
             Id: ko.observable(),
@@ -108,7 +110,8 @@ Product.viewModel.TypeCannel = function () {
         Id: null,
         Name: "",
         ParentId: "",
-        ParentName: ""
+        ParentName: "",
+        Index:""
     };
     ko.mapping.fromJS(model, {}, Product.viewModel.type);
 };

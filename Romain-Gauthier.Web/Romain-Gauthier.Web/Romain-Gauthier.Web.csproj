@@ -225,6 +225,7 @@
     <Compile Include="Controllers\API\PersonnelImageController.cs" />
     <Compile Include="Controllers\API\ProductImageController.cs" />
     <Compile Include="Controllers\API\ProductTypeController.cs" />
+    <Compile Include="Controllers\API\ProductTypeGroupController.cs" />
     <Compile Include="Controllers\API\SubmitAnswersController.cs" />
     <Compile Include="Controllers\API\TrainAnswerController.cs" />
     <Compile Include="Controllers\API\TrainArticleController.cs" />

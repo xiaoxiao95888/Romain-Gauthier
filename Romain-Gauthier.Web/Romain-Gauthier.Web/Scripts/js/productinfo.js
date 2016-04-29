@@ -3,9 +3,10 @@
         product: {
             name: ko.observable(),
             index: ko.observable(),
-            items:ko.observableArray()
+            items: ko.observableArray()
         },
-        Items:ko.observableArray(),
+        Items: ko.observableArray(),
+        Indexs: ko.observableArray(),
         myswiper: ko.observable(),
         currentItem: {
             index: ko.observable(0),
@@ -15,13 +16,13 @@
 };
 //技术参数
 ProductInfo.viewModel.technical = function (data, event) {
-    var dom = $(event.target);   
+    var dom = $(event.target);
     var item = dom.parents(".swiper-slide");
     var topview = item.find(".topview");
     var center = item.find(".center");
-    center.fadeOut( function () {
+    center.fadeOut(function () {
         topview.fadeIn();
-    }); 
+    });
     //center.hide( function () {
     //    topview.show();
     //});  
@@ -153,7 +154,7 @@ function pageturning(index) {
             }
         }
     }
-   
+
 }
 $.fn.extend({
     animateCss: function (animationName) {
@@ -163,7 +164,7 @@ $.fn.extend({
         });
     }
 });
-$(function () {   
+$(function () {
     var models =
     [
         {
@@ -183,13 +184,26 @@ $(function () {
         },
         {
             name: "Prestige HMS",
-            index:0,
+            index: 0,
             items: [{ name: "HMS TEN", index: 11 }, { name: "Platinum", index: 12 }, { name: "Red Gold", index: 13 }, { name: "White Gold", index: 14 }]
         }
     ];
     ko.applyBindings(ProductInfo);
-    ko.mapping.fromJS(models, {}, ProductInfo.viewModel.Items);
+    var results = [];
+
+    $.get("/api/ProductTypeGroup/", function (data) {
+        ko.mapping.fromJS(data, {}, ProductInfo.viewModel.Indexs);
+        for (var i = 0; i < models.length; i++) {
+            var item = models[i];
+            if (data.indexOf(item.index) != -1) {
+                results.push(item);
+                ko.mapping.fromJS(results, {}, ProductInfo.viewModel.Items);
+            }
+        }
+
+    });
     //ko.mapping.fromJS(models[4], {}, ProductInfo.viewModel.product);
+
     var myswiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         paginationClickable: true,
@@ -197,7 +211,7 @@ $(function () {
         onSlideChangeEnd: function (swiper) {
             pageturning(swiper.activeIndex);
         },
-        onSlideChange: function() {
+        onSlideChange: function () {
             effect(swiper.activeIndex);
         }
     });

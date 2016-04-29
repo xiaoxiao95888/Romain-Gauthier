@@ -13,6 +13,10 @@ namespace Romain_Gauthier.Library.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
         public Guid? ParentId { get; set; }
+        /// <summary>
+        /// 标签，用于划分前端权限
+        /// </summary>
+        public int? Index { get; set; }
         [ForeignKey("ParentId")]
         public virtual ProductType Parent{ get; set; }
         public virtual ICollection<Product> Products { get; set; }

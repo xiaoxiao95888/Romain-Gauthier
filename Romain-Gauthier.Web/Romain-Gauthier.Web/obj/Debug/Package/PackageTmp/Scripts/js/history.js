@@ -7,6 +7,7 @@
         paginationClickable: true,
         spaceBetween: 30,
         loop: true,
-        autoHeight: true
+        autoHeight: true,
+        pagination: '.swiper-pagination',
     })
 })

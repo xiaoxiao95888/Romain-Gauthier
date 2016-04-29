@@ -188,19 +188,32 @@ $(function () {
         }
     ];
     ko.applyBindings(ProductInfo);
-    ko.mapping.fromJS(models, {}, ProductInfo.viewModel.Items);
-    //ko.mapping.fromJS(models[4], {}, ProductInfo.viewModel.product);
-    var myswiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
-        direction: 'vertical',
-        onSlideChangeEnd: function (swiper) {
-            pageturning(swiper.activeIndex);
-        },
-        onSlideChange: function() {
-            effect(swiper.activeIndex);
+    $.get("/api/ProductTypeGroup/", function (data) {
+        var results = [];
+        for (var i = 0; i < models.length; i++) {
+            var item = models[i];
+            if (data.indexOf(item.Index) != -1) {
+                results.push(data);
+            }
+            if (i == models.length - 1) {
+                ko.mapping.fromJS(results, {}, ProductInfo.viewModel.Items);
+                var myswiper = new Swiper('.swiper-container', {
+                    pagination: '.swiper-pagination',
+                    paginationClickable: true,
+                    direction: 'vertical',
+                    onSlideChangeEnd: function (swiper) {
+                        pageturning(swiper.activeIndex);
+                    },
+                    onSlideChange: function () {
+                        effect(swiper.activeIndex);
+                    }
+                });
+                ProductInfo.viewModel.myswiper(myswiper);
+                pageturning(0);
+            }
         }
+        
     });
-    ProductInfo.viewModel.myswiper(myswiper);
-    pageturning(0);
+    //ko.mapping.fromJS(models[4], {}, ProductInfo.viewModel.product);
+    
 });

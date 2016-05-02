@@ -22,6 +22,10 @@ namespace Romain_Gauthier.Library.Models
         [ForeignKey("PersonnelGroupId")]
         public virtual PersonnelGroup PersonnelGroup { get; set; }
         public string Thumbnail { get; set; }
+        /// <summary>
+        /// 下载记录
+        /// </summary>
+        public virtual ICollection<ViewRecord> ViewRecords { get; set; }
         public DateTime? UpdateTime { get; set; }
         public DateTime CreatedTime { get; set; }
         public bool IsDeleted { get; set; }

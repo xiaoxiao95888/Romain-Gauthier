@@ -26,6 +26,7 @@ namespace Romain_Gauthier.Library.Models
         public string Headimgurl { get; set; }
         public virtual ICollection<TrainAnswer> TrainAnswers { get; set; }
         public virtual ICollection<PersonnelGroup> PersonnelGroups { get; set; }
+        public virtual ICollection<LoginLog> LoginLogs { get; set; }
         public bool IsBindLicense { get; set; }
         public DateTime? UpdateTime { get; set; }
         public DateTime CreatedTime { get; set; }

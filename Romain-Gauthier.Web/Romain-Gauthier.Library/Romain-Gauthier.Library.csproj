@@ -81,6 +81,7 @@
     <Compile Include="Models\Enum\Gender.cs" />
     <Compile Include="Models\File.cs" />
     <Compile Include="Models\Interfaces\IDtStamped.cs" />
+    <Compile Include="Models\LoginLog.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\NewsType.cs" />
     <Compile Include="Models\Personnel.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IDataContext.cs" />
     <Compile Include="Services\IFileService.cs" />
+    <Compile Include="Services\ILoginLogService.cs" />
     <Compile Include="Services\INewsService.cs" />
     <Compile Include="Services\INewsTypeService.cs" />
     <Compile Include="Services\IPersonnelGroupService.cs" />

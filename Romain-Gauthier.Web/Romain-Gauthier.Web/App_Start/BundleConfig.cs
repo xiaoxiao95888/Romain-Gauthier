@@ -132,6 +132,9 @@ namespace Romain_Gauthier.Web
             //admin-file"
             bundles.Add(new ScriptBundle("~/bundles/admin-file").Include(
          "~/Scripts/js/admin-file.js"));
+            //admin-trainingscoring
+            bundles.Add(new ScriptBundle("~/bundles/admin-trainingscoring").Include(
+      "~/Scripts/js/admin-trainingscoring.js"));
             //ImageDownload
             bundles.Add(new ScriptBundle("~/bundles/ImageDownload").Include("~/Scripts/js/ImageDownload.js"));
             //ImageDownload

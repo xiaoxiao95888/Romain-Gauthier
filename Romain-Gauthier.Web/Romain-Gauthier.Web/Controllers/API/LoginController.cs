@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Security;
@@ -40,7 +41,15 @@ namespace Romain_Gauthier.Web.Controllers.API
             }
             else
             {
-                FormsAuthentication.SetAuthCookie(model.OpenId.ToString(), false);
+                if (string.IsNullOrEmpty(HttpContext.Current.User.Identity.Name))
+                {
+                    item.LoginLogs.Add(new Library.Models.LoginLog
+                    {
+                        Id = Guid.NewGuid(),
+                    });
+                    _personnelService.Update();
+                }
+                FormsAuthentication.SetAuthCookie(model.OpenId.ToString(), false); 
                 return new ResponseModel
                 {
                     ErrorCode = 0,

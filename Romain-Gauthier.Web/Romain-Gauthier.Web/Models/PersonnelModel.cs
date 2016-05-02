@@ -34,7 +34,17 @@ namespace Romain_Gauthier.Web.Models
 
         public string PersonnelGroups
         {
-            get { return string.Join(",", PersonnelGroupModels.Select(n => n.Name)); }
+            get
+            {
+                var str = string.Empty;
+                if (PersonnelGroupModels != null && PersonnelGroupModels.Any())
+                {
+                    str = string.Join(",", PersonnelGroupModels.Select(n => n.Name));
+                }
+                return str;
+            }
+
+
         }
 
         public DateTime? UpdateTime { get; set; }

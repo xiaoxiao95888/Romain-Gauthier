@@ -45,7 +45,7 @@ namespace Romain_Gauthier.Web.Controllers.API
             var currentUser = _personnelService.GetPersonnelByOpenId(openId);
             var trainArticles = currentUser.PersonnelGroups.SelectMany(n => n.TrainArticles).Distinct().FirstOrDefault(n => n.Id == id);
             if (trainArticles != null && trainArticles.IsDeleted == false)
-            {
+            {               
                 return new TrainArticleModel
                 {
                     Id = trainArticles.Id,
@@ -56,6 +56,7 @@ namespace Romain_Gauthier.Web.Controllers.API
             }
             return null;
         }
+       
     }
     /// <summary>
     /// 获取详细的培训内容
@@ -81,6 +82,14 @@ namespace Romain_Gauthier.Web.Controllers.API
             var trainArticles = currentUser.PersonnelGroups.SelectMany(n => n.TrainArticles).Distinct().FirstOrDefault(n => n.Id == id);
             if (trainArticles != null && trainArticles.IsDeleted == false)
             {
+                //记录浏览记录
+                trainArticles.ViewRecords.Add(new Library.Models.ViewRecord
+                {
+                    Id = Guid.NewGuid(),
+                    Ip = GetIP(),
+                    PersonnelId = currentUser.Id
+                });
+                _personnelService.Update();
                 return new TrainArticleModel
                 {
                     Id = trainArticles.Id,                   
@@ -90,6 +99,15 @@ namespace Romain_Gauthier.Web.Controllers.API
                 };
             }
             return null;
+        }
+        private string GetIP()
+        {
+            string ip = string.Empty;
+            if (!string.IsNullOrEmpty(System.Web.HttpContext.Current.Request.ServerVariables["HTTP_VIA"]))
+                ip = Convert.ToString(System.Web.HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"]);
+            if (string.IsNullOrEmpty(ip))
+                ip = Convert.ToString(System.Web.HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"]);
+            return ip;
         }
     }
 }

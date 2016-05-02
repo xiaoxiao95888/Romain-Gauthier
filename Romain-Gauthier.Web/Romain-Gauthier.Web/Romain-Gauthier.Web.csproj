@@ -229,6 +229,7 @@
     <Compile Include="Controllers\API\SubmitAnswersController.cs" />
     <Compile Include="Controllers\API\TrainAnswerController.cs" />
     <Compile Include="Controllers\API\TrainArticleController.cs" />
+    <Compile Include="Controllers\API\TrainingScoringController.cs" />
     <Compile Include="Controllers\API\TrainQuestionController.cs" />
     <Compile Include="Controllers\API\UploadController.cs" />
     <Compile Include="Controllers\API\WeChatUserController.cs" />
@@ -257,6 +258,7 @@
     <Compile Include="Models\ResponseModel.cs" />
     <Compile Include="Models\TrainAnswerModel.cs" />
     <Compile Include="Models\TrainArticleModel.cs" />
+    <Compile Include="Models\TrainingScoringModel.cs" />
     <Compile Include="Models\TrainQuestionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -392,6 +394,7 @@
     <Content Include="Scripts\js\admin-personnelgroup.js" />
     <Content Include="Scripts\js\admin-product.js" />
     <Content Include="Scripts\js\admin-trainarticle.js" />
+    <Content Include="Scripts\js\admin-trainingscoring.js" />
     <Content Include="Scripts\js\BrandInfo.js" />
     <Content Include="Scripts\js\FileDownload.js" />
     <Content Include="Scripts\js\history.js" />
@@ -475,6 +478,8 @@
     <Content Include="Views\Home\FileDownloadAccredit.cshtml" />
     <Content Include="Views\Home\ImageDownloadAccredit.cshtml" />
     <Content Include="Views\Home\TrainContent.cshtml" />
+    <Content Include="Views\Admin\TrainingScoring.cshtml" />
+    <Content Include="Views\Admin\Log.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -60,12 +60,29 @@ namespace Romain_Gauthier.Web.Controllers.API
                 
                 var openId = HttpContext.Current.User.Identity.Name;
                 var currentUser = _personnelService.GetPersonnelByOpenId(openId);
+                //记录下载次数
+                item.ViewRecords.Add(new Library.Models.ViewRecord
+                {
+                    Id = Guid.NewGuid(),
+                    Ip = GetIP(),
+                    PersonnelId = currentUser.Id
+                });
+                _fileService.Update();
                 //send email
                 MailHelp.SendMailForImage(currentUser.Email, currentUser.Name, fileUrl + item.FileName);
                 return Success();
             }
             return Failed();
 
+        }
+        private string GetIP()
+        {
+            string ip = string.Empty;
+            if (!string.IsNullOrEmpty(System.Web.HttpContext.Current.Request.ServerVariables["HTTP_VIA"]))
+                ip = Convert.ToString(System.Web.HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"]);
+            if (string.IsNullOrEmpty(ip))
+                ip = Convert.ToString(System.Web.HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"]);
+            return ip;
         }
     }
 }

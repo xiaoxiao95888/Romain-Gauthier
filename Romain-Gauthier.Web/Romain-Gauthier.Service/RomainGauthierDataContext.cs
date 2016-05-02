@@ -12,6 +12,7 @@ namespace Romain_Gauthier.Service
 {
     public class RomainGauthierDataContext : DbContext, IDataContext
     {
+        public IDbSet<LoginLog> LoginLogs { get; set; }
         public IDbSet<News> Newses { get; set; }
         public IDbSet<NewsType> NewsTypes { get; set; }
         public IDbSet<Personnel> Personnels { get; set; }

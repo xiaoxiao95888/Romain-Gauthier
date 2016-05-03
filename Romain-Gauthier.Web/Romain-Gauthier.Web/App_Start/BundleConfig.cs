@@ -135,6 +135,16 @@ namespace Romain_Gauthier.Web
             //admin-trainingscoring
             bundles.Add(new ScriptBundle("~/bundles/admin-trainingscoring").Include(
       "~/Scripts/js/admin-trainingscoring.js"));
+            //admin-log
+            bundles.Add(new ScriptBundle("~/bundles/admin-log").Include(
+               "~/Scripts/datepicker/bootstrap-datepicker.js",
+                "~/Scripts/datepicker/locales/bootstrap-datepicker.zh-CN.js",
+               "~/Scripts/js/admin-log.js"
+               ));
+
+            bundles.Add(new StyleBundle("~/Content/admin-log").Include(
+            "~/Content/datepicker3.css"));
+
             //ImageDownload
             bundles.Add(new ScriptBundle("~/bundles/ImageDownload").Include("~/Scripts/js/ImageDownload.js"));
             //ImageDownload

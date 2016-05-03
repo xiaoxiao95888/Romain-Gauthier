@@ -13,7 +13,9 @@ namespace Romain_Gauthier.Library.Models
         public Guid Id { get; set; }
         public Guid? PersonnelId { get; set; }
         [ForeignKey("PersonnelId")]
-        public virtual  Personnel Personnel { get; set; }
+        public virtual  Personnel Personnel { get; set; }      
+        public virtual File File { get; set; }
+        public virtual TrainArticle TrainArticle { get; set; }
         public string Ip { get; set; }
         public DateTime? UpdateTime { get; set; }
         public DateTime CreatedTime { get; set; }

@@ -104,6 +104,7 @@
     <Compile Include="Services\ITrainAnswerService.cs" />
     <Compile Include="Services\ITrainArticleService.cs" />
     <Compile Include="Services\ITrainQuestionService.cs" />
+    <Compile Include="Services\IViewRecordService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

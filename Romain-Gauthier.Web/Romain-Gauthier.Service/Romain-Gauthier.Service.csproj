@@ -63,6 +63,7 @@
     <Compile Include="Services\TrainAnswerService.cs" />
     <Compile Include="Services\TrainArticleService.cs" />
     <Compile Include="Services\TrainQuestionService.cs" />
+    <Compile Include="Services\ViewRecordService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

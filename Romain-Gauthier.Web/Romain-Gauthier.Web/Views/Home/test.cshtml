@@ -1,30 +1,314 @@
-﻿
-@{
-    ViewBag.Title = "test";
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <script src="js/swiper.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery.keyframes.js"></script>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <style>
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+        color: #fff;
+            text-align: center;
+            font-size: 12px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        header a, a:visited {
+            text-decoration: none;
+            color: #fcfcfc;
+        }
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
 }
-<style>
-    * {
-        margin: 0;
-    }
+@-webkit-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-moz-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-ms-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
 
-    html, body {
-        height: 100%;
-    }
+@keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-webkit-keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-moz-keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+@-ms-keyframes move-clouds-back {
+    from {background-position: 0;}
+    to {background-position:10000px 0;}
+}
 
-    .wrapper {
-        min-height: 100%;
-        height: auto !important;
-        height: 100%;
-        margin: 0 auto;
-    }
-</style>
-<div class="wrapper">
-    <div class="" style="height: 40%;background-color: red">1</div>
-    <div style="height: 20%;width:100%;">
-        <div style="height: 100%; width: 50%;background-color:blueviolet;float: left;">2</div>
-        <div style="height: 100%; width: 50%;background-color:aqua;float: left;">3</div>
+
+        .stars, .twinkling, .clouds, .clouds2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .stars {
+            background: #000 url(/images/empire-images/stars.png) repeat top center;
+            z-index: 0;
+        }
+
+        .twinkling {
+            background: transparent url(/images/empire-images/twinkling.png) repeat top center;
+            z-index: 1;
+            -moz-animation: move-twink-back 200s linear infinite;
+            -ms-animation: move-twink-back 200s linear infinite;
+            -o-animation: move-twink-back 200s linear infinite;
+            -webkit-animation: move-twink-back 200s linear infinite;
+            animation: move-twink-back 200s linear infinite;
+        }
+
+        .clouds {
+            background: transparent url(/images/empire-images/clouds3.png) repeat top center;
+            z-index: 3;
+            -moz-animation: move-clouds-back 200s linear infinite;
+            -ms-animation: move-clouds-back 200s linear infinite;
+            -o-animation: move-clouds-back 200s linear infinite;
+            -webkit-animation: move-clouds-back 200s linear infinite;
+            animation: move-clouds-back 200s linear infinite;
+        }
+        .clouds2{
+           background: transparent url(/images/empire-images/MontreChineWeb6.png) repeat top center;
+            z-index: 3;
+            -moz-animation: move-clouds-back 200s linear infinite;
+            -ms-animation: move-clouds-back 200s linear infinite;
+            -o-animation: move-clouds-back 200s linear infinite;
+            -webkit-animation: move-clouds-back 200s linear infinite;
+            animation: move-clouds-back 200s linear infinite;
+        }
+        .bodyregion {
+            color: #fff;
+            width: 80%;
+            text-align: left;
+            line-height: 20px;
+
+        }
+        .swiper-slide p{
+        text-shadow: 1px 0px 7px #fff;
+                 text-align: justify;
+
+        }
+
+
+        .slide1{
+
+        }
+        .page2{
+          background: url(/images/empire-images/e4dde71190ef76c6584545739c1.jpg) 0 100% repeat-x;
+    -webkit-background-size: cover;
+    z-index: 3;
+    height: 100%;
+        }
+        .long
+        {
+          background: url(/images/empire-images/long.png) 0 100% repeat-x;
+    -webkit-background-size: cover;
+    z-index: 3;
+        height:200px;
+  width:100%
+        }
+    </style>
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div style="z-index:99999" class="bodyregion">
+                    <p id="p0">
+                        在人类漫漫历史长河中，通常文明都伴随着帝国的起起伏伏，默默无名地淹没在历史中。但有一些伟大的时代，一些伟大的人，伟大的帝国创造出足以流传百世的文明，他们是人类文明史上永不褪色的印记。然至今日，我们已无法亲身体会到曾经帝国的磅礴与文明的璀璨。
+                    </p>
+                    <div style="display:none;width:100%" class="page1">
+                        <img src="/images/empire-images/MontreChineWeb.png" style="width:100%" />
+                        <div style="width:100%;">
+                            <h3>Logical One Secret - Empire’s Secret</h3>
+                            <p>“帝国秘密”系列是Romain Gauthier顶级艺术腕表系列，致力于还原伟大帝国文明的秘密，“帝国秘密”全系列共生产三枚，而每一个富有魅力的文明将会是独一无二的一枚。Romain Gauthier“帝国秘密”系列腕表之‘Logical One Secret – Empire’s Secret-Song Dynasty’秉承尊重历史，还原历史的原则，参考大量文献和资料与瑞士国宝级微雕大师Olivier Vaucher一起倾力打造而成。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="stars"></div>
+                <div class="twinkling"></div>
+                <div class="clouds"></div>
+            </div>
+            <div class="swiper-slide page2">
+                <div class="contentregion txt4" style="width: 80%; margin: 0 auto; ">
+                    <div class="content">
+                        <div class="center" style="text-align: left;">
+                            <h2>清明上河图——中华文明、国之瑰宝</h2>
+                            <p style="line-height:25px;">为中国十大传世名作之一。详实地记录了当时世界上最大城市的商业、手工业、民俗、建筑、交通工具、生活细节等与民生相关的事物和自然景观,为我们今天了解和研究那个辉煌的时代提供了第一手资料,具有重要的历史文献价值。在中国历史上不乏有开疆扩土的秦，盛极一时的唐，勇冠四海的元，但考量对于历史、文化、科技、人文贡献，真正站在中华文化之巅的唯有宋。北宋是当时世界上最富有、最文明以及最城市化的国度，因为经过唐末混战，以及五代、十国的大乱之后出现了中国式的“文艺复兴”，造就了一个崭新的新世界，使宋代在经济、 艺术和科学发展上，都达到了历史高峰。宋代的瓷器、山水画、丝绸、制图、造船、火药、通航、广告、家具以及室内设计等都成为中华文明的经典，流传至今，名贯四海。汴京作为北宋首都，更是国家昌盛之典范，据学者研究，其在当时的世界地位以及富奢和发达程度相当于今天的世界城市纽约、伦敦和上海。</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div style="z-index:99999">
+                    <div style="width:80%;line-height:30px;margin:0 auto">
+
+                        <p>在力求遵循清明上河图原图事实基础上，‘Logical One Secret – Empire’s Secret - Song Dynasty’浓缩了“清明上河图”中心部分即汴河和虹桥画段，将其按照表盖的内部构造完美呈现。大到天空大地、山峦河流、房屋桥梁，小到人物神情姿态、房屋砖瓦，在充足的文献作为支持下将艺术做到精益求精，将国之瑰宝的精髓展现的淋漓尽致。由此，Romain Gauthier打造了一枚真正展现中国文化的艺术品————国之瑰宝，腕上的清明上河图。</p>
+                    </div>
+                    <div style="width:100%;">
+                        <div class="long"></div>
+                    </div>
+
+
+                </div>
+                <div class="stars"></div>
+                <div class="twinkling"></div>
+            </div>
+            <div class="swiper-slide">
+
+                <div style="z-index:99999" class="bodyregion">
+                    <p style="line-height:30px">
+                        Logical One Secret - Empire’s Secret - Song Dynasty’表盖部分由瑞士制表界国宝级微雕大师Olivier Vaucher亲自操刀，从设计至完成，历时606天。其中微雕、微绘、珐琅，以及三彩的运用，在方寸之间惟妙惟肖的再现了生活在太平盛世时期人民多元化的生活，以及丰富多彩的社会活动。其中对于文献的反复考证以及充分尊重原图对于现实结构的参照，从而严谨还原了历史上第一王朝——北宋之第一大都市——汴京的璀璨辉煌。
+                    </p>
+
+                </div>
+                <div class="stars"></div>
+                <div class="twinkling"></div>
+                <div class="clouds2"></div>
+            </div>
+            <div class="swiper-slide">
+                <div style="z-index:99999" >
+                    <p>
+                        <a href="#" Id="starttest" style="text-decoration:none;color:#fff">点击开始测验</a>
+                    </p>
+                </div>
+                <div class="stars"></div>
+                <div class="twinkling"></div>
+            </div>
+        </div>
     </div>
-    <div style="height: 20%">4</div>
-    <div style="height: 20%">5</div>
-</div>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            direction: 'vertical'
+        });
+        jQuery.fn.typer = function (speed, callback) {
+            if (this.hasClass("jqey")) {
+                $.error("Typer already running."); return;
+            }
+            var t = this;
+            t.addClass('jqey');
+            t.fadeIn();
+            return this.each(function (_, elem) {
+                var text = $(elem).text().split(''); $(elem).text("");
+                $.each(text, function (index, value) {
+                    setTimeout(function () {
+                        $(elem).append(value);
+                        if (index == text.length - 1) {
+                            t.removeClass("jqey");
+                            t.hide(function () { callback() });
+                        }
+                    }, speed * index);
+                });
+            });
+        };
+        function runAgain() {
+            $("#p0").typer(150,
+                function () {
+                    $(".page1").fadeIn(1500, function () { $(".clouds").hide() });
+                });
+        }
 
+        $(function () {
+            runAgain();
+            var supportedFlag = $.keyframe.isSupported();
+            var clientWidth = document.body.clientWidth;
+            var clientHeight = document.body.clientHeight;
+            var page2width = (clientHeight / 750) * -2500 + clientWidth;
+            var longwidth = (clientHeight / 290) * -3246 + clientWidth;
+            $.keyframe.define([
+        {
+            name: 'page2',
+            '100%': {
+                "background-position": page2width + "px" + " 100%"
+            }
+
+        },
+        {
+            name: 'long',
+            '100%': {
+                "background-position": longwidth + "px" + " 100%"
+            }
+
+        }
+            ]);
+        })
+        $(".page2").playKeyframe({
+            name: 'page2', // name of the keyframe you want to bind to the selected element
+            duration: '60s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
+            timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+            delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+            iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
+            direction: 'alternate', //[optional, default: 'normal']  which direction you want the frames to flow
+            fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+            complete: function () { } //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
+        });
+        $(".long").playKeyframe({
+            name: 'long', // name of the keyframe you want to bind to the selected element
+            duration: '60s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
+            timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
+            delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
+            iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
+            direction: 'alternate', //[optional, default: 'normal']  which direction you want the frames to flow
+            fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
+            complete: function () { } //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
+        });
+    </script>
+</body>
+</html>

@@ -1,170 +1,252 @@
 ﻿<script src="/Scripts/jquery.keyframes.js"></script>
 <style>
-        html, body {
-            position: relative;
-            height: 100%;
-        }
- img {
-            max-width: 100%;
-            height: auto;
-        }
- .next {
-            position: absolute;
-            width: 8%;
-            left: 45%;
-            top: auto;
-            bottom: 2%;
-            -webkit-animation-iteration-count: infinite;
-            z-index: 5010;
-        }
+    html, body {
+        position: relative;
+        height: 100%;
+    }
 
-        .next {
-            -webkit-animation-iteration-count: infinite;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-        }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 
-        .swiper-container {
-            width: 100%;
-            height: 100%;
-        }
+    .next {
+        position: absolute;
+        width: 8%;
+        left: 45%;
+        top: auto;
+        bottom: 2%;
+        -webkit-animation-iteration-count: infinite;
+        z-index: 5010;
+    }
 
-        .swiper-slide {
+    .next {
+        -webkit-animation-iteration-count: infinite;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
         color: #fff;
-            text-align: center;
-            font-size: 12px;
-            background: #fff;
-            /* Center slide text vertically */
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            -webkit-justify-content: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            -webkit-align-items: center;
-            align-items: center;
-        }
+        text-align: center;
+        font-size: 12px;
+        background: #000;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
 
-        header a, a:visited {
-            text-decoration: none;
-            color: #fcfcfc;
-        }
-@keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
-@-webkit-keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
-@-moz-keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
-@-ms-keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
+    header a, a:visited {
+        text-decoration: none;
+        color: #fcfcfc;
+    }
 
-@keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-webkit-keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-moz-keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
-@-ms-keyframes move-clouds-back {
-    from {background-position: 0;}
-    to {background-position:10000px 0;}
-}
+    @keyframes move-twink-back {
+        from;
+
+    {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+
+    }
+
+    @-webkit-keyframes move-twink-back {
+        from;
+
+    {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+
+    }
+
+    @-moz-keyframes move-twink-back {
+        from;
+
+    {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+
+    }
+
+    @-ms-keyframes move-twink-back {
+        from;
+
+    {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+
+    }
+
+    @keyframes move-clouds-back {
+        from;
+
+    {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 10000px 0;
+    }
+
+    }
+
+    @-webkit-keyframes move-clouds-back {
+        from;
+
+    {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 10000px 0;
+    }
+
+    }
+
+    @-moz-keyframes move-clouds-back {
+        from;
+
+    {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 10000px 0;
+    }
+
+    }
+
+    @-ms-keyframes move-clouds-back {
+        from;
+
+    {
+        background-position: 0;
+    }
+
+    to {
+        background-position: 10000px 0;
+    }
+
+    }
 
 
-        .stars, .twinkling, .clouds, .clouds2 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
+    .stars, .twinkling, .clouds, .clouds2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
 
-        .stars {
-            background: #000 url(/images/empire-images/stars.png) repeat top center;
-            z-index: 0;
-        }
+    .stars {
+        background: #000 url(/images/empire-images/stars.png) repeat top center;
+        z-index: 0;
+    }
 
-        .twinkling {
-            background: transparent url(/images/empire-images/twinkling.png) repeat top center;
-            z-index: 1;
-            -moz-animation: move-twink-back 200s linear infinite;
-            -ms-animation: move-twink-back 200s linear infinite;
-            -o-animation: move-twink-back 200s linear infinite;
-            -webkit-animation: move-twink-back 200s linear infinite;
-            animation: move-twink-back 200s linear infinite;
-        }
+    .twinkling {
+        background: transparent url(/images/empire-images/twinkling.png) repeat top center;
+        z-index: 1;
+        -moz-animation: move-twink-back 200s linear infinite;
+        -ms-animation: move-twink-back 200s linear infinite;
+        -o-animation: move-twink-back 200s linear infinite;
+        -webkit-animation: move-twink-back 200s linear infinite;
+        animation: move-twink-back 200s linear infinite;
+        -webkit-animation-play-state:paused;
+    }
 
-        .clouds {
-            background: transparent url(/images/empire-images/clouds3.png) repeat top center;
-            z-index: 3;
-            -moz-animation: move-clouds-back 200s linear infinite;
-            -ms-animation: move-clouds-back 200s linear infinite;
-            -o-animation: move-clouds-back 200s linear infinite;
-            -webkit-animation: move-clouds-back 200s linear infinite;
-            animation: move-clouds-back 200s linear infinite;
-        }
-        .clouds2{
-           background: transparent url(/images/empire-images/MontreChineWeb6.png) repeat top center;
-            z-index: 3;
-            -moz-animation: move-clouds-back 200s linear infinite;
-            -ms-animation: move-clouds-back 200s linear infinite;
-            -o-animation: move-clouds-back 200s linear infinite;
-            -webkit-animation: move-clouds-back 200s linear infinite;
-            animation: move-clouds-back 200s linear infinite;
-        }
-        .bodyregion {
-            color: #fff;
-            width: 80%;
-            text-align: left;
-            line-height: 20px;
+    .clouds {
+        background: transparent url(/images/empire-images/clouds3.png) repeat top center;
+        z-index: 3;
+        -moz-animation: move-clouds-back 200s linear infinite;
+        -ms-animation: move-clouds-back 200s linear infinite;
+        -o-animation: move-clouds-back 200s linear infinite;
+        -webkit-animation: move-clouds-back 200s linear infinite;
+        animation: move-clouds-back 200s linear infinite;
+        -webkit-animation-play-state:paused;
+    }
 
-        }
-        .swiper-slide p{
+    .clouds2 {
+        background: transparent url(/images/empire-images/MontreChineWeb6-1.jpg) repeat top center;
+        z-index: 3;
+        -moz-animation: move-clouds-back 200s linear infinite;
+        -ms-animation: move-clouds-back 200s linear infinite;
+        -o-animation: move-clouds-back 200s linear infinite;
+        -webkit-animation: move-clouds-back 200s linear infinite;
+        animation: move-clouds-back 200s linear infinite;
+        -webkit-animation-play-state:paused;
+    }
+
+    .bodyregion {
+        color: #fff;
+        width: 80%;
+        text-align: left;
+        line-height: 20px;
+    }
+
+    .swiper-slide p {
         text-shadow: 1px 0px 7px #fff;
-                 text-align: justify;
+        text-align: justify;
+    }
 
-        }
 
+    .slide1 {
+    }
 
-        .slide1{
+    .page2 {      
+     background: transparent url(/images/empire-images/e4dde71190ef76c6584545739c1.jpg) repeat top center;
+        z-index: 3;
+        -moz-animation: move-clouds-back 200s linear infinite;
+        -ms-animation: move-clouds-back 200s linear infinite;
+        -o-animation: move-clouds-back 200s linear infinite;
+        -webkit-animation: move-clouds-back 200s linear infinite;
+        animation: move-clouds-back 200s linear infinite;
+        -webkit-animation-play-state:paused;
+    }
 
-        }
-        .page2{
-          background: url(/images/empire-images/e4dde71190ef76c6584545739c1.jpg) 0 100% repeat-x;
-    -webkit-background-size: cover;
-    z-index: 3;
-    height: 100%;
-        }
-        .long
-        {
-          background: url(/images/empire-images/long.png) 0 100% repeat-x;
-    -webkit-background-size: cover;
-    z-index: 3;
-        height:200px;
-  width:100%
-        }
+    .long {
+        background: url(/images/empire-images/long.jpg) 0 100% repeat-x;
+        -webkit-background-size: cover;
+        z-index: 3;
+        height: 200px;
+        width: 100%;
+    }
 </style>
 <!-- Swiper -->
 <div class="swiper-container">
@@ -206,11 +288,7 @@
                 <div style="width:100%;">
                     <div class="long"></div>
                 </div>
-
-
             </div>
-            <div class="stars"></div>
-            <div class="twinkling"></div>
         </div>
         <div class="swiper-slide">
 
@@ -220,8 +298,6 @@
                 </p>
 
             </div>
-            <div class="stars"></div>
-            <div class="twinkling"></div>
             <div class="clouds2"></div>
         </div>
         <div class="swiper-slide">
@@ -230,8 +306,6 @@
                     <a href="#" Id="starttest" style="text-decoration:none;color:#fff">点击开始测验</a>
                 </p>
             </div>
-            <div class="stars"></div>
-            <div class="twinkling"></div>
         </div>
     </div>
 </div>
@@ -240,11 +314,32 @@
 </div>
 <!-- Initialize Swiper -->
 <script>
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
-        direction: 'vertical'
-    });
+    //切换屏幕后的动画
+    function effect(index) {        
+        switch (index) {
+            case 0:
+                $(".twinkling").css("-webkit-animation-play-state", "running");
+                $(".clouds").css("-webkit-animation-play-state", "running");
+                $(".clouds2").css("-webkit-animation-play-state", "paused");
+                $(".page2").css("-webkit-animation-play-state", "paused");
+                break;
+            case 1:
+                $(".twinkling").css("-webkit-animation-play-state", "paused");
+                $(".clouds").css("-webkit-animation-play-state", "paused");
+                $(".clouds2").css("-webkit-animation-play-state", "paused");
+                $(".page2").css("-webkit-animation-play-state", "running");                
+                break;
+            case 2:
+                $(".twinkling").css("-webkit-animation-play-state", "paused");
+                $(".clouds").css("-webkit-animation-play-state", "paused");                
+                $(".page2").css("-webkit-animation-play-state", "paused");
+                $(".clouds2").css("-webkit-animation-play-state", "running");
+                break;            
+            default:
+        }
+       
+    }
+    
     jQuery.fn.typer = function (speed, callback) {
         if (this.hasClass("jqey")) {
             $.error("Typer already running."); return;
@@ -273,6 +368,19 @@
     }
 
     $(function () {
+        var myswiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            direction: 'vertical',
+            onSlideChange: function (swiper) {
+                effect(swiper.activeIndex);
+            },
+            onSlideChangeEnd: function (swiper) {
+                effect(swiper.activeIndex);
+            },
+        });
+        $(".twinkling").css("-webkit-animation-play-state", "running");
+        $(".clouds").css("-webkit-animation-play-state", "running");
         runAgain();
         var supportedFlag = $.keyframe.isSupported();
         var clientWidth = document.body.clientWidth;
@@ -280,13 +388,7 @@
         var page2width = (clientHeight / 750) * -2500 + clientWidth;
         var longwidth = (clientHeight / 290) * -3246 + clientWidth;
         $.keyframe.define([
-    {
-        name: 'page2',
-        '100%': {
-            "background-position": page2width + "px" + " 100%"
-        }
-
-    },
+    
     {
         name: 'long',
         '100%': {
@@ -296,16 +398,7 @@
     }
         ]);
     })
-    $(".page2").playKeyframe({
-        name: 'page2', // name of the keyframe you want to bind to the selected element
-        duration: '60s', // [optional, default: 0, in ms] how long you want it to last in milliseconds
-        timingFunction: 'linear', // [optional, default: ease] specifies the speed curve of the animation
-        delay: '0s', //[optional, default: 0s]  how long you want to wait before the animation starts
-        iterationCount: 'infinite', //[optional, default:1]  how many times you want the animation to repeat
-        direction: 'alternate', //[optional, default: 'normal']  which direction you want the frames to flow
-        fillMode: 'forwards', //[optional, default: 'forward']  how to apply the styles outside the animation time, default value is forwards
-        complete: function () { } //[optional] Function fired after the animation is complete. If repeat is infinite, the function will be fired every time the animation is restarted.
-    });
+   
     $(".long").playKeyframe({
         name: 'long', // name of the keyframe you want to bind to the selected element
         duration: '60s', // [optional, default: 0, in ms] how long you want it to last in milliseconds

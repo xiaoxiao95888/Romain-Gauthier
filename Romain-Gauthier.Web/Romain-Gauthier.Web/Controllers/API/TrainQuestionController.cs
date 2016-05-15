@@ -35,7 +35,7 @@ namespace Romain_Gauthier.Web.Controllers.API
                 Question = n.Question,
                 Score = n.Score,
                 TrainArticleName=n.TrainArticle.Title,
-                TrainAnswerModels = n.TrainAnswers.Select(p => new TrainAnswerModel
+                TrainAnswerModels = n.TrainAnswers.Where(p=>!p.IsDeleted).Select(p => new TrainAnswerModel
                 {
                     Id = p.Id,
                     Answer = p.Answer,

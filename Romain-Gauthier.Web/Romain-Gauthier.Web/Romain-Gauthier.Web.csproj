@@ -325,11 +325,12 @@
     <Content Include="images\close.png" />
     <Content Include="images\empire-images\clouds3.png" />
     <Content Include="images\empire-images\e4dde71190ef76c6584545739c1.jpg" />
-    <Content Include="images\empire-images\long.png" />
+    <Content Include="images\empire-images\long.jpg" />
     <Content Include="images\empire-images\MontreChineWeb.jpg" />
     <Content Include="images\empire-images\MontreChineWeb.png" />
     <Content Include="images\empire-images\MontreChineWeb1.jpg" />
     <Content Include="images\empire-images\MontreChineWeb2.jpg" />
+    <Content Include="images\empire-images\MontreChineWeb6-1.jpg" />
     <Content Include="images\empire-images\MontreChineWeb6.jpg" />
     <Content Include="images\empire-images\MontreChineWeb6.png" />
     <Content Include="images\empire-images\MontreChineWeb7.jpg" />

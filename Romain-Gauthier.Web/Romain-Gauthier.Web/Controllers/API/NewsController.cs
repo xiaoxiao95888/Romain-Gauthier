@@ -58,7 +58,7 @@ namespace Romain_Gauthier.Web.Controllers.API
                     NewsTypeId = model.NewsTypeId,
                     Title = model.Title,
                     Thumbnail = model.Thumbnail,
-                    ExternalUrl=model.ExternalUrl
+                    ExternalUrl=string.IsNullOrEmpty(model.ExternalUrl)? null : model.ExternalUrl
                 });
                 return Success();
             }
@@ -80,7 +80,7 @@ namespace Romain_Gauthier.Web.Controllers.API
                 item.IsPublish = model.IsPublish;
                 item.Thumbnail = model.Thumbnail;
                 item.NewsTypeId = model.NewsTypeId;
-                item.ExternalUrl = model.ExternalUrl;
+                item.ExternalUrl = string.IsNullOrEmpty(model.ExternalUrl) ? null : model.ExternalUrl;
                 _nwesService.Update();
                 return Success();
             }
